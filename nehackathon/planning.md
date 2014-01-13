@@ -14,6 +14,9 @@ _DC3_: Ryan Baumann, Hugh Cayless
 
 _HMT_: Chris Blackwell, Neel Smith
 
+## Pre-Hackathon Meetings
+
+* [Doodle Poll](http://doodle.com/bs72sicawgs3k7qw)
 
 ## Goals
 
