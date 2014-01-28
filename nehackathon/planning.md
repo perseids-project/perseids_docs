@@ -72,6 +72,10 @@ Marie-Claire's Medieval Latin students will be the initial target users for the 
 6. ....
 7. 
 
+## Schedule/Agenda
+
+TBD
+
 ## Action Items
 1. Bridget will distribute documentation on current [Alpheios-SoSOL](https://github.com/PerseusDL/perseids_docs/wiki/Alpheios-Integration) integration and current [SoSOL Data Management API](https://github.com/PerseusDL/perseids_docs/wiki/Data-Management-Module)
 2. Rainer will review and provide feedback on Pelagios requirements
