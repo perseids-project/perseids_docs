@@ -73,7 +73,7 @@ Marie-Claire's Medieval Latin students will be the initial target users for the 
 7. 
 
 ## Action Items
-1. Bridget will distribute documentation on current [https://github.com/PerseusDL/perseids_docs/wiki/Alpheios-Integration](Alpheios-SoSOL) integration and current [https://github.com/PerseusDL/perseids_docs/wiki/Data-Management-Module](SoSOL API)
+1. Bridget will distribute documentation on current [Alpheios-SoSOL](https://github.com/PerseusDL/perseids_docs/wiki/Alpheios-Integration) integration and current [SoSOL Data Management API](https://github.com/PerseusDL/perseids_docs/wiki/Data-Management-Module)
 2. Rainer will review and provide feedback on Pelagios requirements
 3. Tom to distribute documentation on Pleiades input formats and provenance metadata requirements
 4. Bridget to send Doodle poll to schedule one follow-up teleconference prior to Hackathon.
