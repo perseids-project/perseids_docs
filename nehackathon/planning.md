@@ -12,7 +12,7 @@ _Pleaides_: Tom Elliot
 
 _DC3_: Ryan Baumann, Hugh Cayless
 
-_HMT_: Chris Blackwell, Neel Smith
+_HMT_: Chris Blackwell (Remote), Neel Smith
 
 ## Pre-Hackathon Meetings
 
