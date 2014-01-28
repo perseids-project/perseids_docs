@@ -17,7 +17,7 @@ _HMT_: Chris Blackwell (Remote), Neel Smith
 ## Pre-Hackathon Meetings
 
 * 2013-01-28 10am EST/3pm GMT 
-* Doodle Poll for next meeting.
+* [Doodle Poll for next meeting.](http://doodle.com/yvd3e9ngweq4ih5b)
 
 ## Goals
 
