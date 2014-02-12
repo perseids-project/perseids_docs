@@ -69,8 +69,8 @@ Marie-Claire's Medieval Latin students will be the initial target users for the 
 3. Exploring annotation requirements and implementations
 4. Discussion bibliography needs and solutions
 5. Enabling Pelatios toponym resolution as a standalone tool?
-6. ....
-7. 
+6. Use of Pelagios to annotate places in Bodin De Republica Book 1/Chapter 1
+7. ....
 
 ## Schedule/Agenda
 
