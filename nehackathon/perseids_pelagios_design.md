@@ -14,6 +14,8 @@ The Perseids SoSOL environment (code in the perseus_shibboleth branch of the SoS
     * the body is embedded in the annotation using the [CntAsText](http://www.openannotation.org/spec/core/core.html#BodyEmbed) formalism
     * an optional maximum length on the body can be enforced at the level of the CITE collection
 
+For the toponym annotations created through the Pelagios API, we would probably want to use the first approach (via the cts_oac_identifier) model class, either mixed in with the rest of the annotations of this type for a text, or in a separate toponym annotation document (the latter would require a little more preparation work on the Perseids/SoSOL side).
+
 ## Integration Options
 
 1. via SoSOL RESTful API see (Alpheios Integration)[https://github.com/PerseusDL/perseids_docs/wiki/Data-management-module#wiki-sample-integration-using-csrf-token]
