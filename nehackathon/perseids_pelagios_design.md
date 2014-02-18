@@ -1,6 +1,6 @@
 # Perseids/Pelagios Integration
 
-## Design Overview
+## Overview
 
 The Perseids SoSOL environment (code in the perseus_shibboleth branch of the SoSOL GitHub repo) currently (Feb 2014) supports annotations in a couple of different ways: 
 
@@ -16,3 +16,6 @@ The Perseids SoSOL environment (code in the perseus_shibboleth branch of the SoS
 
 ## Integration Options
 
+1. via SoSOL RESTful API see (Alpheios Integration)[https://github.com/PerseusDL/perseids_docs/wiki/Data-management-module#wiki-sample-integration-using-csrf-token]
+
+2. via [HTML form POST](http://www.gliffy.com/go/publish/5374746)
