@@ -21,3 +21,11 @@ For the toponym annotations created through the Pelagios API, we would probably 
 1. via SoSOL RESTful API see (Alpheios Integration)[https://github.com/PerseusDL/perseids_docs/wiki/Data-management-module#wiki-sample-integration-using-csrf-token]
 
 2. via [HTML form POST](http://www.gliffy.com/go/publish/5374746)
+
+3. ...?
+
+## Open Questions
+
+1. Can the text to be annotated be retrieved parsed at runtime in Pelagios/Recogito, or does it need to be pre-loaded?
+2. Do we want to support work on a text as a whole, or just a passage at a time?
+
