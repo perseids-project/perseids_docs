@@ -69,12 +69,31 @@ Marie-Claire's Medieval Latin students will be the initial target users for the 
 3. Exploring annotation requirements and implementations
 4. Discussion bibliography needs and solutions
 5. Enabling Pelatios toponym resolution as a standalone tool?
-6. Use of Pelagios to annotate places in Bodin De Republica Book 1/Chapter 1
+6. SoSOL UI development strategies
 7. ....
 
 ## Schedule/Agenda
 
-TBD
+* Monday
+    * Intros/Getting Organized Discussion
+    * Review and adjustment of Pelagios/Perseids/SoSOL Integration plan
+    * Review additional target tasks
+    * Pick/assign tasks
+    * Elton and Leif in class with Marie-Claire
+    * Annotation Discussion
+* Tuesday
+    * Coding
+    * Bibliography Discussion
+* Wednesday
+    * Regroup, review assignments, progress
+    * Coding
+    * SoSOL UI Development Strategies
+    * Elton and Leif in class with Marie-Claire
+* Thursday
+    * Regroup, review assignments, progress
+    * Coding
+    * Wrap-up, next steps discussion
+
 
 ## Action Items
 1. Bridget will distribute documentation on current [Alpheios-SoSOL](https://github.com/PerseusDL/perseids_docs/wiki/Alpheios-Integration) integration and current [SoSOL Data Management API](https://github.com/PerseusDL/perseids_docs/wiki/Data-Management-Module)
