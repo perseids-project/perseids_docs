@@ -75,7 +75,7 @@ Marie-Claire's Medieval Latin students will be the initial target users for the 
 
 ## Schedule/Agenda
 
-* Monday
+* Monday (convene at Perseus office: Eaton 134C)
     * Intros/Getting Organized Discussion
     * Review and adjustment of Pelagios/Perseids/SoSOL Integration plan
     * Review additional target tasks
