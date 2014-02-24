@@ -67,10 +67,11 @@ Marie-Claire's Medieval Latin students will be the initial target users for the 
 1. Addressing JSON latency problems with Pleiades (so that awld.js can work without bringing down the site)
 2. Addressing problems with POSTs from Pelagios to Pleiades
 3. Exploring annotation requirements and implementations
-4. Discussion bibliography needs and solutions
+4. Discussing bibliography needs and solutions
 5. Enabling Pelatios toponym resolution as a standalone tool?
-6. SoSOL UI development strategies
-7. ....
+6. Discussing identifier schemes for epigraphical texts
+7. SoSOL UI development strategies
+8. ....
 
 ## Schedule/Agenda
 
@@ -79,11 +80,13 @@ Marie-Claire's Medieval Latin students will be the initial target users for the 
     * Review and adjustment of Pelagios/Perseids/SoSOL Integration plan
     * Review additional target tasks
     * Pick/assign tasks
-    * Elton and Leif in class with Marie-Claire
+    * Epigraphical Text Identifiers
     * Annotation Discussion
+    * Elton and Leif in class with Marie-Claire
 * Tuesday
     * Coding
     * Bibliography Discussion
+    * Group Dinner?
 * Wednesday
     * Regroup, review assignments, progress
     * Coding
