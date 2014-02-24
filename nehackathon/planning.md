@@ -85,7 +85,7 @@ Marie-Claire's Medieval Latin students will be the initial target users for the 
     * Elton and Leif in class with Marie-Claire
 * Tuesday
     * Coding
-    * Bibliography Discussion
+    * Bibliography Discussion (~ 4pm)
     * Group Dinner?
 * Wednesday
     * Regroup, review assignments, progress
