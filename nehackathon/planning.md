@@ -111,7 +111,7 @@ Marie-Claire's Medieval Latin students will be the initial target users for the 
 	* Javascript
 	* Python
 	* UI Design
-	*image compression
+	* image compression
 * Monica Lent
 * Maxim Romanov
 * Elton Barker
