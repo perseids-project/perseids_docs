@@ -14,6 +14,8 @@ _DC3_: Ryan Baumann, Hugh Cayless
 
 _HMT_: Chris Blackwell (Remote), Neel Smith
 
+[Bios](bios.md)
+
 ## Pre-Hackathon Meetings
 
 * 2013-01-28 10am EST/3pm GMT 
@@ -30,6 +32,7 @@ The primary deliverable goals for the hackathon are:
 
 Secondary goals include 
 1. addressing code pain points in any of the participating projects as time and resources permit
+    * [Isolated Task List](tasks.md)
 2. discussing potential areas of further development of comment interest to all participants
 3. making progress on reintegrating Perseids-related changes to SoSOL back into master and/or vice-versa
 
