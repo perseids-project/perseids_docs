@@ -19,7 +19,7 @@ _HMT_: Chris Blackwell (Remote), Neel Smith
 ## Pre-Hackathon Meetings
 
 * 2013-01-28 10am EST/3pm GMT 
-* Next Meeting: Tuesday, February 25, 2014 9:00 AM EST/2pm GMT (Skype)
+* 2014-02-25 9am EST/2pm GMT
 
 ## Goals
 
@@ -66,7 +66,7 @@ For Pleaides, funding is not available for further API development by March, but
 
 Marie-Claire's Medieval Latin students will be the initial target users for the Pelagios/Perseids integration.
 
-## Other Target Tasks
+## Other Topics
 
 1. Addressing JSON latency problems with Pleiades (so that awld.js can work without bringing down the site)
 2. Addressing problems with POSTs from Pelagios to Pleiades
@@ -76,6 +76,8 @@ Marie-Claire's Medieval Latin students will be the initial target users for the 
 6. Discussing identifier schemes for epigraphical texts
 7. SoSOL UI development strategies
 8. ....
+
+See also [Tasks](tasks.md)
 
 ## Schedule/Agenda
 
@@ -90,21 +92,24 @@ Marie-Claire's Medieval Latin students will be the initial target users for the 
 * Tuesday
     * Coding
     * Bibliography Discussion (~ 4pm)
-    * Group Dinner?
 * Wednesday
     * Regroup, review assignments, progress
     * Coding
     * SoSOL UI Development Strategies
     * Elton and Leif in class with Marie-Claire
+    * Group Dinner
 * Thursday
     * Regroup, review assignments, progress
     * Coding
     * Wrap-up, next steps discussion
 
 
-## Action Items
+## Completed Action Items
 1. Bridget will distribute documentation on current [Alpheios-SoSOL](https://github.com/PerseusDL/perseids_docs/wiki/Alpheios-Integration) integration and current [SoSOL Data Management API](https://github.com/PerseusDL/perseids_docs/wiki/Data-Management-Module)
 2. Rainer will review and provide feedback on Pelagios requirements
-3. Tom to distribute documentation on Pleiades input formats and provenance metadata requirements
-4. Bridget to send Doodle poll to schedule one follow-up teleconference prior to Hackathon.
+
+## Pending Action Items
+1. Tom to distribute documentation on Pleiades input formats and provenance metadata requirements
+2. Participants to add skill set info to [Bios](bios.md)
+3. Participants to add ideas for isolated tasks to [Tasks](tasks.md)
 
