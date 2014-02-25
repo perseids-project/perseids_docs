@@ -30,9 +30,10 @@ The primary deliverable goals for the hackathon are:
 3. at least one of the documented interactions implemented as working code that  integrates Perseids, SoSOL, Pelagios and Pleiades to allow people to make contributions (i.e. in the form of annotations) across projects. 
 4. agreement on provenance metadata requirements for sharing data across these projects
 
-Secondary goals include 
+Secondary goals include:
+
 1. addressing code pain points in any of the participating projects as time and resources permit
-    * [Isolated Task List](tasks.md)
+    1. [Isolated Task List](tasks.md)
 2. discussing potential areas of further development of comment interest to all participants
 3. making progress on reintegrating Perseids-related changes to SoSOL back into master and/or vice-versa
 
