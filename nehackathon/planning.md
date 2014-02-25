@@ -104,3 +104,22 @@ Marie-Claire's Medieval Latin students will be the initial target users for the 
 3. Tom to distribute documentation on Pleiades input formats and provenance metadata requirements
 4. Bridget to send Doodle poll to schedule one follow-up teleconference prior to Hackathon.
 
+## Participant Skills / Expertise
+* Bridget Almas
+* Marie-Claire Beaulieu
+* Adam Tavares
+	* Javascript
+	* Python
+	* UI Design
+	*image compression
+* Monica Lent
+* Maxim Romanov
+* Elton Barker
+* Leif Isaksen
+* Pau deSoto
+* Simon Rainer
+* Tom Elliot
+* Ryan Baumann
+* Hugh Cayless
+* Chris Blackwell
+* Neel Smith
