@@ -81,7 +81,7 @@ See also [Tasks](tasks.md)
 
 ## Schedule/Agenda
 
-* Monday (convene at Perseus office: Eaton 134C)
+* Monday (convene at Perseus office: Eaton 134C for coffee @ 9-9:30; meeting starts in Eaton 123 @ 10:00)
     * Intros/Getting Organized Discussion
     * Review and adjustment of Pelagios/Perseids/SoSOL Integration plan
     * Review additional target tasks
