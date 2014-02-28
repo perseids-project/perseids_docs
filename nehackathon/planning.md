@@ -97,6 +97,7 @@ See also [Tasks](tasks.md)
     * Coding
     * SoSOL UI Development Strategies
     * Elton and Leif in class with Marie-Claire
+    * tentative: 4:30pm Perseids annotation interface user feedback with Bodin project participants
     * Group Dinner
 * Thursday
     * Regroup, review assignments, progress
