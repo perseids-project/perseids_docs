@@ -88,7 +88,7 @@ See also [Tasks](tasks.md)
     * Pick/assign tasks
     * Epigraphical Text Identifiers
     * Annotation Discussion
-    * Elton and Leif in class with Marie-Claire
+    * Elton and Leif in class with Marie-Claire  - Barnum 114
 * Tuesday
     * Coding
     * Bibliography Discussion (~ 4pm)
