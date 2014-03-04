@@ -89,7 +89,7 @@ See also [Tasks](tasks.md)
     * Epigraphical Text Identifiers
     * Annotation Discussion
     * Elton and Leif in class with Marie-Claire  - Barnum 114
-* Tuesday
+* Tuesday (convene at Perseus office: Eaton 134C for coffee @ 9 - move to Eaton 123 for work)
     * Coding
     * Bibliography Discussion (~ 4pm)
 * Wednesday
