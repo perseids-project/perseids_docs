@@ -96,9 +96,9 @@ See also [Tasks](tasks.md)
     * Regroup, review assignments, progress
     * Coding
     * SoSOL UI Development Strategies
-    * Elton and Leif in class with Marie-Claire
-    * tentative: 4:30pm Perseids annotation interface user feedback with Bodin project participants
-    * Group Dinner: Sabur Restaurant: 212 Holland St, Somerville, MA 02144 (617) 776-7890. Walking distance from Davis      Square, parking available in small lot or on the street. For those who have Tufts stickers, parking is available        across the street in the Tufts TAB building lot.
+    * 4:30pm Perseus Office: Perseids annotation interface user feedback with Bodin project participants 
+    * 4:30-5:45pm Elton and Leif in class with Marie-Claire
+    * 7pm Group Dinner: Sabur Restaurant: 212 Holland St, Somerville, MA 02144 (617) 776-7890. Walking distance from Davis Square, parking available in small lot or on the street. For those who have Tufts stickers, parking is available across the street in the Tufts TAB building lot.
 * Thursday
     * Regroup, review assignments, progress
     * Coding
