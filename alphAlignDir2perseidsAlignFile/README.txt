@@ -3,19 +3,23 @@
 
 Very hasty application written to convert a folder of raw Alpheios translation alignment output, named as numbered XML files, to a single file in Perseids structure. 
 
-Raises a warning when run in OSX Terminal, but will still output a single file named "compositealignment.xml" in same folder as that in which it's run. 
+Outputs a single file named "compositealignment.xml" in the same folder as alphDir2persFile.scala, despite raising a warning. 
 
 -------USAGE----------
 
 In OSX Terminal,
 
-for files named X.xml where X is a series of integers:
+>>for files named X.xml where X is a series of integers:
 
-scala alphDir2persFile "numFi2Perseids" "numTest"
+scala alphDir2persFile "numFi2Perseids" "NAME_OF_DIRECTORY"
 
-for files named 1.XXX.XX where X is as long a sequence of integers as desired and represents the URI for the sentence file:
+e.g. scala alphDir2persFile "numFi2Perseids" "numTest"
 
-scala alphDir2persFile "uriFi2Perseids" "uriTest"
+>> for files named 1.XXX.XX where X is as long a sequence of integers as desired and represents the URI for the sentence file:
+
+scala alphDir2persFile "uriFi2Perseids"	"NAME_OF_DIRECTORY"
+
+e.g. scala alphDir2persFile "uriFi2Perseids" "uriTest"
 
 -------CURRENT HARDCODING--------
 
@@ -34,4 +38,6 @@ scala alphDir2persFile "uriFi2Perseids" "uriTest"
 -Fix internal redundancy and sloppiness
 
 -Package as .jar
+
+-Debug the warning raised in the command line.
 
