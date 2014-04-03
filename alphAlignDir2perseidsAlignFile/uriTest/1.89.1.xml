@@ -1,0 +1,110 @@
+<aligned-text xmlns="http://alpheios.net/namespaces/aligned-text">
+    <language lnum="L1" xml:lang="grc"/>
+    <language lnum="L2" xml:lang="hrv"/>
+    <sentence>
+        <wds lnum="L1">
+            <w n="1-1">
+                <text>οἱ</text>
+                <refs nrefs="1-1"/>
+            </w>
+            <w n="1-2">
+                <text>γὰρ</text>
+                <refs nrefs="1-3"/>
+            </w>
+            <w n="1-3">
+                <text>Ἀθηναῖοι</text>
+                <refs nrefs="1-1"/>
+            </w>
+            <w n="1-4">
+                <text>τρόπῳ</text>
+                <refs nrefs="1-4 1-6"/>
+            </w>
+            <w n="1-5">
+                <text>τοιῷδε</text>
+                <refs nrefs="1-5"/>
+            </w>
+            <w n="1-6">
+                <text>ἦλθον</text>
+                <refs nrefs="1-2 1-7"/>
+            </w>
+            <w n="1-7">
+                <text>ἐπὶ</text>
+                <refs nrefs="1-8"/>
+            </w>
+            <w n="1-8">
+                <text>τὰ</text>
+                <refs nrefs="1-9"/>
+            </w>
+            <w n="1-9">
+                <text>πράγματα</text>
+                <refs nrefs="1-9"/>
+            </w>
+            <w n="1-10">
+                <text>ἐν</text>
+                <refs nrefs="1-10"/>
+            </w>
+            <w n="1-11">
+                <text>οἷς</text>
+                <refs nrefs="1-11"/>
+            </w>
+            <w n="1-12">
+                <text>ηὐξήθησαν.</text>
+                <refs nrefs="1-12 1-13"/>
+            </w>
+        </wds>
+        <wds lnum="L2">
+            <w n="1-1">
+                <text>Atenjani</text>
+                <refs nrefs="1-1 1-3"/>
+            </w>
+            <w n="1-2">
+                <text>su</text>
+                <refs nrefs="1-6"/>
+            </w>
+            <w n="1-3">
+                <text>naime</text>
+                <refs nrefs="1-2"/>
+            </w>
+            <w n="1-4">
+                <text>na</text>
+                <refs nrefs="1-4"/>
+            </w>
+            <w n="1-5">
+                <text>ovaj</text>
+                <refs nrefs="1-5"/>
+            </w>
+            <w n="1-6">
+                <text>način</text>
+                <refs nrefs="1-4"/>
+            </w>
+            <w n="1-7">
+                <text>došli</text>
+                <refs nrefs="1-6"/>
+            </w>
+            <w n="1-8">
+                <text>u</text>
+                <refs nrefs="1-7"/>
+            </w>
+            <w n="1-9">
+                <text>okolnosti</text>
+                <refs nrefs="1-8 1-9"/>
+            </w>
+            <w n="1-10">
+                <text>u</text>
+                <refs nrefs="1-10"/>
+            </w>
+            <w n="1-11">
+                <text>kojima</text>
+                <refs nrefs="1-11"/>
+            </w>
+            <w n="1-12">
+                <text>postadoše</text>
+                <refs nrefs="1-12"/>
+            </w>
+            <w n="1-13">
+                <text>moćni.</text>
+                <refs nrefs="1-12"/>
+            </w>
+        </wds>
+    </sentence>
+</aligned-text>
