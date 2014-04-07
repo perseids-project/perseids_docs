@@ -1,5 +1,3 @@
-# Installing
-
 Estimated install time: 4 hours
 
 ## Base Environment
