@@ -74,57 +74,67 @@ Use a gui webbrowser on your work machine to download the zip file and then scp 
 
 	cd ~
 	unzip eXist-alpheios-install.zip
-	/usr/local/exist/bin/startup.sh &
-	/usr/local/exist/bin/backup.sh -u admin -r ~/db/__contents__.xml
 
-Refresh the base install with the latest xquery code from sourceforge.
+Unzipping the eXist-alpheios-install.zip creates a new directory, ~/db.
 
-        svn checkout http://svn.code.sf.net/p/alpheios/code/xml_ctl_files/xquery/trunk xq
-        svn checkout http://svn.code.sf.net/p/alpheios/code/xml_ctl_files/xslt/trunk xslt
+Get the latest xquery code from sourceforge.
 
-Using the eXist client, replace the contents of the xq and xslt directories in the eXist db with the contents of the folders checked out from sourceforge.
+	svn checkout http://svn.code.sf.net/p/alpheios/code/xml_ctl_files/xquery/trunk xq
+	svn checkout http://svn.code.sf.net/p/alpheios/code/xml_ctl_files/xslt/trunk xslt
 
+Replace the contents of the xq and xslt directories in the eXist db with the contents of the folders checked out from sourceforge.
 
-## Install the data
-Currently data for Perseids comes from two sources: the canonical.git repo mounted on sosol.perseids.org and the PerseusDL canonical git repo in GitHub.  Eventually these two sources need to be forks of one common source. This is not yet the case though.  
+	cp -R ~/xq ~/db/xq
+	cp -R ~/xslt ~/db/xslt
 
-At the present time, the master repository for all *read-write* data in Perseids is the canonical.git repo on sosol.perseids.org.  A clone of this data is currently required to live on the same server as the SoSOL application.
-
-The master repository for all *read-only* data in Perseids is the PerseusDL/canonical.git repo on GitHub. Text inventories and citable text data from this repository gets loaded in eXist for access by SoSOL.  A small subset of the read-only data also comes from the canonical_protected directory in CVS - this is used for data that is still under copyright and can't be released in GitHub.
-
-### Install the canonical.git repo used by SoSOL
-
-For the read-write data, you need to clone a bare copy of the sosol.perseids.org canonical.git repository: 
+## Prepare the canonical.git repo aka "read-write" data
+For the read-write data, bare-clone the canonical.git repository hosted on sosol.perseids.org.
+Note: This requires ssh access to sosol.perseids.org.
 
 	mkdir -p /usr/local/gitrepos
 	cd /usr/local/gitrepos
 	git clone --bare ubuntu@sosol.perseids.org:/usr/local/gitrepos/canonical.git 
-	[ NOTE sshkeys are required for this ]
 
-
-### Load the read-only data in eXist
+## Prepare the inventory files
 
 Get a local clone of the PerseusDL/canonical.git repo:
 
 	git clone https://github.com/PerseusDL/canonical.git /tmp/canonical
-	
+
+Copy the inventory xml files.
+
+	mkdir -p /usr/local/exist/webapp/WEB-INF/data/fs/db/repository/inventory
+	cp /tmp/canonical/CTS_XML_TextInventory/epifacs.xml ~/db/repository/inventory/epifacs.xml
+	cp /tmp/canonical/CTS_XML_TextInventory/pilots.xml ~/db/repository/inventory/pilots.xml
+	cp /tmp/canonical/CTS_XML_TextInventory/annotsrc.xml ~/db/repository/inventory/annotsrc.xml
+
+Open ~/db/repository/inventory/__contents__.xml in a text editor.
+
+	vim ~/db/repository/inventory/__contents__.xml
+
+Add the following text inside &lt;collection&gt;&lt;/collection&gt;
+
+	<resource type="XMLResource" name="epifacs.xml" owner="admin" group="dba" mode="755" created="2013-02-15T07:47:23-05:00" modified="2013-02-15T07:47:23-05:00" filename="epifacs.xml" mimetype="text/xml"/>
+	<resource type="XMLResource" name="pilots.xml" owner="admin" group="dba" mode="755" created="2013-02-15T07:47:23-05:00" modified="2013-02-15T07:47:23-05:00" filename="pilots.xml" mimetype="text/xml"/>
+	<resource type="XMLResource" name="annotsrc.xml" owner="admin" group="dba" mode="755" created="2013-02-15T07:47:23-05:00" modified="2013-02-15T07:47:23-05:00" filename="annotsrc.xml" mimetype="text/xml"/>
+
+<!--
+TODO:
 And a local copy of the Perseus canonical_protected repository in CVS.
 
-        cvs checkout ....
-
-Using the eXist client, upload the following inventory files from the canonical/CTS_XML_TextInventory directory to eXist in db/repository/inventory:
-
-        epifacs.xml 
-        pilots.xml 
-        annotsrc.xml 
-        
-epifacs.xml, pilots.xml are the inventories of texts currently available for editing in Perseids. The corresponding text files do NOT need to be loaded in eXist because they come from the local perseids canonical.git repo.
-
+	cvs checkout ....
+-->
+	
+<!--
+TODO:
 annotsrc.xml is the inventory of texts available for citing in annotations in Perseids.  The corresponding text files in this inventory DO need to be loaded in eXist.  At the moment, this is not automated at all, you have to extract the paths contained in the @docname attribute of the online elements in the text inventory file and upload the corresponding files from your clone of the PerseusDL/canonical.git repo or the canonical_protected repo.  The directory structure of the files in the git and cvs repos mirrors the directory structure the files need to be loaded into eXist. The base directory for texts in eXist /db/repository corresponds the base directory for texts in the `canonical` and `canonical_protected` repos, which will be either CTS_XML_TEI or CTS_XML_EpiDoc.
+-->
 
+## Update eXist with the prepared data.
+	/usr/local/exist/bin/startup.sh &
+	/usr/local/exist/bin/backup.sh -u admin -r ~/db/__contents__.xml
 
-
-## Change the config
+# Change the config
 This part is of the config needs to be improved.
 
 	cd /usr/local/sosol/config
@@ -137,8 +147,8 @@ I've tweaked the application config.
 
 Change RAILS_ENV value to development
 
-## TODO: Run the tests
-## Run the bundle commands
+# TODO: Run the tests
+# Run the bundle commands
 	bundle install
 	bundle exec cap local externals:setup
 	bundle exec rake db:create
@@ -147,7 +157,7 @@ Change RAILS_ENV value to development
 	bundle exec rake test
 	bundle exec rails server
 
-## Create Elastic IP
+# Create Elastic IP
 console.aws.amazon.com
 	> Services
 		> EC2
@@ -157,7 +167,7 @@ console.aws.amazon.com
 	> Allocate New Address
 	> Associate Address
 
-## Create DNS Hostname
+# Create DNS Hostname
 console.aws.amazon.com
 	> Services
 		> Route 53
@@ -171,13 +181,12 @@ console.aws.amazon.com
 		Type A: IPv4 address
 		Value: [Elastic IP]
 
-## Add host to janrain whitelist
+# Add host to janrain whitelist
 https://dashboard.janrain.com/
 
-## TODO: Configure shibboleth
+# TODO: Configure shibboleth
 
-# Running
-## Starting The Server
+# Starting The Server
 You have to start the existdb and rails
 
 	/usr/local/exist/bin/startup.sh &
