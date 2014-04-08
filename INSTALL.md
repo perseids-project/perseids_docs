@@ -50,7 +50,7 @@ Our AWS profile has this security-group preconfigured.
 	cd /usr/local/sosol
 	git checkout -b rails-3-perseus-merge origin/rails-3-perseus-merge
 
-# Install eXIst db 1.4.1
+# Install eXist db 1.4.1
 Download
 
 	cd ~
@@ -116,7 +116,6 @@ Using the eXist client, upload the following inventory files from the canonical/
 
         epifacs.xml 
         pilots.xml 
-        croala.xml
         annotsrc.xml 
         
 epifacs.xml, pilots.xml and croala.xml are the inventories of texts currently available for editing in Perseids. The corresponding text files do NOT need to be loaded in eXist because they come from the local perseids canonical.git repo.
