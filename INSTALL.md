@@ -77,10 +77,53 @@ Use a gui webbrowser on your work machine to download the zip file and then scp 
 	/usr/local/exist/bin/startup.sh &
 	/usr/local/exist/bin/backup.sh -u admin -r ~/db/__contents__.xml
 
-## Install the canonical git repo
+Refresh the base install with the latest xquery code from sourceforge.
+
+        svn checkout http://svn.code.sf.net/p/alpheios/code/xml_ctl_files/xquery/trunk xq
+        svn checkout http://svn.code.sf.net/p/alpheios/code/xml_ctl_files/xslt/trunk xslt
+
+Using the eXist client, replace the contents of the xq and xslt directories in the eXist db with the contents of the folders checked out from sourceforge.
+
+
+## Install the data
+Currently data for Perseids comes from two sources: the canonical.git repo mounted on sosol.perseids.org and the PerseusDL canonical git repo in GitHub.  Eventually these two sources need to be forks of one common source. This is not yet the case though.  
+
+At the present time, the master repository for all *read-write* data in Perseids is the canonical.git repo on sosol.perseids.org.  A clone of this data is currently required to live on the same server as the SoSOL application.
+
+The master repository for all *read-only* data in Perseids is the PerseusDL/canonical.git repo on GitHub. Text inventories and citable text data from this repository gets loaded in eXist for access by SoSOL.  A small subset of the read-only data also comes from the canonical_protected directory in CVS - this is used for data that is still under copyright and can't be released in GitHub.
+
+### Install the canonical.git repo used by SoSOL
+
+For the read-write data, you need to clone a bare copy of the sosol.perseids.org canonical.git repository: 
+
 	mkdir -p /usr/local/gitrepos
 	cd /usr/local/gitrepos
-	git clone --bare https://github.com/PerseusDL/canonical.git
+	git clone --bare ubuntu@sosol.perseids.org:/usr/local/gitrepos/canonical.git 
+	[ NOTE sshkeys are required for this ]
+
+
+### Load the read-only data in eXist
+
+Get a local clone of the PerseusDL/canonical.git repo:
+
+	git clone https://github.com/PerseusDL/canonical.git /tmp/canonical
+	
+And a local copy of the Perseus canonical_protected repository in CVS.
+
+        cvs checkout ....
+
+Using the eXist client, upload the following inventory files from the canonical/CTS_XML_TextInventory directory to eXist in db/repository/inventory:
+
+        epifacs.xml 
+        pilots.xml 
+        croala.xml
+        annotsrc.xml 
+        
+epifacs.xml, pilots.xml and croala.xml are the inventories of texts currently available for editing in Perseids. The corresponding text files do NOT need to be loaded in eXist because they come from the local perseids canonical.git repo.
+
+annotsrc.xml is the inventory of texts available for citing in annotations in Perseids.  The corresponding text files in this inventory DO need to be loaded in eXist.  At the moment, this is not automated at all, you have to extract the paths contained in the @docname attribute of the online elements in the text inventory file and upload the corresponding files from your clone of the PerseusDL/canonical.git repo or the canonical_protected repo.  The directory structure of the files in the git and cvs repos mirrors the directory structure the files need to be loaded into eXist. The base directory for texts in eXist /db/repository corresponds the base directory for texts in the `canonical` and `canonical_protected` repos, which will be either CTS_XML_TEI or CTS_XML_EpiDoc.
+
+
 
 ## Change the config
 This part is of the config needs to be improved.
