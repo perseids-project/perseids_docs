@@ -30,10 +30,11 @@ see examples below.
 	 * Takes TEI xml and creates HTML useable by the bodin plugin
 	 *
 	 * Use:
-	 * 	 new TeiToBodin( 'xml/tei.xml', 'tei' );
+	 * 	 to_bodin = new TeiToBodin( 'xml/tei.xml', 'tei' );
 	 *
 	 * @param { string } _url The url to the TEI xml
 	 * @param { string } _id The id of the DOM object to write HTML output
+	 * @return { TeiToBodin }
 	 */
 	function TeiToBodin( _url, _id ) { ... }
 
@@ -62,7 +63,22 @@ Keep track of the time required to successfully complete the installation and do
 See INSTALL.md in this repository for an example.
 
 # Issue tracking
-... coming soon!
+We use issue tracking in Github.
+If issues belong exclusively to a particular Perseids feature and that feature has its own code repository then use that repository's issue tracker.
+If an issue does not belong exclusively to one feature, or that feature does not have its own repository, then use this repository's issue tracker.
+
+There are two kinds of issues.  Developer reported and user reported.  Developer reported issues are usually short reminders to fix a problem you have personally experienced.  That's OK if you plan on fixing the problem yourself.  If you cannot fix the problem yourself you should consider yourself a user, and you need to write a more complete issue report.
+
+When reporting an issue as a user please gather the following information.
+
+* URL
+* error message ( if any )
+* description of the problem
+* screenshot ( if applicable )
+* browser & version
+* operating system
+
+TODO: How to gather this info on popular platforms.
 
 # Perseids Features
 ## CTS Selector aka Publication Selector
