@@ -118,7 +118,7 @@ Using the eXist client, upload the following inventory files from the canonical/
         pilots.xml 
         annotsrc.xml 
         
-epifacs.xml, pilots.xml and croala.xml are the inventories of texts currently available for editing in Perseids. The corresponding text files do NOT need to be loaded in eXist because they come from the local perseids canonical.git repo.
+epifacs.xml, pilots.xml are the inventories of texts currently available for editing in Perseids. The corresponding text files do NOT need to be loaded in eXist because they come from the local perseids canonical.git repo.
 
 annotsrc.xml is the inventory of texts available for citing in annotations in Perseids.  The corresponding text files in this inventory DO need to be loaded in eXist.  At the moment, this is not automated at all, you have to extract the paths contained in the @docname attribute of the online elements in the text inventory file and upload the corresponding files from your clone of the PerseusDL/canonical.git repo or the canonical_protected repo.  The directory structure of the files in the git and cvs repos mirrors the directory structure the files need to be loaded into eXist. The base directory for texts in eXist /db/repository corresponds the base directory for texts in the `canonical` and `canonical_protected` repos, which will be either CTS_XML_TEI or CTS_XML_EpiDoc.
 
