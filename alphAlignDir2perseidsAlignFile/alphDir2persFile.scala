@@ -1,5 +1,3 @@
-//Currently raises warning when run from the command line, but still works
-
 import java.io._
 import scala.io.Source
 import scala.xml._
