@@ -8,7 +8,7 @@ import scala.collection.immutable.ListMap
 object alphDir2persFile {
 
 
-def main(args:Array[String]) = {
+def main(args:Array[String]) {
 
 	val arguments:List[String] = List(args:_*)
 
