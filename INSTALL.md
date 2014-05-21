@@ -77,7 +77,7 @@ Use a gui webbrowser on your work machine to download the zip file and then scp 
 
 Unzipping the eXist-alpheios-install.zip creates a new directory, ~/db.
 
-Get the latest xquery code from sourceforge.
+Get the latest xquery code from sourceforge. ( TODO: Update this.  Gernot moved this to GitHub, right? )
 
 	svn checkout http://svn.code.sf.net/p/alpheios/code/xml_ctl_files/xquery/trunk xq
 	svn checkout http://svn.code.sf.net/p/alpheios/code/xml_ctl_files/xslt/trunk xslt
@@ -95,7 +95,21 @@ Note: This requires ssh access to sosol.perseids.org.
 	cd /usr/local/gitrepos
 	git clone --bare ubuntu@sosol.perseids.org:/usr/local/gitrepos/canonical.git 
 
+## Get more data
+Get the rest of the data.
+Make sure you have cvs installed.
+
+	sudo apt-get install cvs
+
+Checkout the canonical_protected repository
+
+	touch ~/.cvspass
+	cd /usr/local
+	export CVSROOT=:pserver:student@cvs.perseus.tufts.edu:/cvs
+	cvs checkout texts/Work/canonical_protected
+
 ## Prepare the inventory files
+You have to load inventory files and their indices for the Persieds CTS selector to work properly.
 
 Get a local clone of the PerseusDL/canonical.git repo:
 
@@ -107,6 +121,7 @@ Copy the inventory xml files.
 	cp /tmp/canonical/CTS_XML_TextInventory/epifacs.xml ~/db/repository/inventory/epifacs.xml
 	cp /tmp/canonical/CTS_XML_TextInventory/pilots.xml ~/db/repository/inventory/pilots.xml
 	cp /tmp/canonical/CTS_XML_TextInventory/annotsrc.xml ~/db/repository/inventory/annotsrc.xml
+	cp /tmp/canonical/CTS_XML_TextInventory/perseus-perseids.xml ~/db/repository/inventory/perseus.xml
 
 Open ~/db/repository/inventory/__contents__.xml in a text editor.
 
@@ -117,24 +132,38 @@ Add the following text inside &lt;collection&gt;&lt;/collection&gt;
 	<resource type="XMLResource" name="epifacs.xml" owner="admin" group="dba" mode="755" created="2013-02-15T07:47:23-05:00" modified="2013-02-15T07:47:23-05:00" filename="epifacs.xml" mimetype="text/xml"/>
 	<resource type="XMLResource" name="pilots.xml" owner="admin" group="dba" mode="755" created="2013-02-15T07:47:23-05:00" modified="2013-02-15T07:47:23-05:00" filename="pilots.xml" mimetype="text/xml"/>
 	<resource type="XMLResource" name="annotsrc.xml" owner="admin" group="dba" mode="755" created="2013-02-15T07:47:23-05:00" modified="2013-02-15T07:47:23-05:00" filename="annotsrc.xml" mimetype="text/xml"/>
+	<resource type="XMLResource" name="perseus.xml" owner="admin" group="dba" mode="755" created="2013-02-15T07:47:23-05:00" modified="2013-02-15T07:47:23-05:00" filename="perseus.xml" mimetype="text/xml"/>
 
-<!--
-TODO:
-And a local copy of the Perseus canonical_protected repository in CVS.
+## Update config/application.rb to point at new inventory files
 
-	cvs checkout ....
--->
-	
-<!--
-TODO:
-annotsrc.xml is the inventory of texts available for citing in annotations in Perseids.  The corresponding text files in this inventory DO need to be loaded in eXist.  At the moment, this is not automated at all, you have to extract the paths contained in the @docname attribute of the online elements in the text inventory file and upload the corresponding files from your clone of the PerseusDL/canonical.git repo or the canonical_protected repo.  The directory structure of the files in the git and cvs repos mirrors the directory structure the files need to be loaded into eXist. The base directory for texts in eXist /db/repository corresponds the base directory for texts in the `canonical` and `canonical_protected` repos, which will be either CTS_XML_TEI or CTS_XML_EpiDoc.
--->
+The first level of the selector is set with an environment variable in 
 
-## Update eXist with the prepared data.
+	config/application.rb
+
+Each one of these inventory files needs to be listed in the SITE_CTS_INVENTORIES environment variable.
+
+This is the basic format.
+
+	SITE_CTS_INVENTORIES = 'perseus|Tei,epifacs|Epi,perseids|Tei,annotsrc|Tei,pilots|Tei'
+
+It isn't obvious here's the format in the abstract.
+
+	'key|value,key|value'
+
+It's an array of key value pairs.
+
+## Update eXist with the prepared data
+Start up eXist and run the backup restore script and point it at the prepared data.
+
 	/usr/local/exist/bin/startup.sh &
 	/usr/local/exist/bin/backup.sh -u admin -r ~/db/__contents__.xml
 
-# Change the config
+## Copy over the publication XML files referenced in the inventory
+Modify the configuration and run.
+
+	/usr/local/sosol/script/existDBImport
+
+# Change the application config
 This part is of the config needs to be improved.
 
 	cd /usr/local/sosol/config
@@ -186,9 +215,15 @@ https://dashboard.janrain.com/
 
 # TODO: Configure shibboleth
 
-# Starting The Server
-You have to start the existdb and rails
+# Start the Server
+You have to start the eXist DB and rails
 
 	/usr/local/exist/bin/startup.sh &
 	cd /usr/local/sosol;
 	bundle exec rails server &
+
+# The Current Rails3 Development Server
+Hosted: AWS EC2
+Instance: rails-small2
+Domain Name: rails3.perseids.org
+If inaccessible check the AWS EC2 Elastic IP configuration and associate rails-small2 instance with the non-coupled IP address in the list.
