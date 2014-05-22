@@ -1,9 +1,9 @@
 # Welcome Perseids Developer
 This document will help new Perseids developers...
 
-* navigate the Perseids source code.
-* learn documentation conventions.
-* learn how to better communicate with the development team and our users.
+* Navigate the Perseids source code.
+* Learn documentation conventions.
+* Learn how to better communicate with the development team and our users.
 
 Included at the end of the document are general tips for development and debugging.
 
@@ -108,25 +108,53 @@ Explore publication metadata in an eXist database to select texts available for 
 See INSTALL.md under the heading "Prepare the inventory files".
 
 # Tips
+## JGit
+JGit is an essential part of Sosol, which provides the foundation for Perseids.
+
+	http://wiki.eclipse.org/JGit/User_Guide
+
+Classes of interest
+
+* PersonIdent
+
+		http://download.eclipse.org/jgit/docs/jgit-2.0.0.201206130900-r/apidocs/org/eclipse/jgit/lib/PersonIdent.html
+
 ## Simple SQLite Database Interaction
-Install sqlite3
+Install sqlite3.
 
 	sudo apt-get install sqlite3
 
-Go to the database directory
+Go to the database directory.
 
 	cd /usr/local/sosol/db
 
-Open the development or test databases
+Open the development databases.
 
 	sqlite3 development.sqlite3
-	sqlite3 test.sqlite3
 
-Some quick and dirty commands
+Some quick and dirty commands to see table content.
 
 	sqlite> .tables
 	sqlite> .dump [table]
+
+Get out of there.
+
 	sqlite> .exit
+
+## Rails Console
+Bring up a rails console.
+
+	cd /usr/local/sosol
+	rails console development
+
+### Handy Rails Console commands
+Retrieve user information.
+
+	User.find_by_name("John Doe").inspect
+
+Delete a user.
+
+	User.find_by_name("John Doe").destroy
 
 ## Logging and Debugging
 ### Rails quirks
@@ -138,7 +166,7 @@ Want to output to the console from an .rb file inside your lib directory? "puts"
 
     tail -f /usr/local/sosol/log/development.log
 
-Here's a way of hiding debug output.
+Here's a way of hiding most standard debug output to focus on your own log output.
 
     tail -f /usr/local/sosol/log/development.log | awk '/:start:/,/:end:/'
 
