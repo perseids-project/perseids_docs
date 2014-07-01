@@ -90,6 +90,9 @@ Replace the contents of the xq and xslt directories in the eXist db with the con
 ## Install Apache2
 
 TODO 
+sudo apt-get install apache2
+sudo a2enmod proxy
+sudo a2enmod proxy_http
 
 ## Setup Apache2 Proxies for Tools
 
