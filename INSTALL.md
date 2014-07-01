@@ -87,6 +87,19 @@ Replace the contents of the xq and xslt directories in the eXist db with the con
 	cp -R ~/xq ~/db/xq
 	cp -R ~/xslt ~/db/xslt
 
+## Install Apache2
+
+TODO 
+
+## Setup Apache2 Proxies for Tools
+
+TODO
+
+* Treebank Editor
+* Alignment Editor
+* ...
+* 
+
 ## Prepare the canonical.git repo aka "read-write" data
 For the read-write data, bare-clone the canonical.git repository hosted on sosol.perseids.org.
 Note: This requires ssh access to sosol.perseids.org.
