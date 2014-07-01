@@ -98,6 +98,19 @@ sudo a2enmod proxy_http
 
 TODO
 
+    <IfModule mod_proxy.c>
+
+        ProxyPass /exist/rest/db/repository !
+        ProxyPass /exist http://localhost:8800/exist
+        ProxyPassReverse /exist http://localhost:8800/exist
+ 
+        ProxyPass /alpheios/repository !
+        ProxyPass /alpheios http://localhost:8800/exist/rest/db
+        ProxyPassReverse /alpheios http://localhost:8800/exist/rest/db
+
+      </IfModule>
+
+
 * Treebank Editor
 * Alignment Editor
 * ...
