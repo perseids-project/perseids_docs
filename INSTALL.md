@@ -208,6 +208,16 @@ TODO
 
 Change RAILS_ENV value to development
 
+# Install Tools
+
+## Treebank Editor
+
+TODO update urls in entry form
+
+## Alignment Editor
+
+## Annotation Editor
+
 # TODO: Run the tests
 # Run the bundle commands
 	bundle install
