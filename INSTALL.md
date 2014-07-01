@@ -97,8 +97,14 @@ sudo a2enmod proxy_http
 ## Setup Apache2 Proxies for Tools
 
 TODO
+Note: Replace 3000 with 8080/sosol for tomcat deployment
+
 
     <IfModule mod_proxy.c>
+    
+
+        ProxyPass /sosol http://localhost:3000
+        ProxyPassReverse /sosol http://localhost:3000
 
         ProxyPass /exist/rest/db/repository !
         ProxyPass /exist http://localhost:8800/exist
