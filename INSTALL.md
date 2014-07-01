@@ -202,6 +202,9 @@ This part is of the config needs to be improved.
 I've tweaked the application config.
 
 	cp perseus_database.yml database.yml
+	
+Edit the tools.yml, replacing urls to tools as applicable
+TODO
 
 Change RAILS_ENV value to development
 
