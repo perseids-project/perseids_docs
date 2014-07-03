@@ -87,6 +87,8 @@ Replace the contents of the xq and xslt directories in the eXist db with the con
 	cp -R ~/xq ~/db/xq
 	cp -R ~/xslt ~/db/xslt
 
+Create the repository/sosol directory and chmod 777
+
 ## Install Apache2
 
 TODO 
