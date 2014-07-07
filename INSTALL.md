@@ -148,6 +148,8 @@ TODO - see https://github.com/latin-language-toolkit/arethusa-cli
 
 # Prepare the canonical.git repo aka "read-write" data
 
+Note that the default installation instructions for sosol have this as a rake tasks which will install the default papyri.info db (        bundle exec rake git:db:canonical:clone) -- we will skip that step in favor of these for now -- eventually should have a perseids version of this task.
+
 	sudo mkdir -p /usr/local/gitrepos
 	cd /usr/local/gitrepos
 
@@ -314,7 +316,6 @@ For a dev environment: Change RAILS_ENV value to development
 	bundle exec cap local externals:setup
 	bundle exec rake db:create
 	bundle exec rake db:migrate --verbose --trace
-	bundle exec rake git:db:canonical:clone
 	bundle exec rake test
 	bundle exec rails server
 
