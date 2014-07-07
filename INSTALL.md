@@ -288,9 +288,11 @@ for production environment use environments/production_secret.rb
 
 must contain:
 
-RPX_API_KEY = put secret here - see janrain login details in perseids it inventory doc
-RPX_REALM = 'perseus-sosol'
-
+        Sosol::Application.configure do            
+          RPX_API_KEY = put secret here - see janrain login details in perseids it inventory doc
+          RPX_REALM = 'perseus-sosol'
+        end
+        
 # Update the database.yml
 
 The version of database.yml that is currently in the rails-3-perseus-merge branch works for a dev or test environment.
