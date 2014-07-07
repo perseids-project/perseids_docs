@@ -108,8 +108,6 @@ Edit the following files in the zip to replace instances of localhost with the s
 /db/app/treebank-entertext-perseids-test.xml  
 /db/app/treebank-editsentence-perseids-test.xml  
 
-If using a local version of the llt services, change the reference to services.perseids.org/llt to, e.g. localhost:8080/llt
-
 Restore from this zip using the eXist client Tools/Restore
 
 TODO Verify that the basics of the editor are working via the following URLS:
