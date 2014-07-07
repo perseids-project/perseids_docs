@@ -92,15 +92,23 @@ http://localhost:8080/exist/rest/db/xq/CTS.xq?request=GetPassage&urn=urn:cts:gre
 
 TODO provide sample output for testing against.
 
+## Install Alpheios edit utils into eXist
+
+Download the code as a restorable zip from https://github.com/alpheios-project/edit-utils/archive/master.zip
+
+Restore from this zip using the eXist client Tools/Restore
+
+
 ## Install the Treebank Editor into eXist
 
 Download the code as a restorable zip from https://github.com/alpheios-project/treebank-editor/archive/master.zip
 
+Edit the following files in the zip to replace instances of localhost with the server name of your deployment environment:
+
+/db/app/treebank-entertext-perseids-test.xml  
+/db/app/treebank-editsentence-perseids-test.xml  
+
 Restore from this zip using the eXist client Tools/Restore
-
-Update the input forms:
-
-TODO
 
 Verify that the basics of the editor are working via the following URLS:
 
@@ -211,14 +219,14 @@ Modify the configuration and run.
 
 ## Setup Apache2 Proxies for Tools
 
-TODO Note:  for production environment replace 3000 with 8080/sosol for tomcat deployment, 8080 with 8800 for eXist, and drop the proxies to /cts and /publications
+TODO Note:  for production environment replace 3000 with 8080/sosol for tomcat deployment, 8080 with 8800 for eXist, and drop the proxies to /cts and /publications and /dmm_api
 
 Add the following in a conf file in /etc/apache2/conf.d and then restart apache
 
         <IfModule mod_proxy.c>
 
-            ProxyPass /sosol http://localhost:3000
-            ProxyPassReverse /sosol http://localhost:3000
+            ProxyPass /dmm_api http://localhost:3000
+            ProxyPassReverse /dmm_api http://localhost:3000
 
             ProxyPass /cts http://localhost:3000/cts
             ProxyPassReverse /cts http://localhost:3000/cts
