@@ -128,6 +128,18 @@ TODO Verify that the basics of the editor are working via the following URLS:
 
 TODO (this isn't specific to the rails 3 setup so for now just use the annot sources from the live environment see below under application config).
 
+# Setup LLT segtok and tokenize services
+
+The test and dev environments can use the default llt tokenize and segtok services but not if the sosol can only be reached via localhost (the sosol environment passes uris to these services and if sosol is on localhost then the segtok and tokenize services must be as well in order for requests from them to localhost to succeed).
+
+See deploy instructions for these services at :
+
+https://github.com/latin-language-toolkit/llt
+
+(Note they depend also on postgresql)
+
+These services are used by the OA annotation, treebank and alignment editors.
+
 # Install Apache2 and mod_proxy
 
 sudo apt-get install apache2
