@@ -310,13 +310,13 @@ For a dev environment: Change RAILS_ENV value to development
 # TODO: Run the tests
 
 
-## Run the bundle commands
+# Run the bundle commands
 
 	bundle install
 	bundle exec cap local externals:setup
 	bundle exec rake db:create
 	bundle exec rake db:migrate --verbose --trace
-	bundle exec rake test
+	bundle exec rake test (this will fail until tests are setup properly)
 	bundle exec rails server
 
 # Deploy on AWS
