@@ -64,34 +64,30 @@ Download
 Install
 
 	java -jar eXist-setup-1.4.1-rev15155.jar -p /usr/local/exist
+	
+TODO - we need to get updated wrapper code from 2.1 install
 
-Download the alpeios database.
-It is hosted on dropbox.
-Use a gui webbrowser on your work machine to download the zip file and then scp it over.
+## Install the Alpheios CTS API into eXist
 
-	https://www.dropbox.com/l/tg0THcAFcsa1xKT0IQvzY9
-	scp eXist-alpheios-install.zip [HOST]:~/
+Download the code as a restorable zip from https://github.com/alpheios-project/cts-api/archive/master.zip
 
-	cd ~
-	unzip eXist-alpheios-install.zip
+Start the eXist server
 
-Unzipping the eXist-alpheios-install.zip creates a new directory, ~/db.
+Launch the eXist client and restore (Tools/Restore)
 
-Get the latest xquery code from sourceforge. ( TODO: Update this.  Gernot moved this to GitHub, right? )
+Verify that the basics of the CTS API are working via the following URLS:
 
-	svn checkout http://svn.code.sf.net/p/alpheios/code/xml_ctl_files/xquery/trunk xq
-	svn checkout http://svn.code.sf.net/p/alpheios/code/xml_ctl_files/xslt/trunk xslt
+http://localhost:8080/exist/rest/db/xq/CTS.xq?request=GetCapabilities
+(should return inventory file)
 
-Replace the contents of the xq and xslt directories in the eXist db with the contents of the folders checked out from sourceforge.
+http://localhost:8080/exist/rest/db/xq/CTS.xq?request=GetValidReff&urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1
+(should return list of valid refs for books in the Iliad)
 
-	cp -R ~/xq ~/db/xq
-	cp -R ~/xslt ~/db/xslt
+http://localhost:8080/exist/rest/db/xq/CTS.xq?request=GetPassage&urn=urn:cts:greekLit:tlg0012.tlg001.alpheios-text-grc1:1.1
+(should return TEI xml for line 1 of the Iliad)
 
-Create the repository/sosol directory and chmod 777
+## Install Apache2 and mod_proxy
 
-## Install Apache2
-
-TODO 
 sudo apt-get install apache2
 sudo a2enmod proxy
 sudo a2enmod proxy_http
