@@ -279,6 +279,15 @@ For the dev/test environment, this should be set to
 
 	SITE_CTS_INVENTORIES = 'perseids-dev|Epi'
 	
+# setup the RPX api key
+
+for development environment  use environments/development_secret.rb
+for production environment use environments/production_secret.rb
+
+must contain:
+
+RPX_API_KEY = put secret here - see janrain login details in perseids it inventory doc
+RPX_REALM = 'perseus-sosol'
 
 # Update the database.yml
 
