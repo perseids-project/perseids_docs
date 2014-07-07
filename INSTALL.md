@@ -110,26 +110,23 @@ Edit the following files in the zip to replace instances of localhost with the s
 
 Restore from this zip using the eXist client Tools/Restore
 
-Verify that the basics of the editor are working via the following URLS:
-
-TODO provide sample output for testing against.
+TODO Verify that the basics of the editor are working via the following URLS:
 
 ## Install the Alignment Editor into eXist
 Download the code as a restorable zip from https://github.com/alpheios-project/alignment-editor/archive/master.zip
 
+Edit the following files in the zip to replace instances of localhost with the server name of your deployment environment:
+
+/db/app/align-editsentence-perseids-test.xml  
+
 Restore from this zip using the eXist client Tools/Restore
 
-Update the input forms:
+TODO Verify that the basics of the editor are working via the following URLS:
 
-TODO
-
-Verify that the basics of the editor are working via the following URLS:
-
-TODO provide sample output for testing against.
 
 ## Setup Annotation Sources
 
-TODO (this isn't specific to the rails 3 setup so for now just use the annot sources from the live environment).
+TODO (this isn't specific to the rails 3 setup so for now just use the annot sources from the live environment see below under application config).
 
 # Install Apache2 and mod_proxy
 
