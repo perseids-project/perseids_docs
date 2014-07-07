@@ -289,8 +289,8 @@ for production environment use environments/production_secret.rb
 must contain:
 
         Sosol::Application.configure do            
-          RPX_API_KEY = put secret here - see janrain login details in perseids it inventory doc
-          RPX_REALM = 'perseus-sosol'
+          config.rpx_api_key = put secret here - see janrain login details in perseids it inventory doc
+          config.rpx_realm = 'perseus-sosol'
         end
         
 # Update the database.yml
