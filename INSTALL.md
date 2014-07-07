@@ -140,6 +140,16 @@ https://github.com/latin-language-toolkit/llt
 
 These services are used by the OA annotation, treebank and alignment editors.
 
+# Setup the Perseids tokenize xquery
+
+NOTE this is going to be going away in favor of the llt tokenize service so it's not worth doing a restore file for it - just manually upload for now please.
+
+Get the tokenize xquery service from git:
+
+https://github.com/PerseusDL/perseids_tokenize.git
+
+upload the file tokenize.xquery (in the src dir) to the /db/xq directory in the local eXist repo
+
 # Install Apache2 and mod_proxy
 
 sudo apt-get install apache2
