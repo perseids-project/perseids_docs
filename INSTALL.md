@@ -71,13 +71,11 @@ TODO - we need to get updated wrapper code from 2.1 install
 
 Start the eXist server
 
-Launch the eXist client and restore (Tools/Restore)
-
 ## Install the Alpheios CTS API into eXist
 
 Download the code as a restorable zip from https://github.com/alpheios-project/cts-api/archive/master.zip
 
-Restore from this zip using the eXist client Tools/Restore
+Restore from this zip using the eXist client Tools/Restore  (or use command line restore option)
 
 Verify that the basics of the CTS API are working via the following URLS:
 
@@ -96,7 +94,7 @@ TODO provide sample output for testing against.
 
 Download the code as a restorable zip from https://github.com/alpheios-project/edit-utils/archive/master.zip
 
-Restore from this zip using the eXist client Tools/Restore
+Restore from this zip using the eXist client Tools/Restore (or use command line restore option - I think usr/local/exist/bin/backup.sh -u admin -r master.zip should work but didn't test)
 
 
 ## Install the Treebank Editor into eXist
@@ -108,7 +106,7 @@ Edit the following files in the zip to replace instances of localhost with the s
 /db/app/treebank-entertext-perseids-test.xml  
 /db/app/treebank-editsentence-perseids-test.xml  
 
-Restore from this zip using the eXist client Tools/Restore
+Restore from this zip using the eXist client Tools/Restore (or use command line restore option  I think usr/local/exist/bin/backup.sh -u admin -r master.zip should work but didn't test)
 
 TODO Verify that the basics of the editor are working via the following URLS:
 
@@ -119,14 +117,14 @@ Edit the following files in the zip to replace instances of localhost with the s
 
 /db/app/align-editsentence-perseids-test.xml  
 
-Restore from this zip using the eXist client Tools/Restore
+Restore from this zip using the eXist client Tools/Restore (or use command line restore option  I think usr/local/exist/bin/backup.sh -u admin -r master.zip should work but didn't test)
 
 TODO Verify that the basics of the editor are working via the following URLS:
 
 
 ## Setup Annotation Sources
 
-TODO (this isn't specific to the rails 3 setup so for now just use the annot sources from the live environment see below under application config).
+TODO (this isn't specific to the rails 3 setup so for now just use the annot sources from the live environment see below under application config).  Will need to be addressed for the production setup.
 
 # Setup LLT segtok and tokenize services
 
@@ -138,7 +136,7 @@ https://github.com/latin-language-toolkit/llt
 
 (Note they depend also on postgresql)
 
-These services are used by the OA annotation, treebank and alignment editors.
+These services are used by the OA annotation (the treebank editor uses them too, but doesn't have the same issue with localhost as that uses a POST rather than feeding a URI to the service)
 
 # Setup the Perseids tokenize xquery
 
@@ -205,7 +203,7 @@ The perseids-dev.xml inventory file can be found in the CTS_XML_TextInventory di
 
 ## For the production environment 
 
-TODO this needs to be simplified see above comment about need to merge perseus and perseids canonical repos -- this should be addressed with that
+TODO this needs to be simplified see above comment about need to merge perseus and perseids canonical repos -- this should be addressed with that and we should straighten that out before trying to script anything for this.
 
 Get a local clone of the PerseusDL/canonical.git repo:
 
@@ -246,8 +244,8 @@ Add the following in a conf file in /etc/apache2/conf.d and then restart apache
 
         <IfModule mod_proxy.c>
 
-            ProxyPass /dmm_api http://localhost:3000
-            ProxyPassReverse /dmm_api http://localhost:3000
+            ProxyPass /dmm_api http://localhost:3000/dmm_api
+            ProxyPassReverse /dmm_api http://localhost:3000/dmm_api
 
             ProxyPass /cts http://localhost:3000/cts
             ProxyPassReverse /cts http://localhost:3000/cts
@@ -295,6 +293,8 @@ EXIST_STANDALONE_URL is the url for the eXist instance that is local to the soso
 
 EXTERNAL_CTS_REPOS should be set to a list of CTS Repositories at which read-only sources for use in annotation bodies can be retrieved.
 
+The basic format for this setting is human-readable-name|CTS-URL|Data-URI-prefix
+
 SITE_CTS_INVENTORIES should be set to the list of inventory files that correspond to the installed read/write data.
 
 The basic format for this setting is 'key|value,key|value', an array of key value pairs where the key is the inventory file name (minus extension) and the value is the prefix for the type of CtsIdentifier this inventory manages.
@@ -311,7 +311,7 @@ for production environment use environments/production_secret.rb
 must contain:
 
         Sosol::Application.configure do            
-          config.rpx_api_key = put secret here - see janrain login details in perseids it inventory doc
+          config.rpx_api_key = '<put secret here - see janrain login details in perseids it inventory doc>'
           config.rpx_realm = 'perseus-sosol'
         end
         
@@ -323,7 +323,7 @@ For a production environment, the database connection url and username and passw
 
 # Update the tools.yml
 
-Edit the tools.yml, replacing instances of localhost with base route to the deployed sosol environment.
+For dev environment: if not on localhost, edit the tools.yml, replacing instances of localhost with base route to the deployed sosol environment.
 
 # TODO: Configure shibboleth
 
