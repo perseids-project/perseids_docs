@@ -343,6 +343,12 @@ For a dev environment: Change RAILS_ENV value to development
 	bundle exec rake test (this will fail until tests are setup properly)
 	bundle exec rails server
 
+## Notes for war file
+
+bouncy-castle-java should be added to the Gemfile but for some reason bundle install isn't installing it to the .rbenv directory so the warble command can't find it.  had to install it by running gem install bouncy-castle-
+
+contents of lib/rxsugar don't get copied the war -- need to figure out how to get warbler to pick externals up
+
 # Deploy on AWS
 
 ## Create Elastic IP
