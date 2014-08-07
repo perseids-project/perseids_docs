@@ -345,9 +345,14 @@ For a dev environment: Change RAILS_ENV value to development
 
 ## Notes for war file
 
-bouncy-castle-java should be added to the Gemfile but for some reason bundle install isn't installing it to the .rbenv directory so the warble command can't find it.  had to install it by running gem install bouncy-castle-
+bouncy-castle-java should be added to the Gemfile but for some reason bundle install isn't installing it to the .rbenv directory so the warble command can't find it.  had to install it by running gem install bouncy-castle-java
 
 contents of lib/rxsugar don't get copied the war -- need to figure out how to get warbler to pick externals up
+also note that path to jruby_helper in the rxsugar initializer code is wrong for the war file deployment -- must not start with lib but rxsugar.
+
+need to be sure to update database.yml, production_secret.rb
+
+sass is missing from the war?
 
 # Deploy on AWS
 
