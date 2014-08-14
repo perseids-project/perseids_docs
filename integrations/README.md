@@ -4,7 +4,7 @@ The Perseids Platform is a loose coupling of tools and services providing a plat
 
 At the bottom of the Perseids application stack, a [Git](http://git-scm.com/) repository provides versioning support for all documents, annotations and other related objects managed on the platform.  Git forks, branches and merges are used to manage concurrent access to the same documents and related objects by different users and groups.
 
-Next in the stack is the [Son of SUDA Online application (SoSOL)](https://github.com/sosol/sosol), a Ruby on Rails application which serves as a workflow engine on top of Git. It manages interactions with the git repository and provides additional functionality including a user model, document validation, templates for documentation creation, review boards and communities. SoSOLalso uses a relational database to store information about document status and to track the activty of users, boards, communities.
+Next in the stack is the [Son of SUDA Online application (SoSOL)](https://github.com/sosol/sosol), a [Ruby on Rails](http://rubyonrails.org/) application which serves as a workflow engine on top of Git. It manages interactions with the git repository and provides additional functionality including a user model, document validation, templates for documentation creation, review boards and communities. SoSOLalso uses a relational database to store information about document status and to track the activty of users, boards, communities.
 
 SoSOL uses the [OpenID](http://openid.net/) and [Shibboleth/SAML](https://shibboleth.net/) protocols to delegates responsibility for user authentication to social or institutional identitiy providers. Social identity providers (IdP) are supported through a 3rd party gateway, currently [Janrain Engage](http://janrain.com/).  Shibboleth/SAML providers can be configured on a one-on-one basis, or via agreement with a federation.
 
@@ -42,7 +42,7 @@ Publications can consist of combinations of one or more of the above types of do
 
 Perseids uses [CTS URNs](http://www.homermultitext.org/hmt-docs/specifications/ctsurn/) as stable identifiers for primary source texts and CITE URNs Commentaries, Annotations and Images.
 
-Adding support for additional document types and/or stable identifier types is possible. This requires a clearly defined and consistent stable identifier syntax for the document type and extension of the base Identifier class im SoSOL to implement the business logic for the identifier and document type, including specification of a schema against which the document can be validated, if desired. 
+Adding support for additional document types and/or stable identifier types is possible. This requires a clearly defined and consistent stable identifier syntax for the document type and extension of the base Identifier class (in [Ruby](http://rubyonrails.org/)) to implement the business logic for the identifier and document type, including specification of a schema against which the document can be validated, if desired. 
 
 
 
