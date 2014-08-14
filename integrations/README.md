@@ -25,7 +25,7 @@ The diagram at [http://www.gliffy.com/go/publish/6058562](http://www.gliffy.com/
 
 Any web application can be integrated with Perseids SoSOL in this method.  However the [Arethusa Framework](https://github.com/latin-language-toolkit/arethusa) which is already integrated with Perseids SoSOL provides an alternate approach. Arethusa core libraries handle the details of interacting with SoSOL for documents and related user data, and custom editing interfaces can be developed as javascript-based plugins for Arethusa.
 
-Coming Soon link to documentation on Arethusa ....
+See also [Perseids Data Management Apis](https://github.com/PerseusDL/perseids_docs/wiki/Data-management-module) and Arethusa plugin guidelines (coming soon....)
 
 # Stable Identifiers and Document Types
 
