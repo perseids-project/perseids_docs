@@ -7,14 +7,23 @@
 [perseids-dev@elists.tufts.edu](https://elist.tufts.edu/wws/info/perseids-dev)
 
 ### Authors and Contributors 
+
 @balmas 
+
 @caesarfeta
+
 @lfdm
+
 @srdee
+
 @lichtr
+
 @christof
+
 @lcerrato
+
 @annakrohn
+
 @AlisonBabeu
 
 ### Funders
