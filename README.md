@@ -1,6 +1,6 @@
 ### Overview
 
-[Perseids](http://sites.perseids.tufts.edu) is an [online platform](http://sosol.perseids.org/sosol) for collaborative editing, annotation and publication of digital texts and annotations. Perseids is not one single application but an integrated environment built from a loose coupling of heterogeneous tools and services from a variety of sources using RESTful APIs, and supporting various standard formats for encoding of text and annotations. Supported standards include, but aren’t limited to, the Text Encoding Initiative (TEI) and Open Annotation (OA).  The platform also supports cross-project collaboration, where content might come from a separate project, be edited through Perseids and then returned to its source repository.
+[Perseids](http://sites.perseids.tufts.edu) is an [online platform](http://sosol.perseids.org/sosol) for collaborative editing, annotation and publication of digital texts and annotations. Perseids is not one single application but an integrated environment built from a loose coupling of heterogeneous open source tools and services from a variety of sources using RESTful APIs, and supporting various standard formats for encoding of text and annotations. Supported standards include, but aren’t limited to, the Text Encoding Initiative (TEI) and Open Annotation (OA).  The platform also supports cross-project collaboration, where content might come from a separate project, be edited through Perseids and then returned to its source repository.
 
 ## Mailing Lists
 
