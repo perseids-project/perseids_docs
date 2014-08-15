@@ -8,22 +8,14 @@
 
 ### Authors and Contributors 
 
-@balmas 
-
+@balmas
 @caesarfeta
-
 @lfdm
-
 @srdee
-
 @lichtr
-
 @christof
-
 @lcerrato
-
 @annakrohn
-
 @AlisonBabeu
 
 ### Funders
