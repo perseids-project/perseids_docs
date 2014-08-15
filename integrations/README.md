@@ -29,7 +29,7 @@ Any web application can be integrated with Perseids SoSOL in this method.  Howev
 
 See also [Perseids Data Management Apis](https://github.com/PerseusDL/perseids_docs/wiki/Data-management-module) and Arethusa plugin guidelines (coming soon....)
 
-# Stable Identifiers and Document Types
+# New Identifiers and Document Types
 
 The Perseids SoSOL deployment currently supports working with the following types of documents:
 
@@ -46,7 +46,9 @@ Perseids uses [CTS URNs](http://www.homermultitext.org/hmt-docs/specifications/c
 
 Adding support for additional document types and/or stable identifier types is possible. This requires a clearly defined and consistent stable identifier syntax for the document type and extension of the base Identifier class (in [Ruby](http://rubyonrails.org/)) to implement the business logic for the identifier and document type, including specification of a schema against which the document can be validated, if desired. 
 
+# Integrating an external site with Perseids SoSOL Board/Community Review Workflow
 
+Coming soon...
 
 
 
