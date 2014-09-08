@@ -30,8 +30,8 @@ Each of these scenarios requires a slightly different set of developer skills an
 The Perseids SoSOL deployment currently supports working with the following types of documents:
 
 * Texts and Translations encoded in [EpiDoc](http://www.stoa.org/epidoc/gl/latest/) compliant TEI-XML
-* Commentaries on texts and other linkable targets (adhering to the [Open Annotation](http://www.openannotation.org/spec/core/) data model
-* Annotations on texts and other linkable targets (adhering to the [Open Annotation](http://www.openannotation.org/spec/core/) data model
+* Commentaries on texts and other linkable targets (adhering to the [Open Annotation](http://www.openannotation.org/spec/core/) data model)
+* Annotations on texts and other linkable targets (adhering to the [Open Annotation](http://www.openannotation.org/spec/core/) data model)
 * Treebank/Morpho-syntactic Annotations adhering the [Perseus Ancient Language Dependency Treebank](http://nlp.perseus.tufts.edu/syntax/treebank/) schema
 * Translation Alignment Annotations adhering to the [alpheios.net](http://alpheios.net) [alignment schema](http://sourceforge.net/p/alpheios/code/HEAD/tree/xml_ctl_files/schemas/trunk/aligned-text.xsd).
 * Collections of Images
