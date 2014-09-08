@@ -14,30 +14,18 @@ The SoSOL application itself provides lightweight user interfaces for creating a
 
 See Also: [Infrastructure for Digital Humantities - an overview of the Perseids goals, design methodology and status (July 2014)](https://docs.google.com/presentation/d/1syZDt4CGXqBgvM7grJctldd0krgneTBFr7FaEO_e8YA/pub?start=false&loop=false&delayms=3000).
 
-# Integrating an External Editor
+# Use Cases for Integration with/Extension of Perseids
 
-There are two main approaches supported for integrating an external tool with Perseids SoSOL:
+The following are typical scenarios motivating extension of or integration with the Perseids platform:
 
-1. directly via the [RESTful APIs](http://en.wikipedia.org/wiki/Representational_state_transfer) of the external tool and SoSOL
-2. by deploying the tool as a plugin on the Arethusa framework
+* support for a new identifier/document type 
+* support for a new type of stand-off annotation for an existing identifier/document type
+* use of an existing editing or annotating interface with documents managed by the Perseids platform
+* use of a the review workflow component of the Perseids platform with a 3rd party site
 
-Currently user session sharing and management between external tools and SoSOL can supported through the use of CSRF tokens.  Future plans include support for OAuth and/or JWT.
+Each of these scenarios requires a slightly different set of developer skills and approaches as described further below.
 
-## Direct Integration between SoSOL and External Web Application
-This [diagram](http://www.gliffy.com/go/publish/6058562) shows the basic sequence of interactions between Perseids SoSOL, a Social IdP gateway, a Social IdP and an external Javascript based web application. In this example interaction, the Social IdP provides the user with secure access to their credentials, SoSOL manages version history and business logic related to individual documents (e.g. identification of available tools for editing), the Web application provides an editing/annotating UI for a given document type.
-
-See the [Perseids Data Management Apis](https://github.com/PerseusDL/perseids_docs/wiki/Data-management-module) for further details on available API calls for external web applications.
-
-## Developing a new Arethusa UI Plugin
-The [Arethusa Annotation Framework](https://github.com/latin-language-toolkit/arethusa) has been integrated with Perseids SoSOL to provide an alternative, more fluid user experience for working with annotations of multiple types on a single document or set of documents. 
-
-Arethusa is built on the [angular.js](https://angularjs.org/) javascript web application framework and provides a back-end independent plugin infrastructure for accessing texts, annotations, linguistic services from a variety of sources. Arethusa leverages javascript APIs and HTML templates, as well as command line tools for automatic generation of plugin skeletons, to make it very easy for developers with HTML 5 and Javascript skills to customize the platform and add additional features.
-
-Arethusa acts as a broker between the SoSOL Perseids back-end, as well as other back-end datasources. Core Arethusa libraries handle the details of interacting with SoSOL for documents and related user data, and custom editing interfaces can be developed as javascript-based plugins.
-
-See Arethusa plugin guidelines (coming soon....)
-
-# New Identifiers and Document Types
+# New Identifiers/Document Types
 
 The Perseids SoSOL deployment currently supports working with the following types of documents:
 
@@ -53,6 +41,37 @@ Publications can consist of combinations of one or more of the above types of do
 Perseids uses [CTS URNs](http://www.homermultitext.org/hmt-docs/specifications/ctsurn/) as stable identifiers for primary source texts and CITE URNs Commentaries, Annotations and Images.
 
 Adding support for additional document types and/or stable identifier types is possible. This requires a clearly defined and consistent stable identifier syntax for the document type and extension of the base Identifier class (in [Ruby](http://rubyonrails.org/)) to implement the business logic for the identifier and document type, including specification of a schema against which the document can be validated, if desired. 
+
+_Developer Skills required:_ Ruby, XML, XSLT, Javascript, RDF 
+
+# Integrating an External Editing/Annotating User Interface
+
+There are two main approaches supported for integrating an external tool with Perseids SoSOL:
+
+1. directly via the [RESTful APIs](http://en.wikipedia.org/wiki/Representational_state_transfer) of the external tool and SoSOL
+2. by deploying the tool as a plugin on the Arethusa framework
+
+Currently user session sharing and management between external tools and SoSOL can supported through the use of CSRF tokens.  Future plans include support for OAuth and/or JWT.
+
+### Direct Integration between SoSOL and External Web Application
+This [diagram](http://www.gliffy.com/go/publish/6058562) shows the basic sequence of interactions between Perseids SoSOL, a Social IdP gateway, a Social IdP and an external web application. In this example interaction, the Social IdP provides the user with secure access to their credentials, SoSOL manages version history and business logic related to individual documents (e.g. identification of available tools for editing), the Web application provides an editing/annotating UI for a given document type.
+
+See the [Perseids Data Management Apis](https://github.com/PerseusDL/perseids_docs/wiki/Data-management-module) for further details on available API calls for external web applications.
+
+_Developer Skills required:_ Understanding of RESTful APIs, plus whatever knowledge is required for development of the external web application
+
+## Developing a new Arethusa UI Plugin
+The [Arethusa Annotation Framework](https://github.com/latin-language-toolkit/arethusa) has been integrated with Perseids SoSOL to provide an alternative, more fluid user experience for working with annotations of multiple types on a single document or set of documents. 
+
+Arethusa is built on the [angular.js](https://angularjs.org/) javascript web application framework and provides a back-end independent plugin infrastructure for accessing texts, annotations, linguistic services from a variety of sources. Arethusa leverages javascript APIs and HTML templates, as well as command line tools for automatic generation of plugin skeletons, to make it very easy for developers with HTML 5 and Javascript skills to customize the platform and add additional features.
+
+Arethusa acts as a broker between the SoSOL Perseids back-end, as well as other back-end datasources. Core Arethusa libraries handle the details of interacting with SoSOL for documents and related user data, and custom editing interfaces can be developed as javascript-based plugins.
+
+_Developer Skills required:_ Javascript, HTML5, CSS (Angular experience helpful but not essential)
+
+See also Arethusa plugin guidelines (coming soon....)
+
+
 
 # Integrating an external site with Perseids SoSOL Board/Community Review Workflow
 
