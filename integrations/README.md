@@ -23,11 +23,19 @@ There are two main approaches supported for integrating an external tool with Pe
 
 Currently user session sharing and management between external tools and SoSOL can supported through the use of CSRF tokens.  Future plans include support for OAuth and/or JWT.
 
-This [diagram](http://www.gliffy.com/go/publish/6058562) shows the basic sequence of interactions between Perseids SoSOL, a Social IdP gateway, a Social IdP and an external Javascript based web application. In this interaction, the Social IdP provides the user with secure access to their credentials, SoSOL manages version history and business logic related to individual documents (e.g. identification of available tools for editing), the Web application provides an editing/annotating UI for a given document type.
+## Direct Integration between SoSOL and External Web Application
+This [diagram](http://www.gliffy.com/go/publish/6058562) shows the basic sequence of interactions between Perseids SoSOL, a Social IdP gateway, a Social IdP and an external Javascript based web application. In this example interaction, the Social IdP provides the user with secure access to their credentials, SoSOL manages version history and business logic related to individual documents (e.g. identification of available tools for editing), the Web application provides an editing/annotating UI for a given document type.
 
-Any web application can be integrated with Perseids SoSOL in this method.  However the [Arethusa Framework](https://github.com/latin-language-toolkit/arethusa) which is already integrated with Perseids SoSOL provides an alternate approach. Arethusa core libraries handle the details of interacting with SoSOL for documents and related user data, and custom editing interfaces can be developed as javascript-based plugins for Arethusa.
+See the [Perseids Data Management Apis](https://github.com/PerseusDL/perseids_docs/wiki/Data-management-module) for further details on available API calls for external web applications.
 
-See also [Perseids Data Management Apis](https://github.com/PerseusDL/perseids_docs/wiki/Data-management-module) and Arethusa plugin guidelines (coming soon....)
+## Developing a new Arethusa UI Plugin
+The [Arethusa Annotation Framework](https://github.com/latin-language-toolkit/arethusa) has been integrated with Perseids SoSOL to provide an alternative, more fluid user experience for working with annotations of multiple types on a single document or set of documents. 
+
+Arethusa is built on the [angular.js](https://angularjs.org/) javascript web application framework and provides a back-end independent plugin infrastructure for accessing texts, annotations, linguistic services from a variety of sources. Arethusa leverages javascript APIs and HTML templates, as well as command line tools for automatic generation of plugin skeletons, to make it very easy for developers with HTML 5 and Javascript skills to customize the platform and add additional features.
+
+Arethusa acts as a broker between the SoSOL Perseids back-end, as well as other back-end datasources. Core Arethusa libraries handle the details of interacting with SoSOL for documents and related user data, and custom editing interfaces can be developed as javascript-based plugins.
+
+See Arethusa plugin guidelines (coming soon....)
 
 # New Identifiers and Document Types
 
