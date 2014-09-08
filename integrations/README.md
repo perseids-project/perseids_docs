@@ -21,7 +21,7 @@ The following are typical scenarios motivating extension of or integration with 
 * support for a new identifier/document type 
 * support for a new type of stand-off annotation for an existing identifier/document type
 * use of an existing editing or annotating interface with documents managed by the Perseids platform
-* use of a the review workflow component of the Perseids platform with a 3rd party site
+* use of the SoSOL review workflow component of the Perseids platform with a 3rd party site
 
 Each of these scenarios requires a slightly different set of developer skills and approaches as described further below.
 
