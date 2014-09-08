@@ -67,6 +67,22 @@ Arethusa is built on the [angular.js](https://angularjs.org/) javascript web app
 
 Arethusa acts as a broker between the SoSOL Perseids back-end, as well as other back-end datasources. Core Arethusa libraries handle the details of interacting with SoSOL for documents and related user data, and custom editing interfaces can be developed as javascript-based plugins.
 
+The work involved in developing of a new Arethusa plugin can be more or less involved, depending upon the circumstance.  
+
+The simplest type of plugin is an alternate editing interface for an already-supported document/annotation type. This would require developing:
+
+* an HTML 5 template and associated CSS for the layout of the editing interface
+* javascript libraries defining event handlers and other implementation of business logic for the editing interface
+
+A more complex type of plugin is one which provides not only a new editing interface, but also works with a new document type or format.  This would require developing:
+
+* an HTML 5 template and associated CSS for the layout of the editing interface
+* javascript libraries defining event handlers and other implementation of business logic for the editing interface
+* TODO retriever...
+* TODO persister...
+* ...
+
+
 _Developer Skills required:_ Javascript, HTML5, CSS (Angular experience helpful but not essential)
 
 See also Arethusa plugin guidelines (coming soon....)
