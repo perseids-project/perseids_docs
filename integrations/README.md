@@ -65,7 +65,7 @@ The [Arethusa Annotation Framework](https://github.com/latin-language-toolkit/ar
 
 Arethusa is built on the [angular.js](https://angularjs.org/) javascript web application framework and provides a back-end independent plugin infrastructure for accessing texts, annotations, linguistic services from a variety of sources. Arethusa leverages javascript APIs and HTML templates, as well as command line tools for automatic generation of plugin skeletons, to make it very easy for developers with HTML 5 and Javascript skills to customize the platform and add additional features.
 
-Arethusa acts as a broker between the SoSOL Perseids back-end (as well as other back-end datasources) and the front-end editing tools. Core Arethusa libraries handle the details of interacting with SoSOL for documents and related user data, and custom editing interfaces can be developed as javascript-based plugins.
+Arethusa acts as a broker between the SoSOL Perseids back-end (as well as other back-end datasources) and the front-end annotating and editing tools. Core Arethusa libraries handle the details of interacting with SoSOL for documents and related user data, and custom editing interfaces can be developed as javascript-based plugins.
 
 The work involved in developing of a new Arethusa plugin can be more or less involved, depending upon the circumstance.  
 
