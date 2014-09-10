@@ -59,7 +59,7 @@ This [diagram](http://www.gliffy.com/go/publish/6058562) shows the basic sequenc
 Tools that have already been integrated with the Perseids SoSOL application in this manner include:
 
 * the [Alpheios Treebank Editor](https://github.com/alpheios-project/treebank-editor)
-* the [Alpheios Alignment Editor](https://github.com/alpheios-project/alignment-editor
+* the [Alpheios Alignment Editor](https://github.com/alpheios-project/alignment-editor)
 * the [Recogito Toponym Annotation Tool](http://pelagios.org/recogito)
 * the [Perseus Fragmentary Texts Annotation Editor prototype](https://github.com/PerseusDL/annotation-editor)
 * the [Artheusa Annotation Framework](https://github.com/latin-language-toolkit/arethusa)
