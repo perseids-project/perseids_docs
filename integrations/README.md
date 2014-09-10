@@ -1,6 +1,6 @@
 # Overview
 
-The Perseids Platform is a loose coupling of tools and services providing a platform for collaborative editing and annotation of texts.  
+The Perseids Platform is a loose coupling of open source tools and services providing a platform for collaborative editing and annotation of texts.  
 
 At the bottom of the Perseids application stack, a [Git](http://git-scm.com/) repository provides versioning support for all documents, annotations and other related objects managed on the platform.  Git forks, branches and merges are used to manage concurrent access to the same documents and related objects by different users and groups.
 
