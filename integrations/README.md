@@ -68,25 +68,25 @@ Arethusa is built on the [angular.js](https://angularjs.org/) javascript web app
 Arethusa acts as a broker between the SoSOL Perseids back-end (as well as other back-end datasources) and the front-end annotating and editing tools. Core Arethusa libraries handle the details of interacting with SoSOL for documents and related user data, and custom editing interfaces can be developed as javascript-based plugins.
 
 The work involved in developing of a new Arethusa plugin can be more or less involved, depending upon the circumstance.  
-
 The simplest type of plugin is an alternate editing interface for an already-supported document/annotation type. This would require developing:
 
 * an HTML 5 template and associated CSS for the layout of the editing interface
-* javascript libraries defining event handlers and other implementation of business logic for the editing interface
+* Javascript libraries defining event handlers and other implementation of business logic for the editing interface
 
 A more complex type of plugin is one which provides not only a new editing interface, but also works with a new document type or format.  This would require developing:
 
 * an HTML 5 template and associated CSS for the layout of the editing interface
-* javascript libraries defining event handlers and other implementation of business logic for the editing interface
-* TODO retriever...
-* TODO persister...
-* ...
+* Javascript libraries to:
+    * define event handlers and other implementation of business logic for the editing interface
+    * retrieve annotation tokens and data from the source document(s) and make them accessible to the core Arethusa state object
+    * persist annotation tokens and data from the core Arethusa state back into their original representation
+    * listen for and react to actions of other components of the annotation environment 
 
+This type of edition to the platform might also require comparable changes on the Perseids back-end, to support a new identifier/document type, as described above.  And it often involves data modeling work to consider implications of cross-document alignment and integration with other types of related resources.
 
-_Developer Skills required:_ Javascript, HTML5, CSS (Angular experience helpful but not essential)
+The [Arethusa plugin developer's guide](https://github.com/latin-language-toolkit/arethusa/blob/docs/docs/content/plugin_guide.md) provides developers with detailed guidance on all of the above tasks.  
 
-See also Arethusa plugin guidelines (coming soon....)
-
+_Developer Skills required:_ Javascript, HTML5, CSS (Angular experience helpful but not essential), Understanding of RESTful APIs and linked data concepts.
 
 
 # Integrating an external site with Perseids SoSOL Board/Community Review Workflow
