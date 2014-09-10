@@ -81,7 +81,7 @@ A more complex type of plugin is one which provides not only a new editing inter
     * persist annotation tokens and data from the core Arethusa state back into their original representation
     * listen for and react to actions of other components of the annotation environment 
 
-This type of edition to the platform might also require comparable changes on the Perseids back-end, to support a new identifier/document type, as described above.  And it often involves data modeling work to consider implications of cross-document alignment and integration with other types of related resources.
+This type of addition to the platform might also require comparable changes on the Perseids back-end, to support a new identifier/document type, as described above.  And it often involves data modeling work to consider implications of cross-document alignment and integration with other types of related resources.
 
 The [Arethusa plugin developer's guide](https://github.com/latin-language-toolkit/arethusa/blob/docs/docs/content/plugin_guide.md) provides developers with detailed guidance on all of the above tasks.  
 
