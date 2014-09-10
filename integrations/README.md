@@ -56,6 +56,14 @@ Currently user session sharing and management between external tools and SoSOL c
 ### Direct Integration between SoSOL and External Web Application
 This [diagram](http://www.gliffy.com/go/publish/6058562) shows the basic sequence of interactions between Perseids SoSOL, a Social IdP gateway, a Social IdP and an external web application. In this example interaction, the Social IdP provides the user with secure access to their credentials, SoSOL manages version history and business logic related to individual documents (e.g. identification of available tools for editing), the Web application provides an editing/annotating UI for a given document type.
 
+Tools that have already been integrated with the Perseids SoSOL application in this manner include:
+
+* the [Alpheios Treebank Editor](https://github.com/alpheios-project/treebank-editor)
+* the [Alpheios Alignment Editor](https://github.com/alpheios-project/alignment-editor
+* the [Recogito Toponym Annotation Tool](http://pelagios.org/recogito)
+* the [Perseus Fragmentary Texts Annotation Editor prototype](https://github.com/PerseusDL/annotation-editor)
+* the [Artheusa Annotation Framework](https://github.com/latin-language-toolkit/arethusa)
+
 See the [Perseids Data Management Apis](https://github.com/PerseusDL/perseids_docs/wiki/Data-management-module) for further details on available API calls for external web applications.
 
 _Developer Skills required:_ Understanding of RESTful APIs, plus whatever knowledge is required for development of the external web application
