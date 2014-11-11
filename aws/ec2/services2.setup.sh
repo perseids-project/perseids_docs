@@ -47,6 +47,8 @@ vi /etc/apache2/conf-enabled/tomcat.conf
 # ProxyPassReverse /llt http://localhost:8080/llt
 # ProxyPass /cite_mapper http://localhost:8080/cite_mapper
 # ProxyPassReverse /cite_mapper http://localhost:8080/cite_mapper
+# ProxyPass /sg http://localhost:8080/sg
+# ProxyPassReverse /sg http://localhost:8080/sg
 
 #Header set Access-Control-Allow-Origin "*"
 #Header set Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept"

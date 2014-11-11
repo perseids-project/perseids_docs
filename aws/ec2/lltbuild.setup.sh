@@ -52,3 +52,15 @@ cd cite_mapper
 bundle
 warble
 curl --upload-file cite_mapper.war "http://admin:PASSWORD@10.0.0.200:8080/manager/deploy?path=/cite_mapper&update=true"
+
+# Install sg code
+
+cd
+git clone https://github.com/PerseusDL/sg_reader
+cd sg_reader
+bundle
+warble
+curl --upload-file sg.war "http://admin:PASSWORD@http://10.0.0.200:8080/manager/deploy?path=/sg&update=true"
+ "
+
+
