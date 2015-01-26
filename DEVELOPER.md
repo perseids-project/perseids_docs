@@ -7,6 +7,8 @@ This document will help new Perseids developers...
 
 Included at the end of the document are general tips for development and debugging.
 
+
+
 # Documentation Guidelines
 ## Inline documentation of functions
 Please document the following for all functions you write.
@@ -63,6 +65,8 @@ Keep track of the time required to successfully complete the installation and do
 
 See INSTALL.md in this repository for an example.
 
+
+
 # Issue tracking
 We use issue tracking in Github.
 If issues belong exclusively to a particular Perseids feature and that feature has its own code repository then use that repository's issue tracker.
@@ -81,6 +85,8 @@ When reporting an issue as a user please gather the following information.
 
 TODO: How to gather this info on popular platforms
 
+
+
 # Perseids Features
 ## CTS Selector aka Publication Selector
 Explore publication metadata in an eXist database to select texts available for editing in Perseids.
@@ -88,7 +94,7 @@ Explore publication metadata in an eXist database to select texts available for 
 ### Importance
 * Critical
 
-### Where it's used.
+### Used
 * Perseids: user/user_dashboard
 
 ### Source
@@ -107,6 +113,31 @@ Explore publication metadata in an eXist database to select texts available for 
 ### Configuration
 See INSTALL.md under the heading "Prepare the inventory files".
 
+
+
+## Edit Publication -- TEI XML
+Edit a publication.
+
+### Importance
+* Critical
+
+### Used
+* Perseids: publication/[n]/tei_cts_identifiers/[n]/editxml
+
+### Source
+* app/controllers/identifiers_controller.rb
+* app/controllers/tei_cts_identifiers_controller.rb
+* app/models/tei_cts_identifiers.rb
+* app/models/identifiers.rb
+* app/views/identifiers/editxml.haml
+
+### Services and APIs
+### Configuration
+### Things to investigate
+DEPRECATION WARNING: You're trying to create an attribute `xml_content'. Writing arbitrary attributes on a model is deprecated. Please just use `attr_writer` etc. (called from editxml at /usr/local/sosol/app/controllers/identifiers_controller.rb:13)
+
+
+
 # Tips
 ## JGit
 JGit is an essential part of Sosol, which provides the foundation for Perseids.
@@ -120,7 +151,7 @@ Classes of interest
 		http://download.eclipse.org/jgit/docs/jgit-2.0.0.201206130900-r/apidocs/org/eclipse/jgit/lib/PersonIdent.html
 
 ## Simple SQLite Database Interaction
-Install sqlite3.
+Install sqlite3 client.
 
 	sudo apt-get install sqlite3
 
@@ -147,6 +178,9 @@ Bring up a rails console.
 	cd /usr/local/sosol
 	rails console development
 
+## Rails Tips
+
+
 ### Handy Rails Console commands
 Retrieve user information.
 
@@ -166,7 +200,7 @@ Want to output to the console from an .rb file inside your lib directory? "puts"
 
     tail -f /usr/local/sosol/log/development.log
 
-Here's a way of hiding most standard debug output to focus on your own log output.
+Here's a way of hiding most standard debug output to focus on your own.
 
     tail -f /usr/local/sosol/log/development.log | awk '/:start:/,/:end:/'
 
