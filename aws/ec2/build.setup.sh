@@ -42,8 +42,8 @@ cd llt-db_handler
 
 # Setup db on remote server
 # note replace www-rep.perseids.org with VPC address for remote server
-rake db:prometheus:create[www-rep.perseids.org]
-rake db:prometheus:seed[www-rep.perseids.org]
+rake db:prometheus:create[www.perseids.org]
+rake db:prometheus:seed[www.perseids.org]
 
 # build war
 cd
@@ -113,14 +113,14 @@ grunt install
 # build and deploy arethusa
 rvm use 2.0
 arethusa build
-arethusa deploy deployer@www-rep.perseids.org /usr/local/arethusa -co "-i ~/.ssh/perseidskey.pem" -e prod
+arethusa deploy deployer@www.perseids.org /usr/local/arethusa -co "-i ~/.ssh/perseidskey.pem" -e prod
 
 #install arethusa-configs
 cd
 git clone https://github.com/latin-language-toolkit/arethusa-configs
 cd arethusa-configs
 rake build
-rsync -av -e "ssh -i ~/.ssh/perseidskey.pem" dist deployer@www-rep.perseids.org:/usr/local/arethusa-configs
+rsync -av -e "ssh -i ~/.ssh/perseidskey.pem" dist deployer@www.perseids.org:/usr/local/arethusa-configs
 
 # update specific branches
 cd
@@ -128,9 +128,15 @@ cd arethusa-configs
 git checkout gcelano
 git pull
 rake build
-scp -i ~/.ssh/perseidskey.pem dist/smyth3.json deployer@www-rep.perseids.org:/usr/local/arethusa-configs/dist
+scp -i ~/.ssh/perseidskey.pem dist/smyth3.json deployer@www.perseids.org:/usr/local/arethusa-configs/dist
 
 git checkout harrington_tag_set
 git pull
 rake build
-scp -i ~/.ssh/perseidskey.pem dist/harrington.json deployer@www-rep.perseids.org:/usr/local/arethusa-configs/dist
+scp -i ~/.ssh/perseidskey.pem dist/harrington.json deployer@www.perseids.org:/usr/local/arethusa-configs/dist
+
+# epifacs_demo
+cd
+git clone https://github.com/PerseusDL/epifacs_demo
+rsync -av -e "ssh -i /home/ubuntu/.ssh/perseidskey.pem" src deployer@www.perseids.org:/usr/local/epifacs_demo
+

@@ -58,7 +58,28 @@ vi /etc/apache2/conf-enabled/tomcat.conf
 # ProxyPassReverse /ccm http://localhost:8080/cite-collection-manager-0.0.1
 # ProxyPass /collections http://localhost:8080/citefusioncoll-0.2.0
 # ProxyPassReverse /collections http://localhost:8080/citefusioncoll-0.2.0
+# ProxyPass /xsugar http://localhost:8080/xsugar.standalone-1
+# ProxyPassReverse /xsugar http://localhost:8080/xsugar.standalone-1
 #Header set Access-Control-Allow-Origin "*"
 #Header set Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept"
 
+# build and deploy llt
+# see build.setup.sh
 
+# build and deploy cite_mapper
+# see build.setup.sh
+
+# build and deploy ccm
+# see build.setup.sh
+
+# build and deploy collections
+# see build.setup.sh
+
+# build and deploy xsugar
+# perseus_shibboleth branch of sosol
+# cd vendor/plugins/rxsugar/src/standalone
+# vi pom.xml
+# add <packaging>war</packaging>
+# mvn package
+# cp target/xsugar.standalone-1.war to services2.perseids.org:/var/lib/tomcat/webapps/sosol
+# 
