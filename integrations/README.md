@@ -69,7 +69,11 @@ See the [Perseids Data Management Apis](https://github.com/PerseusDL/perseids_do
 _Developer Skills required:_ Understanding of RESTful APIs, plus whatever knowledge is required for development of the external web application
 
 ## Developing a new Arethusa UI Plugin
-The [Arethusa Annotation Framework](https://github.com/latin-language-toolkit/arethusa) has been integrated with Perseids SoSOL to provide an alternative, more fluid user experience for working with annotations of multiple types on a single document or set of documents. 
+The [Arethusa Annotation Framework](https://github.com/latin-language-toolkit/arethusa) has been integrated with Perseids SoSOL to provide an alternative, more fluid user experience for working with annotations of multiple types on a single document or set of documents. Arethusa's design is intended to fill a number of important goals:
+
+1. to make annotating accessible and enjoyable, lowering the entry barrier for the user by providing access to related resources and services at the point of annotation.  
+2. to make the developer's job easier, by giving her tools and a framework for adding new functionality in a modular fashion and for binding diverse resources together in new ways.
+3. to be fully open and have the ability to participate in external workflows that route digital content, together with its provenance, to and from diverse destinations.
 
 Arethusa is built on the [angular.js](https://angularjs.org/) javascript web application framework and provides a back-end independent plugin infrastructure for accessing texts, annotations, linguistic services from a variety of sources. Arethusa leverages javascript APIs and HTML templates, as well as command line tools for automatic generation of plugin skeletons, to make it very easy for developers with HTML 5 and Javascript skills to customize the platform and add additional features.
 
