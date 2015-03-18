@@ -15,6 +15,10 @@ Right now, we can see some design issues in the way Capitains has been regroupin
 
 It might be quickly needed to leave PerseusDL repository for a Capitains organization. This would still be labelled Perseus but if we want to build a strong community around those tools, it should be easy to know what is available and exploding repo such as Toolkit and Sparrow will have browsing/discovering consequences.
 
+Comments from @balmas:
+- agree with move to a separate repo
+- can/should we pull the XQuery for from Capitains-Toolkit from the original source Alpheios repo? (https://github.com/alpheios-project/cts-api) ?  Ideally we would have some release/versioning in place for that as well...
+
 ## CTS Addon ?
 The project has been enlarged again and again but always with the restriction of being limited by what CTS Specs offer. Through, as Capitains is meant to help convince people that CTS is great, and as use case grow faster than they should, it might be time for a Capitains-CTS-Addon, which would be optional to install, focus on existDB implementations for now, be potentially enlarged with BaseX and be a source of many collaborations.
 
@@ -23,6 +27,9 @@ Unlike the three first Capitains tools, I think this tool (or simply xQuery) wil
 - FullText Search
 - Curated references (If this is not done by main CTS specs)
 - ?
+
+Comments from @balmas
+- do we also want to consider the CTS-X extensions from Perseids, which include read/write features for CTS data (e.g PutPassage)?
 
 ## CTS XQuery Wrapper
 Another part to work for would be to build an xQuery tunnel application which could take care, in REST manner OR in current ?request= manner, of querying the database, caching and allow enhancement on the scaling front.
