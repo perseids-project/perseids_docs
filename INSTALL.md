@@ -23,6 +23,9 @@ Our AWS profile has this security-group preconfigured.
 	supo apt-get install wget
 	sudo apt-get install tomcat6
 	sudo apt-get install postgresql
+	sudo apt-get install apache2
+	sudo a2enmod proxy
+	sudo a2enmod proxy_http
 
 # Install rvm
 	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
@@ -45,6 +48,8 @@ Our AWS profile has this security-group preconfigured.
 	sudo chown -R sosol:sosol /usr/local/sosol
         mkdir /usr/local/eXist-1.4.1
         mkdir /usr/local/eXist-2.2
+        mkdir /var/www/tools
+        mkdir /var/www/perseids-client-apps
 	sudo chown -R sosol:sosol /usr/local/eXist-1.4.1
 	sudo chown -R sosol:sosol /usr/local/eXist-2.2
 	su - sosol
@@ -120,23 +125,22 @@ https://github.com/latin-language-toolkit/llt/blob/master/DEPLOY.md
 
 These services are used by the OA annotation (the treebank editor uses them too, but doesn't have the same issue with localhost as that uses a POST rather than feeding a URI to the service)
 
-# Install Apache2 and mod_proxy
-
-sudo apt-get install apache2
-sudo a2enmod proxy
-sudo a2enmod proxy_http
-
 # Install Apache-served tools 
 
 ## Annotation Editor
 
-cd /var/www
+cd /var/www/tools
 sudo git clone https://github.com/PerseusDL/annotation-editor
 
 ## Arethusa
 
-TODO - see https://github.com/latin-language-toolkit/arethusa-cli
+cd /var/www/tools
+sudo git clone https://github.com/latin-language-toolkit/arethusa
 
+## Perseids Client Apps
+
+cd /var/www/perseids-client-apps
+sudo git clone https://github.com/PerseusDL/perseids-client-apps
 
 # Prepare the canonical.git repo aka "read-write" data
 
