@@ -5,7 +5,6 @@ Estimated install time: 4 hours
 
 ## Security Group
 Make sure your instance's security-group allows TCP traffic over ports 3000 and 8080
-Our AWS profile has this security-group preconfigured.
 
 * sosol-rails
 
@@ -22,35 +21,35 @@ Our AWS profile has this security-group preconfigured.
 	sudo apt-get install tomcat6
 	sudo apt-get install postgresql
 	sudo apt-get install apache2
-	sudo a2enmod proxy
-	sudo a2enmod proxy_http
 
 # Install rvm
 	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 	\curl -sSL https://get.rvm.io | bash -s stable
 	source /etc/profile.d/rvm.sh
 
-# Install jruby-1.7.11
-	rvm install jruby-1.7.11
+# Install jruby-1.7.16
+	rvm install jruby-1.7.16
 	rvm --default use jruby-1.7.11
 
 # Install rails
 	gem install rails -v 3.2.3
-
 
 # Create sosol user and make it owner of a bunch of directories
         addgrp sosol
         useradd sosol -m -s /bin/bash -g sosol
         chown -R sosol:sosol /usr/local/rvm
         mkdir /usr/local/sosol
-	sudo chown -R sosol:sosol /usr/local/sosol
+        sudo chown -R sosol:sosol /usr/local/sosol
         mkdir /usr/local/eXist-1.4.1
         mkdir /usr/local/eXist-2.2
-        mkdir /var/www/tools
-        mkdir /var/www/perseids-client-apps
-	sudo chown -R sosol:sosol /usr/local/eXist-1.4.1
-	sudo chown -R sosol:sosol /usr/local/eXist-2.2
-	su - sosol
+        mkdir /usr/local/annotation-editor
+        mkdir /usr/local/arethusa
+        mkdir /usr/local/perseids-client-apps
+        sudo chown -R sosol:sosol /usr/local/eXist-1.4.1
+        sudo chown -R sosol:sosol /usr/local/perseids-client-apps
+        sudo chown -R sosol:sosol /usr/local/annotation-editor
+        sudo chown -R sosol:sosol /usr/local/arethusa
+        su - sosol
 	
 # Clone sosol project and switch to the rails-3-perseus_merge branch
 	git clone https://github.com/sosol/sosol /usr/local/sosol
@@ -67,10 +66,14 @@ Download
 Install
 
 	java -jar eXist-setup-1.4.1-rev15155.jar -p /usr/local/eXist-1.4.1
-	java -jar eXist-db-setup-2.2.jar -p /usr/local/eXist-2.2
-	cp /usr/local/eXist-2.2/tools/wrapperbin /usr/local/eXist1.4.1/tools/wrapper/bin
+	cd /usr/local/eXist-2.2
+	java -jar eXist-db-setup-2.2.jar
+	sudo chown -R sosol:sosol /usr/local/eXist-2.2
+	cp /usr/local/eXist-2.2/tools/wrapper/bin/wrapper-linux-x86-65 /usr/local/eXist1.4.1/tools/wrapper/bin/wrapper
 
 Edit /usr/local/eXist-1.4.1/tools/wrapper/conf/wrapper.conf to set jetty.port = 8800	
+
+TODO eXist 2.2 install fails, requires Java 7
 
 ## Install CTS API and Tools into eXist
 
@@ -123,7 +126,10 @@ https://github.com/latin-language-toolkit/llt/blob/master/DEPLOY.md
 
 These services are used by the OA annotation (the treebank editor uses them too, but doesn't have the same issue with localhost as that uses a POST rather than feeding a URI to the service)
 
-# Install Apache-served tools 
+# Setup Apache and Install Client-Side Tools
+
+	sudo a2enmod proxy
+	sudo a2enmod proxy_http
 
 ## Annotation Editor
 
