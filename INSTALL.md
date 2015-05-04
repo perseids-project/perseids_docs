@@ -1,8 +1,6 @@
 Estimated install time: 4 hours
 
 ## Base Environment
-* Amazon AWS
-* m1.small
 * Ubuntu 12.04
 
 ## Security Group
