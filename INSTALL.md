@@ -22,17 +22,11 @@ Our AWS profile has this security-group preconfigured.
 	sudo apt-get install lynx
 	sudo apt-get install curl
 
-# Create sosol user
-        addgrp sosol
-        useradd sosol -m -s /bin/bash -g sosol
-        su - sosol
-
 # Install rvm
 	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 	\curl -sSL https://get.rvm.io | bash -s stable
 	source /etc/profile.d/rvm.sh
-        echo "source $HOME/.rvm/scripts/rvm" >> ~/.bash_profile
-	
+
 # Install jruby-1.7.11
 	rvm install jruby-1.7.11
 	rvm --default use jruby-1.7.11
@@ -40,6 +34,13 @@ Our AWS profile has this security-group preconfigured.
 # Install rails
 	gem install rails -v 3.2.3
 
+
+# Create sosol user
+        addgrp sosol
+        useradd sosol -m -s /bin/bash -g sosol
+        su - sosol
+
+       
 # Clone sosol project and switch to the rails-3-perseus_merge branch
         mkdir /usr/local/sosol
 	sudo chown -R sosol:sosol /usr/local/sosol
