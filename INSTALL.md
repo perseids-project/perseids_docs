@@ -65,8 +65,9 @@ Install
 
 	java -jar eXist-setup-1.4.1-rev15155.jar -p /usr/local/eXist-1.4.1
 	java -jar eXist-db-setup-2.2.jar -p /usr/local/eXist-2.2
-	
-TODO - we need to get updated wrapper code from 2.1 install
+	cp /usr/local/eXist-2.2/tools/wrapperbin /usr/local/eXist1.4.1/tools/wrapper/bin
+
+Edit /usr/local/eXist-1.4.1/tools/wrapper/conf/wrapper.conf to set jetty.port = 8800	
 
 ## Install CTS API and Tools into eXist
 
