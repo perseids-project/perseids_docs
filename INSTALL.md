@@ -45,10 +45,12 @@ Make sure your instance's security-group allows TCP traffic over ports 3000 and 
         mkdir /usr/local/annotation-editor
         mkdir /usr/local/arethusa
         mkdir /usr/local/perseids-client-apps
+        mkdir /usr/local/gitrepos
         sudo chown -R sosol:sosol /usr/local/eXist-1.4.1
         sudo chown -R sosol:sosol /usr/local/perseids-client-apps
         sudo chown -R sosol:sosol /usr/local/annotation-editor
         sudo chown -R sosol:sosol /usr/local/arethusa
+        sudo chown -R sosol:sosol /usr/local/gitrepos
         su - sosol
 	
 # Clone sosol project and switch to the rails-3-perseus_merge branch
@@ -150,22 +152,8 @@ sudo git clone https://github.com/PerseusDL/perseids-client-apps
 
 Note that the default installation instructions for sosol have this as a rake tasks which will install the default papyri.info db (        bundle exec rake git:db:canonical:clone) -- we will skip that step in favor of these for now -- eventually should have a perseids version of this task.
 
-	sudo mkdir -p /usr/local/gitrepos
 	cd /usr/local/gitrepos
-
-## for a dev/test environment
-
-	sudo git clone --bare  https://github.com/PerseusDL/perseids_canonical_dev.git canonical.git
-
-## for a production environment
-
-TODO - the perseids repo and the perseusdl repo need to be merged and forked from a common root on github
-
-        git clone --bare ubuntu@sosol.perseids.org:/usr/local/gitrepos/canonical.git 
-
-## change the ownership of the canonical repo
-
-The repo must be read/writeable by the user running the core sosol application. For production environments under tomcat this might be tomcat6:tomcat6. For dev environments it's likely to be your own user id
+	git clone --bare  https://github.com/PerseusDL/perseids_canonical_dev.git canonical.git
 
 ## create a local clone of the bare repo
 
@@ -176,14 +164,8 @@ It's useful to have a local clone of the canonical repo for file maintenance.
 
 # Prepare the inventory files
 You have to load inventory files and their indices for the Persieds CTS selector to work properly.
-
-## for the dev environmnet
-
 The perseids-dev.xml inventory file can be found in the CTS_XML_TextInventory directory of the perseids_canonical_dev repo.  This needs to be uploaded to the eXist db/repository/inventory directory.
 
-## For the production environment 
-
-TODO this needs to be simplified see above comment about need to merge perseus and perseids canonical repos -- this should be addressed with that and we should straighten that out before trying to script anything for this.
 
 Get a local clone of the PerseusDL/canonical.git repo:
 
