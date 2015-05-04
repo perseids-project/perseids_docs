@@ -107,7 +107,7 @@ The test and dev environments can use the default llt tokenize and segtok servic
 
 See deploy instructions for these services at :
 
-https://github.com/latin-language-toolkit/llt
+https://github.com/latin-language-toolkit/llt/blob/master/DEPLOY.md
 
 (Note they depend also on postgresql)
 
