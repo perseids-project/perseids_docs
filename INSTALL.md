@@ -128,6 +128,10 @@ https://github.com/latin-language-toolkit/llt/blob/master/DEPLOY.md
 
 These services are used by the OA annotation (the treebank editor uses them too, but doesn't have the same issue with localhost as that uses a POST rather than feeding a URI to the service)
 
+# Setup cite_mapper service
+
+TODO
+
 # Setup Apache and Install Client-Side Tools
 
 	sudo a2enmod proxy
