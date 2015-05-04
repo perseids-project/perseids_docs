@@ -22,19 +22,23 @@ Make sure your instance's security-group allows TCP traffic over ports 3000 and 
 	sudo apt-get install postgresql
 	sudo apt-get install apache2
 
-# Install rvm
+# Install Ruby and Dependencies
+## Install rvm
 	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 	\curl -sSL https://get.rvm.io | bash -s stable
 	source /etc/profile.d/rvm.sh
 
-# Install jruby-1.7.16
+## Install jruby-1.7.16
 	rvm install jruby-1.7.16
 
-# Install jruby-2.0
+## Install jruby-2.0
 	rvm install ruby-2.0.0.p594
 	rvm --default use ruby-2.0.0.p594
-
-# Install rails
+	
+## Install Bundler
+        gem install bundler
+        
+## Install rails
 	gem install rails -v 3.2.3
 
 # Create sosol user and make it owner of a bunch of directories
