@@ -19,7 +19,6 @@ Our AWS profile has this security-group preconfigured.
 	sudo apt-get install git
 	sudo apt-get install subversion
 	sudo apt-get install openjdk-6-jre
-	sudo apt-get install lynx
 	sudo apt-get install curl
 
 # Install rvm
@@ -51,12 +50,7 @@ Our AWS profile has this security-group preconfigured.
 Download
 
 	cd ~
-	lynx http://sourceforge.net/projects/exist/files/Stable/1.4.1/
-		eXist-setup-1.4.1-rev15155.jar [ENTER]
-		direct link [ENTER]
-		D)ownload
-		Save to Disk [ENTER] [ENTER]
-		Q)uit [y]
+	wget http://downloads.sourceforge.net/project/exist/Stable/1.4.1/eXist-setup-1.4.1-rev15155.jar
 
 Install
 
