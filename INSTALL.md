@@ -44,7 +44,9 @@ Our AWS profile has this security-group preconfigured.
         mkdir /usr/local/sosol
 	sudo chown -R sosol:sosol /usr/local/sosol
         mkdir /usr/local/eXist-1.4.1
+        mkdir /usr/local/eXist-2.2
 	sudo chown -R sosol:sosol /usr/local/eXist-1.4.1
+	sudo chown -R sosol:sosol /usr/local/eXist-2.2
 	su - sosol
 	
 # Clone sosol project and switch to the rails-3-perseus_merge branch
@@ -52,15 +54,17 @@ Our AWS profile has this security-group preconfigured.
 	cd /usr/local/sosol
 	git checkout -b rails-3-perseus-merge origin/rails-3-perseus-merge
 
-# Install eXist db 1.4.1
+# Install eXist db 
 Download
 
 	cd ~
 	wget http://downloads.sourceforge.net/project/exist/Stable/1.4.1/eXist-setup-1.4.1-rev15155.jar
+	wget http://downloads.sourceforge.net/project/exist/Stable/2.2/eXist-db-setup-2.2.jar
 
 Install
 
-	java -jar eXist-setup-1.4.1-rev15155.jar -p /usr/local/exist-1.4.1
+	java -jar eXist-setup-1.4.1-rev15155.jar -p /usr/local/eXist-1.4.1
+	java -jar eXist-db-setup-2.2.jar -p /usr/local/eXist-2.2
 	
 TODO - we need to get updated wrapper code from 2.1 install
 
