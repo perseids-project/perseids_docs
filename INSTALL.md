@@ -85,25 +85,9 @@ http://localhost:8080/exist/rest/db/xq/CTS.xq?request=GetPassage&urn=urn:cts:gre
 
 TODO provide sample output for testing against.
 
-## Install Alpheios edit utils into eXist
+## Install Arethusa
 
-Download the code as a restorable zip from https://github.com/alpheios-project/edit-utils/archive/master.zip
-
-Restore from this zip using the eXist client Tools/Restore (or use command line restore option - I think usr/local/exist/bin/backup.sh -u admin -r master.zip should work but didn't test)
-
-
-## Install the Treebank Editor into eXist
-
-Download the code as a restorable zip from https://github.com/alpheios-project/treebank-editor/archive/master.zip
-
-Edit the following files in the zip to replace instances of localhost with the server name of your deployment environment:
-
-/db/app/treebank-entertext-perseids-test.xml  
-/db/app/treebank-editsentence-perseids-test.xml  
-
-Restore from this zip using the eXist client Tools/Restore (or use command line restore option  I think usr/local/exist/bin/backup.sh -u admin -r master.zip should work but didn't test)
-
-TODO Verify that the basics of the editor are working via the following URLS:
+TBD
 
 ## Install the Alignment Editor into eXist
 Download the code as a restorable zip from https://github.com/alpheios-project/alignment-editor/archive/master.zip
@@ -116,6 +100,10 @@ Restore from this zip using the eXist client Tools/Restore (or use command line 
 
 TODO Verify that the basics of the editor are working via the following URLS:
 
+
+## Install Annotation Editor
+
+TBD
 
 ## Setup Annotation Sources
 
