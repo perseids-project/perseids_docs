@@ -38,12 +38,11 @@ Our AWS profile has this security-group preconfigured.
 # Create sosol user
         addgrp sosol
         useradd sosol -m -s /bin/bash -g sosol
-        su - sosol
-
-       
+        
 # Clone sosol project and switch to the rails-3-perseus_merge branch
         mkdir /usr/local/sosol
 	sudo chown -R sosol:sosol /usr/local/sosol
+	su - sosol
 	git clone https://github.com/sosol/sosol /usr/local/sosol
 	cd /usr/local/sosol
 	git checkout -b rails-3-perseus-merge origin/rails-3-perseus-merge
