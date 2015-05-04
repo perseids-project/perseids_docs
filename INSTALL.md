@@ -21,6 +21,8 @@ Our AWS profile has this security-group preconfigured.
 	sudo apt-get install openjdk-6-jre
 	sudo apt-get install curl
 	supo apt-get install wget
+	sudo apt-get install tomcat6
+	sudo apt-get install postgresql
 
 # Install rvm
 	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
