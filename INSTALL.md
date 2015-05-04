@@ -132,6 +132,10 @@ These services are used by the OA annotation (the treebank editor uses them too,
 
 TODO
 
+# Setup image services
+
+TODO 
+
 # Setup Apache and Install Client-Side Tools
 
 	sudo a2enmod proxy
