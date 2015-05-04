@@ -35,14 +35,17 @@ Our AWS profile has this security-group preconfigured.
 	gem install rails -v 3.2.3
 
 
-# Create sosol user
+# Create sosol user and make it owner of a bunch of directories
         addgrp sosol
         useradd sosol -m -s /bin/bash -g sosol
-        
-# Clone sosol project and switch to the rails-3-perseus_merge branch
+        chown -R sosol:sosol /usr/local/rvm
         mkdir /usr/local/sosol
 	sudo chown -R sosol:sosol /usr/local/sosol
+        mkdir /usr/local/eXist-1.4.1
+	sudo chown -R sosol:sosol /usr/local/eXist-1.4.1
 	su - sosol
+	
+# Clone sosol project and switch to the rails-3-perseus_merge branch
 	git clone https://github.com/sosol/sosol /usr/local/sosol
 	cd /usr/local/sosol
 	git checkout -b rails-3-perseus-merge origin/rails-3-perseus-merge
@@ -55,7 +58,7 @@ Download
 
 Install
 
-	java -jar eXist-setup-1.4.1-rev15155.jar -p /usr/local/exist
+	java -jar eXist-setup-1.4.1-rev15155.jar -p /usr/local/exist-1.4.1
 	
 TODO - we need to get updated wrapper code from 2.1 install
 
