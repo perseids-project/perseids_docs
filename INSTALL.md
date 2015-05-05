@@ -30,10 +30,7 @@ Make sure your instance's security-group allows TCP traffic over ports 3000 and 
 
 ## Install jruby-1.7.16
 	rvm install jruby-1.7.16
-
-## Install jruby-2.0
-	rvm install ruby-2.0.0.p594
-	rvm --default use ruby-2.0.0.p594
+	rvm --default use jruby-1.7.16
 	
 ## Install Bundler
         gem install bundler
