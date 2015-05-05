@@ -21,6 +21,8 @@ Make sure your instance's security-group allows TCP traffic over ports 3000 and 
 	sudo apt-get install tomcat6
 	sudo apt-get install postgresql
 	sudo apt-get install apache2
+	sudo a2enmod proxy
+	sudo a2enmod proxy_http
 
 # Install Ruby and Dependencies
 ## Install rvm
@@ -38,25 +40,16 @@ Make sure your instance's security-group allows TCP traffic over ports 3000 and 
 ## Install rails
 	gem install rails -v 3.2.3
 
-# Create sosol user and make it owner of a bunch of directories
+# Create sosol user and make it owner of /usr/local
         addgrp sosol
         useradd sosol -m -s /bin/bash -g sosol
-        chown -R sosol:sosol /usr/local/rvm
+        chown -R sosol:sosol /usr/local
         mkdir /usr/local/sosol
         sudo chown -R sosol:sosol /usr/local/sosol
-        mkdir /usr/local/eXist-1.4.1
-        mkdir /usr/local/eXist-2.2
-        mkdir /usr/local/annotation-editor
-        mkdir /usr/local/arethusa
-        mkdir /usr/local/perseids-client-apps
-        mkdir /usr/local/gitrepos
-        sudo chown -R sosol:sosol /usr/local/eXist-1.4.1
-        sudo chown -R sosol:sosol /usr/local/perseids-client-apps
-        sudo chown -R sosol:sosol /usr/local/annotation-editor
-        sudo chown -R sosol:sosol /usr/local/arethusa
-        sudo chown -R sosol:sosol /usr/local/gitrepos
         su - sosol
-	
+
+Everything from here on out should be as sosol user
+
 # Clone sosol project and switch to the rails-3-perseus_merge branch
 	git clone https://github.com/sosol/sosol /usr/local/sosol
 	cd /usr/local/sosol
@@ -71,10 +64,11 @@ Download
 
 Install
 
+        mkdir /usr/local/eXist-1.4.1
+        mkdir /usr/local/eXist-2.2
 	java -jar eXist-setup-1.4.1-rev15155.jar -p /usr/local/eXist-1.4.1
 	cd /usr/local/eXist-2.2
 	java -jar eXist-db-setup-2.2.jar
-	sudo chown -R sosol:sosol /usr/local/eXist-2.2
 	cp /usr/local/eXist-2.2/tools/wrapper/bin/wrapper-linux-x86-65 /usr/local/eXist1.4.1/tools/wrapper/bin/wrapper
 
 Edit /usr/local/eXist-1.4.1/tools/wrapper/conf/wrapper.conf to set jetty.port = 8800	
@@ -140,25 +134,22 @@ TODO
 
 TODO 
 
-# Setup Apache and Install Client-Side Tools
-
-	sudo a2enmod proxy
-	sudo a2enmod proxy_http
+# Install Client-Side Tools
 
 ## Annotation Editor
 
-cd /var/www/tools
-sudo git clone https://github.com/PerseusDL/annotation-editor
+        cd /usr/local
+        sudo git clone https://github.com/PerseusDL/annotation-editor
 
 ## Arethusa
 
-cd /var/www/tools
-sudo git clone https://github.com/latin-language-toolkit/arethusa
+        cd /usr/local
+        sudo git clone https://github.com/latin-language-toolkit/arethusa
 
 ## Perseids Client Apps
 
-cd /var/www/perseids-client-apps
-sudo git clone https://github.com/PerseusDL/perseids-client-apps
+       cd /usr/local
+       sudo git clone https://github.com/PerseusDL/perseids-client-apps
 
 # Prepare the canonical.git repo aka "read-write" data
 
