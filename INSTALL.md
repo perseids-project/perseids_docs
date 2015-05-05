@@ -77,6 +77,8 @@ TODO eXist 2.2 install fails, requires Java 7
 
 ## Install CTS API and Tools into eXist
 
+TODO replace all this with Capitains Toolkit setup...
+
 Start the eXist server
 
 ## Install the Alpheios CTS API into eXist
