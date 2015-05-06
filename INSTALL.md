@@ -23,6 +23,7 @@ Make sure your instance's security-group allows TCP traffic over ports 3000 and 
 	sudo apt-get install apache2
 	sudo a2enmod proxy
 	sudo a2enmod proxy_http
+	
 
 # Install Ruby and Dependencies
 ## Install rvm
@@ -145,8 +146,19 @@ TODO
 
 ## Arethusa
 
+### Install System Dependencies
+
+        curl -sL https://deb.nodesource.com/setup | sudo bash -
+        sudo apt-get install -y nodejs
+
+### Get Code
+
         cd /usr/local
         sudo git clone https://github.com/latin-language-toolkit/arethusa
+
+### Install
+
+Follow install instructions in Arethusa's README.md
 
 ## Perseids Client Apps
 
