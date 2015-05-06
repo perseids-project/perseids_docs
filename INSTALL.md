@@ -160,6 +160,8 @@ TODO
 
 Follow install instructions in Arethusa's README.md
 
+        grunt minify:all
+        
 ## Perseids Client Apps
 
        cd /usr/local
