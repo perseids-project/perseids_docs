@@ -187,6 +187,8 @@ Follow install instructions in Arethusa's README.md
        virtualenv -p /usr/bin/python3.4 flask
        flask/bin/pip install -r requirements.txt
        source flask/bin/activate
+       cd app
+       bower install
        
 # Prepare the canonical.git repo aka "read-write" data
 
