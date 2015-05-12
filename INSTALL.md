@@ -178,6 +178,7 @@ Follow install instructions in Arethusa's README.md
         sudo python ez_setup.py
         sudo easy_install pip
         sudo pip install virtualenv
+        # apt-get install libapache2-mod-wsgi
 
 ### Code
        cd /usr/local
