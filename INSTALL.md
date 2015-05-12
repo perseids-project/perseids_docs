@@ -164,9 +164,23 @@ Follow install instructions in Arethusa's README.md
         
 ## Perseids Client Apps
 
+### System Dependecies
+       sudo add-apt-repository ppa:fkrull/deadsnakes
+       sudo apt-get update
+       sudo apt-get install python3.4
+       sudo apt-get install python3.4-dev
+       wget http://peak.telecommunity.com/dist/ez_setup.py; sudo python ez_setup.py
+       sudo easy_install pip
+       sudo pip install virtualenv
+
        cd /usr/local
        sudo git clone https://github.com/PerseusDL/perseids-client-apps
-
+       cd perseids-client-apps
+       virtualenv -p /usr/bin/python3.4 flask
+       flask/bin/pip install -r requirements.txt
+       flask/bin/pip install -r Ahab/requirements.txt
+       source flask/bin/activate
+       
 # Prepare the canonical.git repo aka "read-write" data
 
 Note that the default installation instructions for sosol have this as a rake tasks which will install the default papyri.info db (        bundle exec rake git:db:canonical:clone) -- we will skip that step in favor of these for now -- eventually should have a perseids version of this task.
