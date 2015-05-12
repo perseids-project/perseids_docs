@@ -165,20 +165,26 @@ Follow install instructions in Arethusa's README.md
 ## Perseids Client Apps
 
 ### System Dependecies
-       sudo add-apt-repository ppa:fkrull/deadsnakes
-       sudo apt-get update
-       sudo apt-get install python3.4
-       sudo apt-get install python3.4-dev
-       wget http://peak.telecommunity.com/dist/ez_setup.py; sudo python ez_setup.py
-       sudo easy_install pip
-       sudo pip install virtualenv
+        sudo apt-get install python-software-properites
+        sudo apt-get install python-software-properties
+        sudo apt-get install apt-file
+        sudo apt-file update
+        sudo apt-file search add-apt-repository
+        sudo add-apt-repository ppa:fkrull/deadsnakes
+        sudo apt-get update
+        sudo apt-get install python3.4
+        sudo apt-get install python3.4-dev
+        wget http://peak.telecommunity.com/dist/ez_setup.py; 
+        sudo python ez_setup.py
+        sudo easy_install pip
+        sudo pip install virtualenv
 
+### Code
        cd /usr/local
        sudo git clone https://github.com/PerseusDL/perseids-client-apps
        cd perseids-client-apps
        virtualenv -p /usr/bin/python3.4 flask
        flask/bin/pip install -r requirements.txt
-       flask/bin/pip install -r Ahab/requirements.txt
        source flask/bin/activate
        
 # Prepare the canonical.git repo aka "read-write" data
