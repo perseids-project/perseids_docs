@@ -4,7 +4,7 @@ These steps can and should all be optimized via a Dockerfile but for now, here a
 
 ```docker pull balmas/perseidsdev:latest```
 
-```docker run -t -i -p 80:80 -p 8800:8800 -p 3000:3000 --expose 80 --expose 8800 --expose 3000 balmas/perseidsdev```
+```docker run -t -i -p 80:80 -p 8800:8800 -p 3000:3000 --expose 80 --expose 8800 --expose 3000 balmas/perseidsdev bash```
 
 ```cd /usr/local/eXist-1.4.1/tools/wrapper/bin```
 
