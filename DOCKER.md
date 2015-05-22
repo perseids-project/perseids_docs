@@ -8,6 +8,7 @@ cd /usr/local/eXist-1.4.1/tools/wrapper/bin
 ./exist.sh start
 
 service tomcat6 start (it says FAILED but it starts -- need to resolve why wrong report still)
+
 service apache2 start
 
 su - sosol
