@@ -12,6 +12,7 @@ service tomcat6 start (it says FAILED but it starts -- need to resolve why wrong
 service apache2 start
 
 su - sosol
+
 source ~/.bashrc
 
 cd /usr/local/sosol
