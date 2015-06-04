@@ -1,0 +1,24 @@
+@prefix cnt: <http://www.w3.org/2011/content#> .
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lawd: <http://lawd.info/ontology/> .
+@prefix lode: <http://linkedevents.org/ontology/#> .
+@prefix ns1: <http://onto.snapdrgn.net/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix perseus: <http://data.perseus.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix snap: <http://onto.snapdrgn.net/snap#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.perseus.org/collections/urn:cite:perseus:pdlann.141.1/graph#1> {
+
+<http://data.perseus.org/people/smith:Diomedes-1> snap:has-bond <http://data.perseus.org/collections/urn:cite:perseus:pdlann.141.1/graph#1-rel-1>.
+<http://data.perseus.org/collections/urn:cite:perseus:pdlann.141.1/graph#1-rel-1> 
+    rdf:type snap:SonOf ;
+    snap:bond-with <http://data.perseus.org/people/smith:Tydeus-1> .
+
+}

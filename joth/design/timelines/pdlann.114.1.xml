@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:oa="http://www.w3.org/ns/oa#" xmlns:perseus="http://data.perseus.org/" xmlns:lawd="http://lawd.info/ontology/" xmlns:lode="http://linkedevents.org/ontology/#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:cnt="http://www.w3.org/2011/content#" xmlns:dcmit="http://purl.org/dc/dcmitype/">
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#1-1">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/cre1l"/>
+    <dcterms:title>Pitcher With Herakles Wrestling Triton</dcterms:title>
+    <oa:hasTarget rdf:resource="http://www.getty.edu/art/gettyguide/artObjectDetails?artobj=109803"/>
+    <oa:motivatedBy rdf:resource="http://linkedevents.org/ontology/#term-circa"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#tagging"/>
+    <oa:hasBody>
+      <oa:Tag rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#1-1-tag">
+        <cnt:chars>-0520/-0510</cnt:chars>
+        <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
+        <rdf:type rdf:resource="http://purl.org/dc/dcmitype/Date"/>
+      </oa:Tag>
+    </oa:hasBody>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#1-2">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/cre1l"/>
+    <dcterms:title>Pitcher With Herakles Wrestling Triton</dcterms:title>
+    <oa:hasTarget rdf:resource="http://www.getty.edu/art/gettyguide/artObjectDetails?artobj=109803"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#identifying"/>
+    <oa:hasBody rdf:resource="http://pleiades.stoa.org/places/579885/dare-location"/>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#2-1">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/chk2m"/>
+    <dcterms:title>Water Jug (Hydria)</dcterms:title>
+    <oa:hasTarget rdf:resource="http://www.mfa.org/collections/object/water-jug-hydria-153446"/>
+    <oa:motivatedBy rdf:resource="http://linkedevents.org/ontology/#term-circa"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#tagging"/>
+    <oa:hasBody>
+      <oa:Tag rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#2-1-tag">
+        <cnt:chars>-0520</cnt:chars>
+        <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
+        <rdf:type rdf:resource="http://purl.org/dc/dcmitype/Date"/>
+      </oa:Tag>
+    </oa:hasBody>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#2-2">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/chk2m"/>
+    <dcterms:title>Water Jug (Hydria)</dcterms:title>
+    <oa:hasTarget rdf:resource="http://www.mfa.org/collections/object/water-jug-hydria-153446"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#identifying"/>
+    <oa:hasBody rdf:resource="Unknown"/>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#3-1">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/ciyn3"/>
+    <dcterms:title>Heracles, Euripides</dcterms:title>
+    <oa:hasTarget>
+      <lawd:Citation rdf:about="http://data.perseus.org/citations/urn:cts:greekLit:tlg0006.tlg009.perseus-eng1:1-25">
+        <lawd:represents>
+          <lawd:WrittenWork rdf:about="urn:cts:greekLit:tlg0006.tlg009.perseus-eng1">
+            <lawd:embodies>
+              <lawd:ConceptualWork rdf:about="urn:cts:greekLit:tlg0006.tlg009"/>
+            </lawd:embodies>
+            <rdfs:isDefinedBy rdf:resource="http://data.perseus.org/catalog/urn:cts:greekLit:tlg0006.tlg009.perseus-eng1:1-25"/>
+          </lawd:WrittenWork>
+        </lawd:represents>
+        <foaf:homepage rdf:resource="http://data.perseus.org/citations/urn:cts:greekLit:tlg0006.tlg009.perseus-eng1:1-25"/>
+      </lawd:Citation>
+    </oa:hasTarget>
+    <oa:motivatedBy rdf:resource="http://linkedevents.org/ontology/#term-circa"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#tagging"/>
+    <oa:hasBody>
+      <oa:Tag rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#3-1-tag">
+        <cnt:chars>-0406</cnt:chars>
+        <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
+        <rdf:type rdf:resource="http://purl.org/dc/dcmitype/Date"/>
+      </oa:Tag>
+    </oa:hasBody>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#3-2">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/ciyn3"/>
+    <dcterms:title>Heracles, Euripides</dcterms:title>
+    <oa:hasTarget>
+      <lawd:Citation rdf:about="http://data.perseus.org/citations/urn:cts:greekLit:tlg0006.tlg009.perseus-eng1:1-25">
+        <lawd:represents>
+          <lawd:WrittenWork rdf:about="urn:cts:greekLit:tlg0006.tlg009.perseus-eng1">
+            <lawd:embodies>
+              <lawd:ConceptualWork rdf:about="urn:cts:greekLit:tlg0006.tlg009"/>
+            </lawd:embodies>
+            <rdfs:isDefinedBy rdf:resource="http://data.perseus.org/catalog/urn:cts:greekLit:tlg0006.tlg009.perseus-eng1:1-25"/>
+          </lawd:WrittenWork>
+        </lawd:represents>
+        <foaf:homepage rdf:resource="http://data.perseus.org/citations/urn:cts:greekLit:tlg0006.tlg009.perseus-eng1:1-25"/>
+      </lawd:Citation>
+    </oa:hasTarget>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#identifying"/>
+    <oa:hasBody rdf:resource="http://pleiades.stoa.org/places/580100#this"/>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#4-1">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/ckd7g"/>
+    <dcterms:title>Two-handled jar (amphora) with Herakles driving a bull to sacrifice</dcterms:title>
+    <oa:hasTarget rdf:resource="http://www.mfa.org/collections/object/two-handled-jar-amphora-with-herakles-driving-a-bull-to-sacrifice-153401"/>
+    <oa:motivatedBy rdf:resource="http://linkedevents.org/ontology/#term-circa"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#tagging"/>
+    <oa:hasBody>
+      <oa:Tag rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#4-1-tag">
+        <cnt:chars>-0525/-0520</cnt:chars>
+        <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
+        <rdf:type rdf:resource="http://purl.org/dc/dcmitype/Date"/>
+      </oa:Tag>
+    </oa:hasBody>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#5-1">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/clrrx"/>
+    <dcterms:title>Hydria (Water Jar)</dcterms:title>
+    <oa:hasTarget rdf:resource="http://www.mfa.org/collections/object/hydria-water-jar-153442"/>
+    <oa:motivatedBy rdf:resource="http://linkedevents.org/ontology/#term-circa"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#tagging"/>
+    <oa:hasBody>
+      <oa:Tag rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#5-1-tag">
+        <cnt:chars>-0525/-0525</cnt:chars>
+        <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
+        <rdf:type rdf:resource="http://purl.org/dc/dcmitype/Date"/>
+      </oa:Tag>
+    </oa:hasBody>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#5-2">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/clrrx"/>
+    <dcterms:title>Hydria (Water Jar)</dcterms:title>
+    <oa:hasTarget rdf:resource="http://www.mfa.org/collections/object/hydria-water-jar-153442"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#identifying"/>
+    <oa:hasBody rdf:resource="http://pleiades.stoa.org/places/579885#this"/>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#6-1">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/cyevm"/>
+    <dcterms:title>Stater of Phaistos with Herakles battling Hydra</dcterms:title>
+    <oa:hasTarget rdf:resource="http://www.mfa.org/collections/object/stater-of-phaistos-with-herakles-battling-hydra-3346"/>
+    <oa:motivatedBy rdf:resource="http://linkedevents.org/ontology/#term-circa"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#tagging"/>
+    <oa:hasBody>
+      <oa:Tag rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#6-1-tag">
+        <cnt:chars>-0380/-0340</cnt:chars>
+        <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
+        <rdf:type rdf:resource="http://purl.org/dc/dcmitype/Date"/>
+      </oa:Tag>
+    </oa:hasBody>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#6-2">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/cyevm"/>
+    <dcterms:title>Stater of Phaistos with Herakles battling Hydra</dcterms:title>
+    <oa:hasTarget rdf:resource="http://www.mfa.org/collections/object/stater-of-phaistos-with-herakles-battling-hydra-3346"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#identifying"/>
+    <oa:hasBody rdf:resource="http://pleiades.stoa.org/places/589987#this"/>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#7-1">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/cztg3"/>
+    <dcterms:title>Stater of Kyzikos with Herakles and tunny fish</dcterms:title>
+    <oa:hasTarget rdf:resource="http://www.mfa.org/collections/object/stater-of-kyzikos-with-herakles-and-tunny-fish-1987"/>
+    <oa:motivatedBy rdf:resource="http://linkedevents.org/ontology/#term-circa"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#tagging"/>
+    <oa:hasBody>
+      <oa:Tag rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#7-1-tag">
+        <cnt:chars>-0500/-0460</cnt:chars>
+        <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
+        <rdf:type rdf:resource="http://purl.org/dc/dcmitype/Date"/>
+      </oa:Tag>
+    </oa:hasBody>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#7-2">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/cztg3"/>
+    <dcterms:title>Stater of Kyzikos with Herakles and tunny fish</dcterms:title>
+    <oa:hasTarget rdf:resource="http://www.mfa.org/collections/object/stater-of-kyzikos-with-herakles-and-tunny-fish-1987"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#identifying"/>
+    <oa:hasBody rdf:resource="http://pleiades.stoa.org/places/511218#this"/>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#8-1">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/d180g"/>
+    <dcterms:title>Fragmentary water jar (hydria) with Herakles and Kerberos</dcterms:title>
+    <oa:hasTarget rdf:resource="http://www.mfa.org/collections/object/fragmentary-water-jar-hydria-with-herakles-and-kerberos-153910"/>
+    <oa:motivatedBy rdf:resource="http://linkedevents.org/ontology/#term-circa"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#tagging"/>
+    <oa:hasBody>
+      <oa:Tag rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#8-1-tag">
+        <cnt:chars>-0490/-0490</cnt:chars>
+        <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
+        <rdf:type rdf:resource="http://purl.org/dc/dcmitype/Date"/>
+      </oa:Tag>
+    </oa:hasBody>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+  <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.114.1#8-2">
+    <dcterms:source rdf:resource="https://spreadsheets.google.com/feeds/list/0Aiu877ZCZel-dDQ1NU12ODd2OFl3Qk94US1IQWhIR3c/od6/public/values/d180g"/>
+    <dcterms:title>Fragmentary water jar (hydria) with Herakles and Kerberos</dcterms:title>
+    <oa:hasTarget rdf:resource="http://www.mfa.org/collections/object/fragmentary-water-jar-hydria-with-herakles-and-kerberos-153910"/>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#identifying"/>
+    <oa:hasBody rdf:resource="http://pleiades.stoa.org/places/579885#this"/>
+    <oa:annotatedAt>2014-10-30T00:16:11.662Z</oa:annotatedAt>
+    <oa:serializedBy>
+      <prov:SoftwareAgent rdf:about="https://docs.google.com/spreadsheet"/>
+    </oa:serializedBy>
+    <oa:annotatedBy>
+      <foaf:Person rdf:about="http://data.perseus.org/sosol/users/VIctoria%20Laine%20Stephanie%20Mills">
+        <foaf:name>Victoria Laine</foaf:name>
+      </foaf:Person>
+    </oa:annotatedBy>
+  </oa:Annotation>
+</rdf:RDF>

@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:oa="http://www.w3.org/ns/oa#"
+    xmlns:perseus="http://data.perseus.org/" xmlns:lawd="http://lawd.info/ontology/"
+    xmlns:lode="http://linkedevents.org/ontology/#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:cnt="http://www.w3.org/2011/content#" xmlns:dcmit="http://purl.org/dc/dcmitype/"
+    xmlns:snap="http://onto.snapdrgn.net/snap">
+    <!-- 
+        Sample annotation derived from an image link Hypthoses.is annotation
+        The target is the CTS reference of the linked text in the Smith's entry
+        The body is the the URL of the image
+        The motivation is a simple oa:linking
+    -->
+    <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.159.1#1-1">
+        <dcterms:source
+            rdf:resource="https://hypothes.is/api/annotations/Vl9vWF0aSiitayrn_xIwOw"/>
+        <oa:hasTarget rdf:resource="http://data.perseus.org/citations/urn:cts:pdlrefwk:smith.bio.diomedes-1:1%40Aphrodite%5b1%5d"/>
+        <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#linking"/>
+        <oa:hasBody rdf:resource="http://www.perseus.tufts.edu/hopper/image?img=Perseus:image:1990.05.0159"/>
+        <oa:annotatedAt>2014-12-08T22:16:37.970Z</oa:annotatedAt>
+        <oa:serializedBy>
+            <prov:SoftwareAgent rdf:about="https://hypothes.is"/>
+        </oa:serializedBy>
+        <oa:annotatedBy>
+            <foaf:Person rdf:about="http://data.perseus.org/sosol/users/Bridget%20Almas">
+                <foaf:name>Bridget Almas</foaf:name>
+            </foaf:Person>
+        </oa:annotatedBy>
+    </oa:Annotation>
+    <!-- 
+        Sample OA annotation derived from a Perseus artifact link Hypthoses.is annotation
+        The target is the CTS reference of the linked text in the Smith's entry
+        The body is the the stable identifier of the Artifact
+        The motivation is a simple oa:linking
+    -->
+    <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.159.1#1-2">
+        <dcterms:source
+            rdf:resource="https://hypothes.is/api/annotations/plsf8UmlTDyx3IECWgMU4g"/>
+        <oa:hasTarget rdf:resource="http://data.perseus.org/citations/urn:cts:pdlrefwk:smith.bio.diomedes-1:1%40Aphrodite%5b1%5d"/>
+        <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#linking"/>
+        <oa:hasBody rdf:resource="http://data.perseus.org/artifacts/vase/Malibu+87.AE.23"/>
+        <oa:annotatedAt>2014-12-08T22:16:37.970Z</oa:annotatedAt>
+        <oa:serializedBy>
+            <prov:SoftwareAgent rdf:about="https://hypothes.is"/>
+        </oa:serializedBy>
+        <oa:annotatedBy>
+            <foaf:Person rdf:about="http://data.perseus.org/sosol/users/Bridget%20Almas">
+                <foaf:name>Bridget Almas</foaf:name>
+            </foaf:Person>
+        </oa:annotatedBy>
+    </oa:Annotation>
+    <!-- 
+        Sample annotation (1 of 2) derived from a person name Hypthoses.is annotation
+        The target is the CTS reference of the linked text in the Smith's entry
+        The body is the stable identifier for the linked to person
+        The motivation is a simple oa:identifying
+    -->
+    <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.159.1#1-3">
+        <dcterms:source
+            rdf:resource="https://hypothes.is/api/annotations/V2VhJ95ZRjy1QIQDtEa4Og"/>
+        <oa:hasTarget rdf:resource="http://data.perseus.org/citations/urn:cts:pdlrefwk:smith.bio.diomedes-1:1%40Hephaestus%5b1%5d"/>
+        <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#identifying"/>
+        <oa:hasBody rdf:resource="http://data.perseus.org/people/smith:Hephastus-1"/>
+        <oa:annotatedAt>2014-12-08T22:16:37.970Z</oa:annotatedAt>
+        <oa:serializedBy>
+            <prov:SoftwareAgent rdf:about="https://hypothes.is"/>
+        </oa:serializedBy>
+        <oa:annotatedBy>
+            <foaf:Person rdf:about="http://data.perseus.org/sosol/users/Bridget%20Almas">
+                <foaf:name>Bridget Almas</foaf:name>
+            </foaf:Person>
+        </oa:annotatedBy>
+    </oa:Annotation>
+    <!-- 
+        Sample annotation (2 of 2) derived from a person name Hypthoses.is annotation
+        The target for this annotation is the stable identifier for the subject of the Smith's entry, typed to a SNAP entity
+        The body is a snap-has bond relationship
+        The motivation is a simple oa:identifying
+    -->
+    <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.159.1#1-4">
+        <dcterms:source
+            rdf:resource="https://hypothes.is/api/annotations/V2VhJ95ZRjy1QIQDtEa4Og"/>
+        <oa:hasTarget>
+            <lawd:Deity rdf:about="http://data.perseus.org/people/smith:Diomedes-1"/>
+        </oa:hasTarget>
+        <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#identifying"/>
+        <oa:hasBody>
+            <snap:Bond>
+                <snap:bond-with>
+                    <lawd:Deity rdf:about="http://data.perseus.org/people/smith:Hephastus-1"/>        
+                </snap:bond-with>
+            </snap:Bond>
+        </oa:hasBody>
+        <oa:annotatedAt>2014-12-08T22:16:37.970Z</oa:annotatedAt>
+        <oa:serializedBy>
+            <prov:SoftwareAgent rdf:about="https://hypothes.is"/>
+        </oa:serializedBy>
+        <oa:annotatedBy>
+            <foaf:Person rdf:about="http://data.perseus.org/sosol/users/Bridget%20Almas">
+                <foaf:name>Bridget Almas</foaf:name>
+            </foaf:Person>
+        </oa:annotatedBy>
+    </oa:Annotation>
+    <!-- 
+        Sample annotation (1 of 2) derived from a person name Hypthoses.is annotation
+        The target is the CTS reference of the linked text in the Smith's entry
+        The body is the stable identifier for the linked to person
+        The motivation is a simple oa:identifying
+    -->
+    <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.159.1#1-5">
+        <dcterms:source
+            rdf:resource="https://hypothes.is/api/annotations/oUgfq2egTcSxT_OOpCxg0Q"/>
+        <oa:hasTarget rdf:resource="http://data.perseus.org/citations/urn:cts:pdlrefwk:smith.bio.diomedes-1:1%40Tydeus%5b1%5d"/>
+        <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#identifying"/>
+        <oa:hasBody rdf:resource="http://data.perseus.org/people/smith:Tydeus-1"/>
+        <oa:annotatedAt>2014-12-08T22:16:37.970Z</oa:annotatedAt>
+        <oa:serializedBy>
+            <prov:SoftwareAgent rdf:about="https://hypothes.is"/>
+        </oa:serializedBy>
+        <oa:annotatedBy>
+            <foaf:Person rdf:about="http://data.perseus.org/sosol/users/Bridget%20Almas">
+                <foaf:name>Bridget Almas</foaf:name>
+            </foaf:Person>
+        </oa:annotatedBy>
+    </oa:Annotation>
+    <!-- 
+        Sample annotation (2 of 2) derived from a person name Hypthoses.is annotation
+        The target for this annotation is the stable identifier for the subject of the Smith's entry, typed to a SNAP entity
+        The body is a snap-has bond (SonOf) relationship
+        The motivation is a simple oa:identifying
+    -->
+    <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.159.1#1-6">
+        <dcterms:source
+            rdf:resource="https://hypothes.is/api/annotations/V2VhJ95ZRjy1QIQDtEa4Og"/>
+        <oa:hasTarget>
+            <lawd:Deity rdf:about="http://data.perseus.org/people/smith:Diomedes-1"/>
+        </oa:hasTarget>
+        <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#identifying"/>
+        <oa:hasBody>
+            <snap:SonOf>
+                <snap:bond-with>
+                    <lawd:Deity rdf:about="http://data.perseus.org/people/smith:Tydeus-1"/>        
+                </snap:bond-with>
+            </snap:SonOf>
+        </oa:hasBody>
+        <oa:annotatedAt>2014-12-08T22:16:37.970Z</oa:annotatedAt>
+        <oa:serializedBy>
+            <prov:SoftwareAgent rdf:about="https://hypothes.is"/>
+        </oa:serializedBy>
+        <oa:annotatedBy>
+            <foaf:Person rdf:about="http://data.perseus.org/sosol/users/Bridget%20Almas">
+                <foaf:name>Bridget Almas</foaf:name>
+            </foaf:Person>
+        </oa:annotatedBy>
+    </oa:Annotation>
+    
+    <!-- 
+        Sample annotation a bibliographic reference Hypthoses.is annotation
+        The target is the CTS reference of the linked text in the Smith's entry
+        The body is the CTS reference of the linked text, typed as a lawd:citation
+        The motivation is a simple oa:identifying
+    -->
+    <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.159.1#1-7">
+        <dcterms:source
+            rdf:resource="https://hypothes.is/api/annotations/n9YGklZgTGOIVRzvimzNfw"/>
+        <oa:hasTarget rdf:resource="http://data.perseus.org/citations/urn:cts:pdlrefwk:smith.bio.diomedes-1:1%402.559%5b1%5d"/>
+        <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#identifying"/>
+        <oa:hasBody>
+            <lawd:Citation
+                rdf:about="http://data.perseus.org/citations/urn:cts:greekLit:tlg0012.tlg001.perseus-grc1:2.559">
+                <lawd:represents>
+                    <lawd:WrittenWork rdf:about="http://data.perseus.org/texts/urn:cts:greekLit:tlg0012.tlg001.perseus-grc1">
+                        <lawd:embodies>
+                            <lawd:ConceptualWork rdf:about="http://data.perseus.org/texts/urn:cts:greekLit:tlg0012.tlg001"/>
+                        </lawd:embodies>
+                        <rdfs:isDefinedBy
+                            rdf:resource="http://data.perseus.org/catalog/urn:cts:greekLit:tlg0012.tlg001.perseus-grc1"
+                        />
+                    </lawd:WrittenWork>
+                </lawd:represents>
+                <foaf:homepage
+                    rdf:resource="http://data.perseus.org/citations/urn:cts:greekLit:tlg0012.tlg001.perseus-grc1:2.559"
+                />
+            </lawd:Citation>
+        </oa:hasBody>
+        <oa:annotatedAt>2014-12-08T22:16:37.970Z</oa:annotatedAt>
+        <oa:serializedBy>
+            <prov:SoftwareAgent rdf:about="https://hypothes.is"/>
+        </oa:serializedBy>
+        <oa:annotatedBy>
+            <foaf:Person rdf:about="http://data.perseus.org/sosol/users/Bridget%20Almas">
+                <foaf:name>Bridget Almas</foaf:name>
+            </foaf:Person>
+        </oa:annotatedBy>
+    </oa:Annotation>
+    <!-- 
+        Sample annotation of a place Hypthoses.is annotation
+        The target is the CTS reference of the linked text in the Smith's entry
+        The body is the pleaides uri for the place
+        The motivation is a simple oa:identifying
+
+    -->
+    <oa:Annotation rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.141.1#1-8">
+        <dcterms:source
+            rdf:resource="https://hypothes.is/a/fMNr7plqR3KCa2dkks2wmw"/>
+        <oa:hasTarget rdf:resource="http://data.perseus.org/citations/urn:cts:pdlrefwk:smith.bio.diomedes-1:1%40argos%5b1%5d"/>
+        <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#identifying"/>
+        <oa:hasBody rdf:resource="http://pleiades.stoa.org/places/595699#this"/>
+        <oa:annotatedAt>2014-12-08T15:06:36.047Z</oa:annotatedAt>
+        <oa:serializedBy>
+            <prov:SoftwareAgent rdf:about="https://hypothes.is"/>
+        </oa:serializedBy>
+        <oa:annotatedBy>
+            <foaf:Person rdf:about="http://data.perseus.org/sosol/users/Bridget%20Almas">
+                <foaf:name>Bridget Almas</foaf:name>
+            </foaf:Person>
+        </oa:annotatedBy>
+    </oa:Annotation>
+ </rdf:RDF>

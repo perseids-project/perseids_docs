@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:cnt="http://www.w3.org/2011/content#"
+	xmlns:dcmit="http://purl.org/dc/dcmitype/"
+	xmlns:dcterms="http://purl.org/dc/terms/"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:lawd="http://lawd.info/ontology/"
+	xmlns:lode="http://linkedevents.org/ontology/#"
+	xmlns:ns1="http://onto.snapdrgn.net/"
+	xmlns:oa="http://www.w3.org/ns/oa#"
+	xmlns:perseus="http://data.perseus.org/"
+	xmlns:prov="http://www.w3.org/ns/prov#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:snap="http://onto.snapdrgn.net/snap#"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<rdf:Description rdf:about="http://data.perseus.org/people/smith:Diomedes-1">
+	<snap:has-bond rdf:resource="http://data.perseus.org/collections/urn:cite:perseus:pdlann.141.1/graph#1-rel-1"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://data.perseus.org/collections/urn:cite:perseus:pdlann.141.1/graph#1-rel-1">
+	<rdf:type rdf:resource="http://onto.snapdrgn.net/snap#SonOf"/>
+	<snap:bond-with rdf:resource="http://data.perseus.org/people/smith:Tydeus-1"/>
+</rdf:Description>
+
+</rdf:RDF>
