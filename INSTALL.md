@@ -137,6 +137,10 @@ TODO
 
 TODO 
 
+# Setup image collection services
+
+TODO
+
 # Install Client-Side Tools
 
 ## Annotation Editor
