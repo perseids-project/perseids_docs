@@ -204,6 +204,12 @@ Note that the default installation instructions for sosol have this as a rake ta
 	cd /usr/local/sosol/db/test/git
 	git clone --bare https://github.com/PerseusDL/perseids_canonical_test.git canonical.git
 
+## get additional data for tests
+        cd /var/www
+        mkdir tests
+        cd tests
+        git clone https://github.com/PerseusDL/treebank_data
+        
 ## create a local clone of the bare repo
 
 It's useful to have a local clone of the canonical repo for file maintenance.
