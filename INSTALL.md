@@ -357,7 +357,7 @@ For a dev environment: Change RAILS_ENV value to development
 	bundle exec cap local externals:setup
 	bundle exec rake db:create
 	bundle exec rake db:migrate --verbose --trace
-	bundle exec rake test (this will fail until tests are setup properly)
+	bundle exec rake test:perseids
 	bundle exec rails server
 
 ## Notes for war file
