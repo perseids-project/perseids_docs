@@ -200,6 +200,9 @@ Note that the default installation instructions for sosol have this as a rake ta
 
 	cd /usr/local/gitrepos
 	git clone --bare  https://github.com/PerseusDL/perseids_canonical_dev.git canonical.git
+	
+	cd /usr/local/sosol/db/test/git
+	git clone --bare https://github.com/PerseusDL/perseids_canonical_test.git canonical.git
 
 ## create a local clone of the bare repo
 
