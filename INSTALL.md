@@ -281,18 +281,9 @@ Other config files:
 
 cts.yml - configures the CTS repository urls
 
-`exernal_cts_url` should be set to a list of CTS Repositories at which read-only sources for use in annotation bodies can be retrieved.
+tools.yml - configures other tools and services
 
-The basic format for this setting is human-readable-name|CTS-URL|Data-URI-prefix
-
-`:site_cts_inventories` should be set to the list of inventory files that correspond to the installed read/write data.
-
-The basic format for this setting is 'key|value,key|value', an array of key value pairs where the key is the inventory file name (minus extension) and the value is the prefix for the type of CtsIdentifier this inventory manages.
-
-tools.yml
-
-
-agents.yml
+agents.yml - configures client agents
 
 	
 # setup the RPX api key
