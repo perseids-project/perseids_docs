@@ -221,36 +221,7 @@ It's useful to have a local clone of the canonical repo for file maintenance.
 You have to load inventory files and their indices for the Persieds CTS selector to work properly.
 The perseids-dev.xml inventory file can be found in the CTS_XML_TextInventory directory of the perseids_canonical_dev repo.  This needs to be uploaded to the eXist db/repository/inventory directory.
 
-
-Get a local clone of the PerseusDL/canonical.git repo:
-
-	git clone https://github.com/PerseusDL/canonical.git /tmp/canonical
-
-Copy the inventory xml files.
-
-	mkdir -p /usr/local/exist/webapp/WEB-INF/data/fs/db/repository/inventory
-	cp /tmp/canonical/CTS_XML_TextInventory/epifacs.xml ~/db/repository/inventory/epifacs.xml
-	cp /tmp/canonical/CTS_XML_TextInventory/pilots.xml ~/db/repository/inventory/pilots.xml
-
-Open ~/db/repository/inventory/__contents__.xml in a text editor.
-
-	vim ~/db/repository/inventory/__contents__.xml
-
-Add the following text inside &lt;collection&gt;&lt;/collection&gt;
-
-	<resource type="XMLResource" name="epifacs.xml" owner="admin" group="dba" mode="755" created="2013-02-15T07:47:23-05:00" modified="2013-02-15T07:47:23-05:00" filename="epifacs.xml" mimetype="text/xml"/>
-	<resource type="XMLResource" name="pilots.xml" owner="admin" group="dba" mode="755" created="2013-02-15T07:47:23-05:00" modified="2013-02-15T07:47:23-05:00" filename="pilots.xml" mimetype="text/xml"/>
-
-### Update eXist with the prepared data
-Start up eXist and run the backup restore script and point it at the prepared data.
-
-	/usr/local/exist/bin/startup.sh &
-	/usr/local/exist/bin/backup.sh -u admin -r ~/db/__contents__.xml
-
-### Copy over the publication XML files referenced in the inventory
-Modify the configuration and run.
-
-	/usr/local/sosol/script/existDBImport
+The perseids-test.xml inventory file can be found in the CTS_XML_TextInventory directory of the perseids_canonical_test repo.  This needs to be uploaded to the eXist db/repository/inventory directory.
 
 
 ## Setup Apache2 Proxies for Tools
@@ -316,9 +287,14 @@ SITE_CTS_INVENTORIES should be set to the list of inventory files that correspon
 
 The basic format for this setting is 'key|value,key|value', an array of key value pairs where the key is the inventory file name (minus extension) and the value is the prefix for the type of CtsIdentifier this inventory manages.
 
-For the dev/test environment, this should be set to 
+For the dev environment, this should be set to 
 
 	SITE_CTS_INVENTORIES = 'perseids-dev|Epi'
+
+For the test environment, this should be set to 
+
+	SITE_CTS_INVENTORIES = 'perseids-test|Epi'
+
 	
 # setup the RPX api key
 
