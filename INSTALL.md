@@ -274,26 +274,25 @@ The following should be the same for production and dev environments:
 The following are specific to the deployment and depend upon the port(s) at which you are running the eXist server or servers.  
 
          EXIST_STANDALONE_URL="http://localhost:8080"
-         EXTERNAL_CTS_REPOS = 'Quotation Sources|http://sosol.perseids.org/exist/rest/db/xq/CTS.xq?inv=annotsrc|http://perseids.org/annotsrc'
- 	 SITE_CTS_INVENTORIES = 'pilots|Epi,epifacs|Epi,perseids|Tei,annotsrc|Tei'
-
+        
 EXIST_STANDALONE_URL is the url for the eXist instance that is local to the sosol application (and which has the cts inventories loaded that corresponded to the read/write data in the cnaonical git repo)
 
-EXTERNAL_CTS_REPOS should be set to a list of CTS Repositories at which read-only sources for use in annotation bodies can be retrieved.
+Other config files:
+
+cts.yml - configures the CTS repository urls
+
+`exernal_cts_url` should be set to a list of CTS Repositories at which read-only sources for use in annotation bodies can be retrieved.
 
 The basic format for this setting is human-readable-name|CTS-URL|Data-URI-prefix
 
-SITE_CTS_INVENTORIES should be set to the list of inventory files that correspond to the installed read/write data.
+`:site_cts_inventories` should be set to the list of inventory files that correspond to the installed read/write data.
 
 The basic format for this setting is 'key|value,key|value', an array of key value pairs where the key is the inventory file name (minus extension) and the value is the prefix for the type of CtsIdentifier this inventory manages.
 
-For the dev environment, this should be set to 
+tools.yml
 
-	SITE_CTS_INVENTORIES = 'perseids-dev|Epi'
 
-For the test environment, this should be set to 
-
-	SITE_CTS_INVENTORIES = 'perseids-test|Epi'
+agents.yml
 
 	
 # setup the RPX api key
