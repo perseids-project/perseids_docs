@@ -325,7 +325,11 @@ For a dev environment: Change RAILS_ENV value to development
 	bundle exec rake db:migrate --verbose --trace
 	bundle exec rake test:perseids
 	bundle exec rails server
+	
+# Get the javascript submodules
 
+        git submodule update --init --recursive
+        
 ## Notes for war file
 
 bouncy-castle-java should be added to the Gemfile but for some reason bundle install isn't installing it to the .rbenv directory so the warble command can't find it.  had to install it by running gem install bouncy-castle-java
