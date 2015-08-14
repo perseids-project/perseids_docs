@@ -18,7 +18,6 @@ git clone https://github.com/PerseusDL/catalog_pending
 git clone https://github.com/PerseusDL/catalog_data
 
 sudo apt-get install mysql-server
-#password: p3rs3usc@t
 
 
   24  gem install rails
