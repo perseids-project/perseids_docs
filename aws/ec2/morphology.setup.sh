@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # pseudo provisioning script
 # for an Ubuntu 14.04 box
+# See also background information at 
+# https://github.com/perseids-project/perseids_docs/wiki/Morphology-Service-Setup
 
 ### 1. INSTALL DEPENDENCIES FOR MORPHEUS AND MORPHEUS WRAPPER
 apt-get update
