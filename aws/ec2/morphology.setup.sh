@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# pseudo provisioning script
+# for an Ubuntu 14.04 box
 
 ### 1. INSTALL DEPENDENCIES FOR MORPHEUS AND MORPHEUS WRAPPER
 apt-get update
