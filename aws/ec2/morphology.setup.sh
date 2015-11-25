@@ -160,4 +160,8 @@ start
 # TODO
 # check to see if smx etc changed impact the utf-8 issue (suspect this was spring-dm-web though)
 # figure out where to put the legacy fuse and bsp packages
+# also note that stem libs built from morpheus on GitHub seem to be different
+# than the stemlibs running on services so I suspect we're still using 
+# the Alpheios-built libs so need to update the instructions for that
+# and make a note to merge the changes from Alpheios into PerseusDL
 
