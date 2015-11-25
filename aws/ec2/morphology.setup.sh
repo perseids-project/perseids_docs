@@ -229,7 +229,8 @@ ssh -p 8101 smx@localhost
 ###      It must be licensed directly from LDC
 ###      Reconfiguring the URLS at which the morpholgoy service
 ###      calls the different engines is possible but requires fiddling with the
-###      spring configuration file for the deployed bundles which might not
+###      spring configuration file (see http://svn.code.sf.net/p/projectbamboo/code/platform-services/morphology-service/trunk/morphology-service/service/src/main/resources/META-INF/spring/beans.xml)
+###      for the deployed bundles which might not
 ###      be so fun to do given that we can't easily rebuild and redeploy from
 ###      scratch.
 ###
@@ -239,3 +240,4 @@ ssh -p 8101 smx@localhost
 ###     And the Perseus version of the Morpheus stemlibs. The instructions
 ###     outlined in this script assume that the stemlibs from PerseusDL 
 ###     will be used for both Greek and Latin
+###
