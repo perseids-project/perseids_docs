@@ -51,10 +51,10 @@ Make sure your instance's security-group allows TCP traffic over ports 3000 and 
 
 Everything from here on out should be as sosol user
 
-# Clone sosol project and switch to the rails-3-perseus_merge branch
+# Clone sosol project and switch to the perseids-production
 	git clone https://github.com/sosol/sosol /usr/local/sosol
 	cd /usr/local/sosol
-	git checkout -b rails-3-perseus-merge origin/rails-3-perseus-merge
+	git checkout -b perseids-production origin/perseids-production
 
 # Install eXist db 
 Download
