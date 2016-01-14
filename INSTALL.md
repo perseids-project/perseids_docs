@@ -19,6 +19,7 @@ Make sure your instance's security-group allows TCP traffic over ports 3000 and 
 	sudo apt-get install curl
 	supo apt-get install wget
 	sudo apt-get install tomcat6
+	sudo apt-get install tomcat6-admin
 	sudo apt-get install postgresql
 	sudo apt-get install apache2
 	sudo a2enmod proxy
@@ -380,8 +381,5 @@ You have to start the eXist DB and rails
 
 TODO for a production environment we want to run eXist through wrapper and deploy app war file under tomcat
 
-# The Current Rails3 Development Server
-Hosted: AWS EC2
-Instance: rails-small2
-Domain Name: rails3.perseids.org
-If inaccessible check the AWS EC2 Elastic IP configuration and associate rails-small2 instance with the non-coupled IP address in the list.
+
+
