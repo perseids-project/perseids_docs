@@ -15,7 +15,7 @@ Make sure your instance's security-group allows TCP traffic over ports 3000 and 
 	sudo apt-get install zlib1g-dev
 	sudo apt-get install git
 	sudo apt-get install subversion
-	sudo apt-get install openjdk-6-jre
+	sudo apt-get install openjdk-7-jre
 	sudo apt-get install curl
 	supo apt-get install wget
 	sudo apt-get install tomcat6
@@ -29,11 +29,11 @@ Make sure your instance's security-group allows TCP traffic over ports 3000 and 
 ## Install rvm
 	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 	\curl -sSL https://get.rvm.io | bash -s stable
-	source /etc/profile.d/rvm.sh
+	source ~/.rvm/scripts/rvm
 
-## Install jruby-1.7.16
-	rvm install jruby-1.7.16
-	rvm --default use jruby-1.7.16
+## Install jruby-1.7.19
+	rvm install jruby-1.7.19
+	rvm --default use jruby-1.7.19
 	
 ## Install Bundler
         gem install bundler
