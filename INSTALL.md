@@ -1,7 +1,7 @@
 Estimated install time: 4 hours
 
 ## Base Environment
-* Ubuntu 12.04
+* Ubuntu 14.04
 
 ## Security Group
 Make sure your instance's security-group allows TCP traffic over ports 3000 and 8080
