@@ -24,6 +24,10 @@ Make sure your instance's security-group allows TCP traffic over ports 3000 and 
 	sudo apt-get install apache2
 	sudo a2enmod proxy
 	sudo a2enmod proxy_http
+	sudo a2enmod proxy_https
+	sudo a2enmod headers
+	
+	
 	
 
 # Install Ruby and Dependencies
