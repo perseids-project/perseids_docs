@@ -130,7 +130,7 @@ tar -xzf apache-maven-3.0.5-bin.tar.gz
 ### 17. CONFIGURE SERVICEMIX
 echo "org.apache.cxf.servlet.context=/bsp" >> $SERVICEMIX_HOME/etc/org.apache.cxf.osgi.cf
 echo org.apache.cxf.servlet.base-address=http://`hostname`:8181/bsp >> $SERVICEMIX_HOME/etc/org.apache.cxf.osgi.cfg
-vi ${SERVICEMIX_HOME}/etc/config.propertiessmx@ip-10-0-0-51:/usr/local/BSP_0.9
+vi ${SERVICEMIX_HOME}/etc/config.properties
 ### INTERACTIVE: Edit the # OSGi Execution Environment setting to read: org.osgi.framework.executionenvironment=JavaSE-1.6,J2SE-1.5,J2SE-1.4,J2SE-1.3,J2SE-1.2
 
 vi ${SERVICEMIX_HOME}/etc/org.apache.karaf.features.cfg
