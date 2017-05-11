@@ -2,6 +2,6 @@
 
 TODO High Level Summary
 
-[SoSOL Implementation Details](sosol.md)
-[Api/Oauth Details](apiouath.md)
-[Flask Github Proxy](flaskgithubproxy.md)
+* [SoSOL Implementation Details](sosol.md)
+* [Api/Oauth Details](apioauth.md)
+* [Flask Github Proxy](flaskgithubproxy.md)
