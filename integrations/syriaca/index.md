@@ -1,7 +1,9 @@
 # Perseids/Syriaca Integration Documentation
 
-TODO High Level Summary
+The integration between the Syriaca.org site and Perseids allows users of the Syriaca Srophe application to submit documents (from the Syriac Gazetteer, Biographical Dictionary, and Hagiographic Texts database) to Perseids for use of its review workflow tools. The members of the Syriaca.org editorial boards use Perseids to review, comment and vote on the submissions. This is an interative workflow which allows for documents to be assigned to specific reviewers, and to be sent back to the submitters for correction and resubmission.  Documents and can be corrected and previewed directly in the Perseids interface.  Upon final acceptance, Perseids aggregates the review activity and comments in the revisionDesc header of the Syriaca.org documents, runs the document through a data normalization service provided by the Syriaca.org Srophe application, and then submits the final version in a pull request to the Syriaca.org master GitHub repository.  The final pull request must be accepted and merged by members of the Syriaca team with ownership rights on the repository.
 
-* [SoSOL Implementation Details](sosol.md)
-* [Api/Oauth Details](apioauth.md)
-* [Flask Github Proxy](flaskgithubproxy.md)
+The Syriaca.org Srophe application uses the Perseids SoSOL API to submit documents to Perseids. The Perseids API is protected via the OAuth2 protocol, allowing for the API interactions to be authorized by users via their Perseids user accounts (which in turn uses OAuth to delegate user login to Social Identity providers).  The details of this interaction and how it is configured and implemented are described further in [apioauth.md](apioauth.md).
+
+A number of enhancements were made to the Perseids SoSOL Review Board functionality to support the workflows of the Syriaca.org editorial boards. Views and models were also added to support and validate the 3 different Syriaca.org document types. The details of the how the Perseids SoSOL model components support Syriaca documents and the details of the review functionality which was built for Syriaca is described further in [sosol.md](sosol.md).
+
+In addition to the SoSOL API and application, a new service used by (and built for and under the support of the Syriaca.org project) is the Flask GitHub proxy. This service proxies the interaction between Perseids and the home GitHub repository for the Syriaca.org documents.  This service and its use by the Perseids/Syriaca integration is described at [flaskgithubproxy.md](flaskgithubproxy.md)
