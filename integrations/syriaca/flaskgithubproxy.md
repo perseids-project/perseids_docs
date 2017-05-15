@@ -54,9 +54,9 @@ Apache config
   ServerName fgh.perseids.org
 
   ## Vhost docroot
-  DocumentRoot "<path_to_root_of_deployed_fgh_application_code>"
+  DocumentRoot "<path_to_root_of_deployed_fgh_app.wsgi>"
 
-    <Directory "<path_to_root_of_deployed_fgh_application_code>">
+    <Directory "<path_to_root_of_deployed_fgh_app.wsgi>">
     AllowOverride None
     Require all granted
   </Directory>
@@ -72,7 +72,7 @@ Apache config
   Header set Access-Control-Allow-Headers 'Origin, X-Requested-With, Content-Type, Accept'
   WSGIDaemonProcess fgh python-path=<path_to_python_virtual_env_directory_with_fgh_code_and_deps>/lib/python3.4/site-packages
   WSGIProcessGroup fgh
-  WSGIScriptAlias /flask-github-proxy "<path_to_root_of_deployed_fgh_application_code>/app.wsgi"
+  WSGIScriptAlias /flask-github-proxy "<path_to_root_of_deployed_fgh_app.wsgi>/app.wsgi"
 </VirtualHost>                            
 ```
 
