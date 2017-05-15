@@ -4,7 +4,7 @@ Authors:
 * Thibault Clérice @PonteIneptique
 * Bridget Almas @balmas
 
-Flask Github Proxy (FGP) is a middleware service  that offers a simple  means to transmit data from a web application to a GitHub data repository. FGP takes advantage of traditional distributed git workflows, enabling human verification of proposed changes made to a mirror repository through pull requests. 
+The [Flask Github Proxy](https://github.com/PonteIneptique/flask-github-proxy) (FGP) is a middleware service  that offers a simple  means to transmit data from a web application to a GitHub data repository. FGP takes advantage of traditional distributed git workflows, enabling human verification of proposed changes made to a mirror repository through pull requests. 
 
 FGP is designed for use with third party applications that operate on data and want to be able to contribute or return that data to GitHub repositories without being granted write privileges.  The FGP provides a simple API through which applications can submit data via RESTful requests, and FGP handles the more complex interactions with the GitHub API. The FGP provides a technical benefit by reducing the effort needed for client applications wishing to take advantage of complex GitHub workflows.
 
