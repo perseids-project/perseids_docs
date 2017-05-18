@@ -1,8 +1,8 @@
 # Srophe-Perseids API Exchanges
 
+## Perseids API Overview
 The Perseids API uses the [Swagger.io](swagger.io) protocol (aka OpenAPI 2.0) to provide machine-actionable documentation of its API functionality.
 
-## Swagger API Description 
 The Perseids Swagger API description is deployed at:
 
 [https://sosol.perseids.org/sosol/apidocs](https://sosol.perseids.org/sosol/apidocs)
@@ -47,7 +47,15 @@ Create at least one user account in Perseids SoSOL to do your development and te
 
 ### Create Communities
 
-TODO describe the syriaca communities and setup procedures.
+We have created 3 communities for the Syriaca.org editorial workflow, one for each type of document (Gazetteer, Biographical Dictionary, Hagiographic Work. (A Perseids admin created the communities, but members of the Syriaca.org team have administrative rights over them, and can create new boards, assign members to boards and edit the board setup).
+
+The names of the communites are:
+
+* NHSL New Handbook of Syriac Literature
+* SBD Syriac Biographical Dictionary 
+* TSG The Syriac Gazettee
+
+The communities are "pass-through" communities, setup to support a workflow which uses multiple boards and to pass the final approved documents through to the Syriaca.org GitHub repository. The data model and supporting code for the workflow is described further in [sosol.md](sosol.md).
 
 #### HTTP Request Headers
 
@@ -108,7 +116,7 @@ If successful, Perseids returns the newly created item object model, as describe
 
 2. Setting the Review Community 
 
-Because Srophe uses the `xmlitems` operation to create a new publication in Perseids, only document content can be posted and additional metadata must be set through a second API request.  Setting the metadata is necessary to set the name of the community to which a particular publication belongs so that it gets submitted to the right set of Syriaca editorial boards. 
+Srophe uses the `xmlitems` operation to create a new publication in Perseids. Through this operation, only document content can be posted and additional metadata must be set through a second API request.  Setting the metadata is necessary to set the name of the community to which a particular publication belongs so that it gets submitted to the right set of Syriaca editorial boards. 
 
 The Srophe application parses the `publication` id from the response of the `xmlitems` request and then issues a PUT request to the `publications` PUT operation at:
 
@@ -140,26 +148,28 @@ curl -X POST --header "Content-Type: application/json" --header "Accept: applica
 
 If successful, it returns an empty 200 response.
 
-### Accessing User Information
+4. Accessing User Information
 
-If you want to display user information about the Perseids user in a client app, you can retrieve that information via a GET to   `https://sosol.perseids.org/api/v1/user` . This is also an OAUTH protected call, with a "Read" scope.
+The Syriaca.org Srophe app may retrieve and display user information about the Perseids user through a GET to   
 
-### Important Notes
-The API routes on the Perseids side may still change so if possible you should code your client to be able to read the swagger docs for the routes (because if they do change they'll be documented there)
-Eventually all of the API interactions will be enforced as being under SSL. Currently you can access all of the API endpoints via both http and https but you can’t mix and match, and the apidocs only report the https urls.
+`https://sosol.perseids.org/api/v1/user` 
 
-### OAUTH Explanation
+This is also an OAUTH protected call, with a "Read" scope.
+
+It returns a JSON object with user full name, and other details, as described in the Perseids API specification.
+
+## OAuth2 Explanation
 The basic OAuth2 flow we're using is this one:
 
 [http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-4.1](http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-4.1)
 
-In this diagram, Perseids/SoSOL is the Authorization Server, your app is the Client and the end-user is the Resource Owner. This diagram doesn't show the full picture of the interaction though, because Perseids (SoSOL) is itself delegating authentication via Oauth (or really, OpenID Connect) to an external authentication server.
+In this diagram, Perseids/SoSOL is the Authorization Server, Srophe is the Client and the end-user is the Resource Owner. This diagram doesn't show the full picture of the interaction though, because Perseids (SoSOL) is itself delegating authentication via OAuth2 (through an OpenId Connect bridge) to an external authentication server.
 
-The interaction we're trying to support here is that client app gets a token from Perseids which allows it to act on behalf of an end user, and then uses that token when it issues the POST of a document to the user's account on Perseids.   The client app doesn't need to know anything about the user's account on Perseids, how they authenticate there, etc. All of that is between Perseids and the end-user.
+The Srophe app gets a token from Perseids which allows it to act on behalf of an end user, and then uses that token when it issues the POST of a document to the user's account on Perseids.   Srophe doesn't need to know anything about the user's account on Perseids, how they authenticate there, etc. All of that is between Perseids and the end-user.
 
 The steps to accomplish this are as follows:
 
-1. Client app issues a GET request to the oauth/authorize endpoint on Perseids, supplying the client id, the scope requested (in this case 'write' for access to write a new document) and the redirect_uri at the client to which the browser should be sent to after authentication succeeds. A state parameter can be used for extra security, it's not absolutely required (you can find more on that in the doc linked above). E.g.
+1. Srophe issues a GET request to the oauth/authorize endpoint on Perseids, supplying the client id, the scope requested (in this case 'write' for access to write a new document) and the redirect_uri at the client to which the browser should be sent to after authentication succeeds. A state parameter can be used for extra security, it's not absolutely required. E.g.
 
 ```
 https://sosol.perseids.org/sosol/oauth/authorize?response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fswagger-ui%2Fdist%2Fo2c.html&realm=your-realms&client_id=676bee8f0bb6ce65fb1bfdc9cf249bcebf7aa51bc22f7d95d0443bce9b54b0e8&scope=write&state=0.9918786573509284
@@ -167,19 +177,19 @@ https://sosol.perseids.org/sosol/oauth/authorize?response_type=code&redirect_uri
 
 2. Perseids SoSOL, acting as the authorization server, checks to see if the user has an active session (as might be the the case if they had logged in previously directly to Perseids).  If they don't, then they are redirected to a login page. SoSOL keeps in its session state the fact the user signin request was initiated as a result of an oauth interaction, including the client_id and the redirect_uri.  (Before it does this though it makes sure that the redirect_uri is one that is registered for the application with that client id).
 
-3. The user logs in to SoSOL. This actually kicks off a whole separate OAuth chain, between SoSOL and the identity providers (Google, Yahoo, etc.) This isn't really of any concern to the client though.
+3. The user logs in to SoSOL. This actually kicks off a whole separate OAuth chain, between SoSOL and the identity providers (Google, Yahoo, etc.) This isn't really of any concern to the Srophe app though.
 
-4. After successful authentication at the identity provider, the browser redirects the user back to SoSOL, and then SoSOL redirects the user back to client app at the redirect_uri supplied in the initial authentication request. Included in the redirect back to the client is an authorization code, supplied in the code query param. 
+4. After successful authentication at the identity provider, the browser redirects the user back to SoSOL, and then SoSOL redirects the user back to Srophe at the redirect_uri supplied in the initial authentication request. Included in the redirect back to Srophe is an authorization code, supplied in the code query param. 
 
-5. The client app then issues a POST back to Perseids SoSOL, at the oauth tokenURL endpoint, supplying this code, the client_id, the client_secret, grant_type (authorization_code) and the redirect_uri that received the code. E.g.
+5. Srophe then issues a POST back to Perseids SoSOL, at the oauth tokenURL endpoint, supplying this code, the client_id, the client_secret, grant_type (authorization_code) and the redirect_uri that received the code. E.g.
 
 ```
-curl 'https://sosol-test.perseids.org/sosol/oauth/token'  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' --data 'client_id=676bee8f0bb6ce65fb1bfdc9cf249bcebf7aa51bc22f7d95d0443bce9b54b0e8&code=47384aaf2109326e77c064b7d15927a192280b68d5a6aca98996fce93f84a30d&grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%2Fswagger-ui%2Fdist%2Fo2c.html&client_secret=0c2431329b79402f505adc74437935efdc80798ad50e84a7c3b7be3e15d5b0e6'
+curl 'https://sosol.perseids.org/sosol/oauth/token'  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' --data 'client_id=676bee8f0bb6ce65fb1bfdc9cf249bcebf7aa51bc22f7d95d0443bce9b54b0e8&code=47384aaf2109326e77c064b7d15927a192280b68d5a6aca98996fce93f84a30d&grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%2Fswagger-ui%2Fdist%2Fo2c.html&client_secret=0c2431329b79402f505adc74437935efdc80798ad50e84a7c3b7be3e15d5b0e6'
 ```
 
-6. SoSOL verifies that the code was issued for the client that's requesting it, verifies the redirect_uri, client secret is correct, etc. and if all matches, it returns a token that can be used to access the SoSOL to write data on behalf of the authenticated enduser.
+6. SoSOL verifies that the code was issued for Srophe (i.e. the client that's requesting it), verifies the redirect_uri, client secret is correct, etc. and if all matches, it returns a token that can be used to access the SoSOL to write data on behalf of the authenticated enduser.
 
-7.  At this point, the client app can issue a POST request to the Perseids API endpoint for creating new identifiers (https://sosol.perseids.org/sosol/items). It should supply the token it received in step 6 in an Authorization Header, identifying it as type Bearer:
+7. At this point, Srophe can issue a POST request to the Perseids API endpoint for creating new documents (https://sosol.perseids.org/sosol/xmlitems). It should supply the token it received in step 6 in an Authorization Header, identifying it as type Bearer:
 
 e.g.
 
@@ -187,7 +197,7 @@ e.g.
 curl -X POST --header "Content-Type: application/json" --header "Accept: application/json" --header "Authorization: Bearer a3430b88785fd704b2fab7ce6b7f873b26e220290cb8e6441be28f9713bfc1de"  ....
 ```
 
-SoSOL uses the token to gain access to the user's session and allow the client to operate on the user's behalf.
+SoSOL uses the token to gain access to the user's session and allow Srophe to operate on the user's behalf.
 
 The Swagger Docs  specify the interaction as follows:
 
@@ -252,7 +262,3 @@ The sosol_auth key in the Security Definitions object says this is an oauth2 int
     }
   },
 ```
-
-## Configuration Details
-
-TODO - description of how the oauth credentials for the exchange are managed.
