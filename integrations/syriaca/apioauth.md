@@ -21,7 +21,7 @@ The [swagger-ui client tool](https://github.com/swagger-api/swagger-ui) offers a
 ### OAuth2 Client
 Most Perseids SoSOL API operations are protected via OAuth2. Perseids API clients must include OAuth2 Client support for the [AuthorizationCodeFlow](http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-4.1),  using [AccessTokenScopes](http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-3.3). Client interactions to POST documents to to the Perseids SoSOL API require the "write" scope, as specified in the swagger docs. See also the OAuth2 Explanation topic later in this document for more details on how this this interaction works.
 
-Perseids SoSOL uses the [Ruby Doorkeeper Gem](https://github.com/doorkeeper-gem/doorkeeper) to support its OAuth2 functionality. Doorkeeper adds controller routes under the /oauth prefix. (See also the class diagram and discussion at [sosol.md](sosol.md). This functionality is currently restricted to users with admin access.
+Perseids SoSOL uses the [Ruby Doorkeeper Gem](https://github.com/doorkeeper-gem/doorkeeper) to support its OAuth2 functionality. Doorkeeper adds controller routes under the /oauth prefix. (See also the class diagram and discussion at [sosol.md](sosol.md). The routes it adds to register new OAuth Clients are currently restricted by Perseids to users with admin privileges.
 
 ### HTTPS
 HTTPS support is required for use of the Perseids API.
