@@ -1,6 +1,7 @@
 # Srophe-Perseids API Exchanges
 
 ## Perseids API Overview
+### Swagger (OpenAPI) Specification
 The Perseids API uses the [Swagger.io](swagger.io) protocol (aka OpenAPI 2.0) to provide machine-actionable documentation of its API functionality.
 
 The Perseids Swagger API description is deployed at:
@@ -15,54 +16,20 @@ As reported in the swagger docs, the API endpoint against which operations occur
 
 The source for the controller code for this version of the Perseids SoSOL api is at [https://github.com/sosol/sosol/tree/perseids-production/app/controllers/api/v1](https://github.com/sosol/sosol/tree/perseids-production/app/controllers/api/v1). See also the class diagram and discussion at [sosol.md](sosol.md).
 
-## Syriaca.org Srophe client interactions with the Perseids SoSOL API
+The [swagger-ui client tool](https://github.com/swagger-api/swagger-ui) offers a quick way to experiment with the interactions.  Perseids is setup to allow testing using a locally deployed version of the swagger-ui tool at `http://localhost/swagger-ui/dist`. To use this tool you will need to update the `clientId` and `clientSecret` variables set in the index.html.  You can get these from the Perseids site administrator.
 
-The swagger-ui [swagger-ui client tool](https://github.com/swagger-api/swagger-ui) offers a quick way to experiment with the interactions.  Perseids is setup to allow testing using a locally deployed version of the swagger-ui tool at `http://localhost/swagger-ui/dist`. To use this tool you will need to update the `clientId` and `clientSecret` variables set in the index.html.  You can get these from the Perseids site administrator.
+### OAuth2 Client
+Most Perseids SoSOL API operations are protected via OAuth2. Perseids API clients must include OAuth2 Client support for the [AuthorizationCodeFlow](http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-4.1),  using [AccessTokenScopes](http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-3.3). Client interactions to POST documents to to the Perseids SoSOL API require the "write" scope, as specified in the swagger docs. See also the OAuth2 Explanation topic later in this document for more details on how this this interaction works.
 
-### Prerequisites
+Perseids SoSOL uses the [Ruby Doorkeeper Gem](https://github.com/doorkeeper-gem/doorkeeper) to support its OAuth2 functionality. Doorkeeper adds controller routes under the /oauth prefix. (See also the class diagram and discussion at [sosol.md](sosol.md). This functionality is currently restricted to users with admin access.
 
-#### OAuth2 Client
-Most Perseids SoSOL API operations are protected via OAuth2. Your API Client must include OAuth2 Client support for the [AuthorizationCodeFlow](http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-4.1),  using [AccessTokenScopes](http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-3.3). Client interactions to POST documents to to the Perseids SoSOL API require the "write" scope, as specified in the swagger docs.
-
-See also the OAuth2 Explanation topic later in this document for more details on how this this interaction works.
-
-#### SSL
-You should deploy your API client code at a SSL/TLS protected address.  SSL support is required for use of the Perseids API. (A temporary exception was made for Syriaca.org but this hole should be closed).
-
-#### Register Perseids OAuth Client Application 
-When you're ready to begin testing interactions with your own client application, you need to contact a Perseids site adminitsrator to register a new OAuth client application with Perseids. You will need to provide the address for your `authorize` callback at which time you will be given an API Client Id and API Client Secret. 
-
-The addresses currently registered for the Syriaca.org Srophe Client Application are:
-
-```
-http://wwwb.library.vanderbilt.edu/exist/apps/srophe-admin/oauth   
-http://wwwb.library.vanderbilt.edu/exist/apps/srophe-forms/oauth
-```
-
-(Perseids SoSOL uses the [Ruby Doorkeeper Gem](https://github.com/doorkeeper-gem/doorkeeper) to support its OAuth2 functionality. Doorkeeper adds controller routes under the /oauth prefix. (See also the class diagram and discussion at [sosol.md](sosol.md). This functionality is currently restricted to users with admin access.)
-
-### Create a Perseids User Account
-
-Create at least one user account in Perseids SoSOL to do your development and testing.
-
-### Create Communities
-
-We have created 3 communities for the Syriaca.org editorial workflow, one for each type of document (Gazetteer, Biographical Dictionary, Hagiographic Work. (A Perseids admin created the communities, but members of the Syriaca.org team have administrative rights over them, and can create new boards, assign members to boards and edit the board setup).
-
-The names of the communites are:
-
-* NHSL New Handbook of Syriac Literature
-* SBD Syriac Biographical Dictionary 
-* TSG The Syriac Gazettee
-
-The communities are "pass-through" communities, setup to support a workflow which uses multiple boards and to pass the final approved documents through to the Syriaca.org GitHub repository. The data model and supporting code for the workflow is described further in [sosol.md](sosol.md).
+### HTTPS
+HTTPS support is required for use of the Perseids API.
 
 #### HTTP Request Headers
-
 The API accepts both application/xml and application/json (depending upon the call), but always returns application/json.
 
 Clients calling the API must include at least the following HTTP headers for all requests:
-
 
 Sending application/json:
 
@@ -78,9 +45,33 @@ Accept: application/json
 Content-Type: application/xml
 ```
 
-### Operations
+## Srophe client interactions with the Perseids SoSOL API
 
-1. Posting Content
+#### Registered Perseids OAuth Client Application 
+Syriaca.org is a registered Perseids API Client. This registration process is managed by a Perseids site administrator. The registration includes the address(es) for the `authorize` callback to the Srophe app, and the API Client Id and API Client Secret which are assigned to Srophe. The API Client ID and Client Secret are used by the Srophe app when initiating an OAuth2 sequence.
+
+The addresses currently registered for the Syriaca.org Srophe Client Application are:
+
+```
+http://wwwb.library.vanderbilt.edu/exist/apps/srophe-admin/oauth   
+http://wwwb.library.vanderbilt.edu/exist/apps/srophe-forms/oauth
+```
+
+### Syriaca.org Communities
+
+We have created 3 communities for the Syriaca.org editorial workflow, one for each type of document (Gazetteer, Biographical Dictionary, Hagiographic Work. (A Perseids admin created the communities, but members of the Syriaca.org team have administrative rights over them, and can create new boards, assign members to boards and edit the board setup).
+
+The names of the communites are:
+
+* NHSL New Handbook of Syriac Literature
+* SBD Syriac Biographical Dictionary 
+* TSG The Syriac Gazettee
+
+The communities are "pass-through" communities, setup to support a workflow which uses multiple boards and to pass the final approved documents through to the Syriaca.org GitHub repository. The data model and supporting code for the workflow is described further in [sosol.md](sosol.md).
+
+### API Operations Used
+
+1. Posting Content 
 
 Srophe uses `api/v1/xmlitems` API operation for POSTing the XML of documents to be reviewed and edited in Perseids.
 
@@ -93,7 +84,7 @@ The following are the supported values for the `IdentifierType` url parameter fo
 * SyriacaWork
 
 
-The `Content-Type` header must be set to `application/xml` and the `Authorization` to the value of the Oauth2 Bearer Authorization Token. The XML document is sent as the body of the request. 
+For this interaction Srophe must set the `Content-Type` header to `application/xml` and the `Authorization` header to the value of the Oauth2 Bearer Authorization Token. It sends the XML document as the body of the request. 
 
 e.g.
 
@@ -101,7 +92,7 @@ e.g.
 curl -X POST --header "Content-Type: application/xml" --header "Accept: application/json" --header "Authorization: Bearer 72563e4c99bd54dedc293bf65183398b60a1794af9eca7e006d6eb21dff48032" -d "<?xml version=\"1.0\" encoding=\"UTF-8\"?>..."
 ```
 
-If successful, Perseids returns the newly created item object model, as described in the swagger documents. E.g.
+Perseids returns the newly created item object model, as described in the swagger documents. E.g.
 
 ```
 {
@@ -128,11 +119,11 @@ to update the publication and set the community_name field to the right one.
 curl -X PUT --header "Content-Type: application/json" --header "Accept: application/json" --header "Authorization: Bearer 72563e4c99bd54dedc293bf65183398b60a1794af9eca7e006d6eb21dff48032" -d "{ \"community_name\" : \"API Tests\" }" "https://sosol.perseids.org/sosol/api/v1/publications/51"
 ```
 
-If successful, Perseids will return an empty response with the HTTP 200 status code to confirm the change.
+Perseids returns an empty response with the HTTP 200 status code to confirm the change.
 
 3. Submitting to the Review Community
 
-The Syriaca workflow currently calls for the Srophe app to submit the document on behalf of the user directly to the Syriaca community boards upon creation of a new publication in Perseids.  The initial editing/creation of the document is done solely in the Srophe app. This requires a 3rd API interaction, to submit the publication, via the following API interaction:
+The Syriaca.org workflow currently calls for the Srophe app to submit the document on behalf of the user directly to the Syriaca community boards upon creation of a new publication in Perseids.  The initial editing/creation of the document is done solely in the Srophe app. This requires a 3rd API interaction, to submit the publication, via the following API interaction:
 
 A POST to 
 
@@ -146,15 +137,15 @@ E.g.
 curl -X POST --header "Content-Type: application/json" --header "Accept: application/json" --header "Authorization: Bearer a3430b88785fd704b2fab7ce6b7f873b26e220290cb8e6441be28f9713bfc1de" "https://sosol.perseids.org/sosol/api/v1/publications/13/submit?comment=%22Submitting%22"
 ```
 
-If successful, it returns an empty 200 response.
+Upon success, Perseids returns an empty 200 response.
 
 4. Accessing User Information
 
-The Syriaca.org Srophe app may retrieve and display user information about the Perseids user through a GET to   
+Srophe app may retrieve and display user information about the Perseids user through a GET to   
 
 `https://sosol.perseids.org/api/v1/user` 
 
-This is also an OAUTH protected call, with a "Read" scope.
+This is also an OAuth2 protected call, with a "Read" scope.
 
 It returns a JSON object with user full name, and other details, as described in the Perseids API specification.
 
