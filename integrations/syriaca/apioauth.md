@@ -13,7 +13,7 @@ As reported in the swagger docs, the API endpoint against which operations occur
 
 [https://sosol.perseids.org/sosol/api/v1](https://sosol.perseids.org/sosol/api/v1)
 
-[The source for the controller code for this version of the Perseids SoSOL api is at https://github.com/sosol/sosol/tree/perseids-production/app/controllers/api/v1](https://github.com/sosol/sosol/tree/perseids-production/app/controllers/api/v1). See also the class diagram and discussion at [sosol.md](sosol.md).
+The source for the controller code for this version of the Perseids SoSOL api is at [https://github.com/sosol/sosol/tree/perseids-production/app/controllers/api/v1](https://github.com/sosol/sosol/tree/perseids-production/app/controllers/api/v1). See also the class diagram and discussion at [sosol.md](sosol.md).
 
 ## Syriaca.org Srophe client interactions with the Perseids SoSOL API
 
