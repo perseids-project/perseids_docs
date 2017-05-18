@@ -107,7 +107,7 @@ Perseids returns the newly created item object model, as described in the swagge
 
 2. Setting the Review Community 
 
-Srophe uses the `xmlitems` operation to create a new publication in Perseids. Through this operation, only document content can be posted and additional metadata must be set through a second API request.  Setting the metadata is necessary to set the name of the community to which a particular publication belongs so that it gets submitted to the right set of Syriaca editorial boards. 
+Through the `xmlitems` operation, only document content can be posted and additional metadata must be set through a second API request.  Setting the metadata is necessary to set the name of the community to which a particular publication belongs so that it gets submitted to the right set of Syriaca editorial boards. 
 
 The Srophe application parses the `publication` id from the response of the `xmlitems` request and then issues a PUT request to the `publications` PUT operation at:
 
