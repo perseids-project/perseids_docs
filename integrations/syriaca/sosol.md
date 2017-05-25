@@ -21,7 +21,7 @@ _SyriacaWorkIdentifier_ - For Hagiographic Work Records
 
 The _SyriacaPersonIdentifier_ and _SyriacaWorkIdentifier_ classes are themselves derivations of the base _Syriaca_ class, inheriting all behaviors, overriding only descriptive attributes and the path used when sending data to the remote Syriaca.org GitHub repository.
 
-The class diagram below shows the methods and attributes that the _SyriacaIdentifier_ class from the base _Identifier_ class. 
+The class diagram below shows the methods and attributes that the _SyriacaIdentifier_ class overrides from the base _Identifier_ class. 
 
 ![Model Classes](https://github.com/perseids-project/perseids_docs/blob/master/integrations/syriaca/perseidssyriacamodels.png?raw=true)
 
