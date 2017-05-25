@@ -25,7 +25,7 @@ The class diagram below shows the methods and attributes that the _SyriacaIdenti
 
 ![Model Classes](https://github.com/perseids-project/perseids_docs/blob/master/integrations/syriaca/perseidssyriacamodels.png?raw=true)
 
-The _SyriacaIdentifier_ class delegates the process of validating the TEI XML documents to JRubyXML:SyriacaGazetteerValidator. This class specifies the location of the RNG schema used to validate the documents and uses a Saxon processor to perform the validation. 
+The _SyriacaIdentifier_ class delegates the process of validating the TEI XML documents to JRubyXML:SyriacaGazetteerValidator. This class specifies the location of the RNG schema used to validate the documents and uses a Saxon processor to perform the validation. The RNG schema used to validate the Syriaca documents is used directly from its location on GitHub: https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/srophe-app/documentation/syriaca-tei-main.rng. This allows the Syriaca.org team to update this schema as needed without requiring any update to the Perseids SoSOL environment.
 
 ### Boards and Communities
 
