@@ -25,7 +25,21 @@ The class diagram below shows the methods and attributes that the _SyriacaIdenti
 
 ![Model Classes](https://github.com/perseids-project/perseids_docs/blob/master/integrations/syriaca/perseidssyriacamodels.png?raw=true)
 
-The _SyriacaIdentifier_ class delegates the process of validating the TEI XML documents to JRubyXML:SyriacaGazetteerValidator. This class specifies the location of the RNG schema used to validate the documents and uses a Saxon processor to perform the validation. The RNG schema used to validate the Syriaca documents is used directly from its location on GitHub: https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/srophe-app/documentation/syriaca-tei-main.rng. This allows the Syriaca.org team to update this schema as needed without requiring any update to the Perseids SoSOL environment.
+#### _SyriacaIdentifier_ class overrides 
+
+The _XML_VALIDATOR_ property is overridden to delegate the process of validating the TEI XML documents to _JRubyXML:SyriacaGazetteerValidator_. This class specifies the location of the RNG schema used to validate the documents and uses a Saxon processor to perform the validation. The RNG schema used to validate the Syriaca documents is used directly from its location on GitHub: https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/srophe-app/documentation/syriaca-tei-main.rng. This allows the Syriaca.org team to update this schema as needed without requiring any update to the Perseids SoSOL environment.
+
+The _identifier_from_content_ method is overridden retrieve the id for a Syriaca Identifier class from within the content of the submitted document. (Its retrieved from the idno field in the teiHeader).
+
+The _titleize_ and _create_title_ methods are overridden to determine how the title of a Syriaca identifier and publication is set. This information is retrieved from the teiHeader of the submitted document.
+
+_to_remote_path_ is a method specific to SyriacaIdentifier classes, used to retrieve the path that should be used to store the data in the external srophe GitHub repository. Ideally, this should be retrievable from the submitted document as  well, but for the time being we hardcoded it in each of the SyriacaIdentifier subclasses.
+
+_get_catalog_link_ is overridden to produce a link back to the original documents in the Syriaca.org site.
+
+_preprocess_for_finalization_ is a method that is called upon Identifers just before they finish the finalization stage. We override this in the SyriacaIdentifier class in order to send the document to an external post-processing service in the Srophe application which is responsible for normalizing the content according to rules specific to Syriaca.org. These rules are subject to ongoing change by the Syriaca.org team, so making an external service call allowed us to decouple this from the SoSOL application.
+
+_update_revision_desc_ is a method which gets called upon Identifiers during finalization to insert details of voting comments into the teiHeader of the document. We override this in the SyriacaIdentifier class in order to insert all comments made on a Syriaca publication in SoSOL to be added to the revisionDesc header, rather than the default of just the voting comments.
 
 ### Boards and Communities
 
