@@ -81,13 +81,27 @@ The _GitHubProxyAgent::post_content_ method is called by the _Publication:send_t
 
 ## Controllers and Views
 
-
 ![Controllers and Views](https://github.com/perseids-project/perseids_docs/blob/master/integrations/syriaca/perseidssyriacacontrollerviews.png?raw=true)
 
-## Deployment External Dependencies
-* XSLT
+Creation of all Syriaca publications in Perseids is done via API calls as described in [apioauth.md](apiauth.md).  The following controller methods are invoked in this interaction:  _Api::V1::XmlItemsController::create_ (creates the Identifier
+and Publication and populates the xml content). _Api::V1::PublicationsController::update_ (used to update the community_id on the Publication) and _Api::V1::PublicationsController::submit_ (used to submit the publication to the community for review).
 
-## Runtime External Dependencies
-* RNG Schema
-* Srophe Post Processing Service
-* Flask GitHub Proxy
+The individual SyriacaIdentifier Model classes do also have create methods on their controllers, but access to these are not exposed in the User Interface. However, other methods of these controller methods are used through the review process.
+
+_SyriacaIdentifiersController::preview_ is called to present an HTML representation of the underlying TEI XML document. This view is used in both the preview of the Board copy of the publication and the individual user's copy.  The transformation to HTML is accomplished through XSLT that originates from the srophe_exist_app GitHub Repository but these are  __not__ retrieved at runtime.  This is a deployment-time dependency. The XSLT is retrieved in the Rake task `exec cap local externals:setup`, and the location and revision of the stylesheets is set in the `externals.yml` configuration file:
+
+```
+data/xslt/syriaca:
+  :type: git
+  :repository: git://github.com/srophe/srophe-eXist-app.git
+  :revision: 9f66a7e94fd4b58aaaa0bd3a40b1d118e718f49c
+```
+
+_SyriacaIdentifiersController::raw_preview_ is called to provide a diff between the representation of the TEI XML document in the master branch of the external srophe GitHub repository and the version being edited in Perseids. This view is used in both the preview of the Board copy of the publication and the individual user's copy.
+
+_SyriacaIdentifiersController::editxml_ is called if a publication is returned to a user for revision and they edit it, and when an editor views and edits the final version of the TEI XML document in the finalization stage.
+
+(These methods are also implemented and called in the _SyriacaPersonIdentifiersController_ and _SyriacaWorkIdentifiersController_ classes.)
+
+_PublicationsController::show_ is the controller method called to present the Overview display from which users can resubmit publications.
+
