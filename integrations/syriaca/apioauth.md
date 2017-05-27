@@ -71,7 +71,7 @@ The communities are "pass-through" communities, setup to support a workflow whic
 
 ### API Operations Used
 
-1. Posting Content 
+#### Posting Content 
 
 Srophe uses `api/v1/xmlitems` API operation for POSTing the XML of documents to be reviewed and edited in Perseids.
 
@@ -105,7 +105,7 @@ Perseids returns the newly created item object model, as described in the swagge
 }
 ```
 
-2. Setting the Review Community 
+#### Setting the Review Community 
 
 Through the `xmlitems` operation, only document content can be posted and additional metadata must be set through a second API request.  Setting the metadata is necessary to set the name of the community to which a particular publication belongs so that it gets submitted to the right set of Syriaca editorial boards. 
 
@@ -121,7 +121,7 @@ curl -X PUT --header "Content-Type: application/json" --header "Accept: applicat
 
 Perseids returns an empty response with the HTTP 200 status code to confirm the change.
 
-3. Submitting to the Review Community
+#### Submitting to the Review Community
 
 The Syriaca.org workflow currently calls for the Srophe app to submit the document on behalf of the user directly to the Syriaca community boards upon creation of a new publication in Perseids.  The initial editing/creation of the document is done solely in the Srophe app. This requires a 3rd API interaction, to submit the publication, via the following API interaction:
 
@@ -139,7 +139,7 @@ curl -X POST --header "Content-Type: application/json" --header "Accept: applica
 
 Upon success, Perseids returns an empty 200 response.
 
-4. Accessing User Information
+#### Accessing User Information
 
 Srophe app may retrieve and display user information about the Perseids user through a GET to   
 

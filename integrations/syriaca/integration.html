@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#perseidssyriaca-integration-documentation">Perseids/Syriaca Integration Documentation</a></li>
+<li><a href="#srophe-perseids-api-exchanges">Srophe-Perseids API Exchanges</a><ul>
+<li><a href="#perseids-api-overview">Perseids API Overview</a><ul>
+<li><a href="#swagger-openapi-specification">Swagger (OpenAPI) Specification</a></li>
+<li><a href="#oauth2-client">OAuth2 Client</a></li>
+<li><a href="#https">HTTPS</a></li>
+</ul></li>
+<li><a href="#srophe-client-interactions-with-the-perseids-sosol-api">Srophe client interactions with the Perseids SoSOL API</a><ul>
+<li><a href="#syriaca.org-communities">Syriaca.org Communities</a></li>
+<li><a href="#api-operations-used">API Operations Used</a></li>
+</ul></li>
+<li><a href="#oauth2-explanation">OAuth2 Explanation</a></li>
+</ul></li>
+<li><a href="#sosol-implementation-details-for-syriaca.org">SoSOL Implementation Details for Syriaca.org</a><ul>
+<li><a href="#perseids-and-sosol">Perseids and SoSOL</a></li>
+<li><a href="#data-model">Data Model</a><ul>
+<li><a href="#publications-and-identifiers">Publications and Identifiers</a></li>
+<li><a href="#boards-and-communities">Boards and Communities</a></li>
+<li><a href="#agents">Agents</a></li>
+</ul></li>
+<li><a href="#controllers-and-views">Controllers and Views</a></li>
+</ul></li>
+<li><a href="#flask-github-proxy">Flask GitHub Proxy</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#configuration-for-syriaca-and-perseids">Configuration for Syriaca and Perseids</a></li>
+<li><a href="#future-directions">Future Directions</a></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="perseidssyriaca-integration-documentation">Perseids/Syriaca Integration Documentation</h1>
+<p>The integration between the Syriaca.org site and Perseids allows users of the Syriaca Srophe application to submit documents (from the Syriac Gazetteer, Biographical Dictionary, and Hagiographic Texts database) to Perseids for use of its review workflow tools. The members of the Syriaca.org editorial boards use Perseids to review, comment and vote on the submissions. This is an interative workflow which allows for documents to be assigned to specific reviewers, and to be sent back to the submitters for correction and resubmission. Documents and can be corrected and previewed directly in the Perseids interface. Upon final acceptance, Perseids aggregates the review activity and comments in the revisionDesc header of the Syriaca.org documents, runs the document through a data normalization service provided by the Syriaca.org Srophe application, and then submits the final version in a pull request to the Syriaca.org master GitHub repository. The final pull request must be accepted and merged by members of the Syriaca team with ownership rights on the repository.</p>
+<p>The Syriaca.org Srophe application uses the Perseids SoSOL API to submit documents to Perseids. The Perseids API is protected via the OAuth2 protocol, allowing for the API interactions to be authorized by users via their Perseids user accounts (which in turn uses OAuth to delegate user login to Social Identity providers). The details of this interaction and how it is configured and implemented are described further in <a href="#srophe-perseids-api-exchanges">apioauth.md</a>.</p>
+<p>A number of enhancements were made to the Perseids SoSOL Review Board functionality to support the workflows of the Syriaca.org editorial boards. Views and models were also added to support and validate the 3 different Syriaca.org document types. The details of the how the Perseids SoSOL model components support Syriaca documents and the details of the review functionality which was built for Syriaca is described further in <a href="#sosol-implementation-details-for-syriaca.org">sosol.md</a>.</p>
+<p>In addition to the SoSOL API and application, a new service used by (and built for and under the support of the Syriaca.org project) is the Flask GitHub proxy. This service proxies the interaction between Perseids and the home GitHub repository for the Syriaca.org documents. This service and its use by the Perseids/Syriaca integration is described at <a href=#flask-github-proxy>flaskgithubproxy.md</a></p>
+<h1 id="srophe-perseids-api-exchanges">Srophe-Perseids API Exchanges</h1>
+<h2 id="perseids-api-overview">Perseids API Overview</h2>
+<h3 id="swagger-openapi-specification">Swagger (OpenAPI) Specification</h3>
+<p>The Perseids API uses the <a href="swagger.io">Swagger.io</a> protocol (aka OpenAPI 2.0) to provide machine-actionable documentation of its API functionality.</p>
+<p>The Perseids Swagger API description is deployed at:</p>
+<p><a href="https://sosol.perseids.org/sosol/apidocs"><a href="https://sosol.perseids.org/sosol/apidocs">https://sosol.perseids.org/sosol/apidocs</a></a></p>
+<p>The soure for the controller code in the Perseids SoSOL application code for the swagger API documentation can be found at <a href="https://github.com/sosol/sosol/blob/perseids-production/app/controllers/apidocs_controller.rb"><a href="https://github.com/sosol/sosol/blob/perseids-production/app/controllers/apidocs_controller.rb">https://github.com/sosol/sosol/blob/perseids-production/app/controllers/apidocs_controller.rb</a></a>.</p>
+<p>As reported in the swagger docs, the API endpoint against which operations occur is at:</p>
+<p><a href="https://sosol.perseids.org/sosol/api/v1"><a href="https://sosol.perseids.org/sosol/api/v1">https://sosol.perseids.org/sosol/api/v1</a></a></p>
+<p>The source for the controller code for this version of the Perseids SoSOL api is at <a href="https://github.com/sosol/sosol/tree/perseids-production/app/controllers/api/v1"><a href="https://github.com/sosol/sosol/tree/perseids-production/app/controllers/api/v1">https://github.com/sosol/sosol/tree/perseids-production/app/controllers/api/v1</a></a>. See also the class diagram and discussion at <a href="sosol.md">sosol.md</a>.</p>
+<p>The <a href="https://github.com/swagger-api/swagger-ui">swagger-ui client tool</a> offers a quick way to experiment with the interactions. Perseids is setup to allow testing using a locally deployed version of the swagger-ui tool at <code>http://localhost/swagger-ui/dist</code>. To use this tool you will need to update the <code>clientId</code> and <code>clientSecret</code> variables set in the index.html. You can get these from the Perseids site administrator.</p>
+<h3 id="oauth2-client">OAuth2 Client</h3>
+<p>Most Perseids SoSOL API operations are protected via OAuth2. Perseids API clients must include OAuth2 Client support for the <a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-4.1">AuthorizationCodeFlow</a>, using <a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-3.3">AccessTokenScopes</a>. Client interactions to POST documents to to the Perseids SoSOL API require the &quot;write&quot; scope, as specified in the swagger docs. See also the OAuth2 Explanation topic later in this document for more details on how this this interaction works.</p>
+<p>Perseids SoSOL uses the <a href="https://github.com/doorkeeper-gem/doorkeeper">Ruby Doorkeeper Gem</a> to support its OAuth2 functionality. Doorkeeper adds controller routes under the /oauth prefix. (See also the class diagram and discussion at <a href="#sosol-implementation-details-for-syriaca.org">sosol.md</a>. The routes it adds to register new OAuth Clients are currently restricted by Perseids to users with admin privileges.</p>
+<h3 id="https">HTTPS</h3>
+<p>HTTPS support is required for use of the Perseids API.</p>
+<h4 id="http-request-headers">HTTP Request Headers</h4>
+<p>The API accepts both application/xml and application/json (depending upon the call), but always returns application/json.</p>
+<p>Clients calling the API must include at least the following HTTP headers for all requests:</p>
+<p>Sending application/json:</p>
+<pre><code>Accept: application/json
+Content-Type: application/json</code></pre>
+<p>Sending application/xml:</p>
+<pre><code>Accept: application/json
+Content-Type: application/xml</code></pre>
+<h2 id="srophe-client-interactions-with-the-perseids-sosol-api">Srophe client interactions with the Perseids SoSOL API</h2>
+<h4 id="registered-perseids-oauth-client-application">Registered Perseids OAuth Client Application</h4>
+<p>Syriaca.org is a registered Perseids API Client. This registration process is managed by a Perseids site administrator. The registration includes the address(es) for the <code>authorize</code> callback to the Srophe app, and the API Client Id and API Client Secret which are assigned to Srophe. The API Client ID and Client Secret are used by the Srophe app when initiating an OAuth2 sequence.</p>
+<p>The addresses currently registered for the Syriaca.org Srophe Client Application are:</p>
+<pre><code>http://wwwb.library.vanderbilt.edu/exist/apps/srophe-admin/oauth   
+http://wwwb.library.vanderbilt.edu/exist/apps/srophe-forms/oauth</code></pre>
+<h3 id="syriaca.org-communities">Syriaca.org Communities</h3>
+<p>We have created 3 communities for the Syriaca.org editorial workflow, one for each type of document (Gazetteer, Biographical Dictionary, Hagiographic Work. (A Perseids admin created the communities, but members of the Syriaca.org team have administrative rights over them, and can create new boards, assign members to boards and edit the board setup).</p>
+<p>The names of the communites are:</p>
+<ul>
+<li>NHSL New Handbook of Syriac Literature<br /></li>
+<li>SBD Syriac Biographical Dictionary<br /></li>
+<li>TSG The Syriac Gazettee</li>
+</ul>
+<p>The communities are &quot;pass-through&quot; communities, setup to support a workflow which uses multiple boards and to pass the final approved documents through to the Syriaca.org GitHub repository. The data model and supporting code for the workflow is described further in <a href="#sosol-implementation-details-for-syriaca.org">sosol.md</a>.</p>
+<h3 id="api-operations-used">API Operations Used</h3>
+<h4 id="posting-content">Posting Content</h4>
+<p>Srophe uses <code>api/v1/xmlitems</code> API operation for POSTing the XML of documents to be reviewed and edited in Perseids.</p>
+<p><code>https://sosol.perseids.org/sosol/api/v1/xmlitems/{IdentifierType}</code></p>
+<p>The following are the supported values for the <code>IdentifierType</code> url parameter for Syriaca.org documents:</p>
+<ul>
+<li>Syriaca<br /></li>
+<li>SyriacaPerson<br /></li>
+<li>SyriacaWork</li>
+</ul>
+<p>For this interaction Srophe must set the <code>Content-Type</code> header to <code>application/xml</code> and the <code>Authorization</code> header to the value of the Oauth2 Bearer Authorization Token. It sends the XML document as the body of the request.</p>
+<p>e.g.</p>
+<pre><code>curl -X POST --header &quot;Content-Type: application/xml&quot; --header &quot;Accept: application/json&quot; --header &quot;Authorization: Bearer 72563e4c99bd54dedc293bf65183398b60a1794af9eca7e006d6eb21dff48032&quot; -d &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;...&quot;</code></pre>
+<p>Perseids returns the newly created item object model, as described in the swagger documents. E.g.</p>
+<pre><code>{
+  &quot;id&quot;: 9999999,
+  &quot;type&quot;: &quot;Syriaca&quot;,
+  &quot;mimetype&quot;: &quot;application/xml&quot;,
+  &quot;content&quot;: &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;...&quot;,
+  &quot;publication&quot;: 10101010,
+  &quot;publication_community_name&quot;: &quot;&quot;
+}</code></pre>
+<h4 id="setting-the-review-community">Setting the Review Community</h4>
+<p>Through the <code>xmlitems</code> operation, only document content can be posted and additional metadata must be set through a second API request. Setting the metadata is necessary to set the name of the community to which a particular publication belongs so that it gets submitted to the right set of Syriaca editorial boards.</p>
+<p>The Srophe application parses the <code>publication</code> id from the response of the <code>xmlitems</code> request and then issues a PUT request to the <code>publications</code> PUT operation at:</p>
+<p><code>https://sosol.perseids.org/sosol/api/v1/publications/</code></p>
+<p>to update the publication and set the community_name field to the right one.</p>
+<pre><code>curl -X PUT --header &quot;Content-Type: application/json&quot; --header &quot;Accept: application/json&quot; --header &quot;Authorization: Bearer 72563e4c99bd54dedc293bf65183398b60a1794af9eca7e006d6eb21dff48032&quot; -d &quot;{ \&quot;community_name\&quot; : \&quot;API Tests\&quot; }&quot; &quot;https://sosol.perseids.org/sosol/api/v1/publications/51&quot;</code></pre>
+<p>Perseids returns an empty response with the HTTP 200 status code to confirm the change.</p>
+<h4 id="submitting-to-the-review-community">Submitting to the Review Community</h4>
+<p>The Syriaca.org workflow currently calls for the Srophe app to submit the document on behalf of the user directly to the Syriaca community boards upon creation of a new publication in Perseids. The initial editing/creation of the document is done solely in the Srophe app. This requires a 3rd API interaction, to submit the publication, via the following API interaction:</p>
+<p>A POST to</p>
+<p><code>https://sosol.perseids.org/sosol/api/v1/publications/{id}/submit?comment=clientsuppliedsubmitcomment</code></p>
+<p>where <code>{id}</code> is the publication_id of the document (as parsed from the response received from the initial post of the document to Perseids) and the comment is an explanatory text the review board sees along with the submission.</p>
+<p>E.g.</p>
+<pre><code>curl -X POST --header &quot;Content-Type: application/json&quot; --header &quot;Accept: application/json&quot; --header &quot;Authorization: Bearer a3430b88785fd704b2fab7ce6b7f873b26e220290cb8e6441be28f9713bfc1de&quot; &quot;https://sosol.perseids.org/sosol/api/v1/publications/13/submit?comment=%22Submitting%22&quot;</code></pre>
+<p>Upon success, Perseids returns an empty 200 response.</p>
+<h4 id="accessing-user-information">Accessing User Information</h4>
+<p>Srophe app may retrieve and display user information about the Perseids user through a GET to</p>
+<p><code>https://sosol.perseids.org/api/v1/user</code></p>
+<p>This is also an OAuth2 protected call, with a &quot;Read&quot; scope.</p>
+<p>It returns a JSON object with user full name, and other details, as described in the Perseids API specification.</p>
+<h2 id="oauth2-explanation">OAuth2 Explanation</h2>
+<p>The basic OAuth2 flow we're using is this one:</p>
+<p><a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-4.1"><a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-4.1">http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-4.1</a></a></p>
+<p>In this diagram, Perseids/SoSOL is the Authorization Server, Srophe is the Client and the end-user is the Resource Owner. This diagram doesn't show the full picture of the interaction though, because Perseids (SoSOL) is itself delegating authentication via OAuth2 (through an OpenId Connect bridge) to an external authentication server.</p>
+<p>The Srophe app gets a token from Perseids which allows it to act on behalf of an end user, and then uses that token when it issues the POST of a document to the user's account on Perseids. Srophe doesn't need to know anything about the user's account on Perseids, how they authenticate there, etc. All of that is between Perseids and the end-user.</p>
+<p>The steps to accomplish this are as follows:</p>
+<ol>
+<li>Srophe issues a GET request to the oauth/authorize endpoint on Perseids, supplying the client id, the scope requested (in this case 'write' for access to write a new document) and the redirect_uri at the client to which the browser should be sent to after authentication succeeds. A state parameter can be used for extra security, it's not absolutely required. E.g.
+<pre><code>https://sosol.perseids.org/sosol/oauth/authorize?response_type=code&amp;redirect_uri=http%3A%2F%2Flocalhost%2Fswagger-ui%2Fdist%2Fo2c.html&amp;realm=your-realms&amp;client_id=676bee8f0bb6ce65fb1bfdc9cf249bcebf7aa51bc22f7d95d0443bce9b54b0e8&amp;scope=write&amp;state=0.9918786573509284</code></pre>
+</li>
+<li><p>Perseids SoSOL, acting as the authorization server, checks to see if the user has an active session (as might be the the case if they had logged in previously directly to Perseids). If they don't, then they are redirected to a login page. SoSOL keeps in its session state the fact the user signin request was initiated as a result of an oauth interaction, including the client_id and the redirect_uri. (Before it does this though it makes sure that the redirect_uri is one that is registered for the application with that client id).</p></li>
+<li><p>The user logs in to SoSOL. This actually kicks off a whole separate OAuth chain, between SoSOL and the identity providers (Google, Yahoo, etc.) This isn't really of any concern to the Srophe app though.</p></li>
+<li><p>After successful authentication at the identity provider, the browser redirects the user back to SoSOL, and then SoSOL redirects the user back to Srophe at the redirect_uri supplied in the initial authentication request. Included in the redirect back to Srophe is an authorization code, supplied in the code query param.</p></li>
+<li><p>Srophe then issues a POST back to Perseids SoSOL, at the oauth tokenURL endpoint, supplying this code, the client_id, the client_secret, grant_type (authorization_code) and the redirect_uri that received the code. E.g.</p>
+<pre><code>curl &#39;https://sosol.perseids.org/sosol/oauth/token&#39;  -H &#39;Content-Type: application/x-www-form-urlencoded; charset=UTF-8&#39; --data &#39;client_id=676bee8f0bb6ce65fb1bfdc9cf249bcebf7aa51bc22f7d95d0443bce9b54b0e8&amp;code=47384aaf2109326e77c064b7d15927a192280b68d5a6aca98996fce93f84a30d&amp;grant_type=authorization_code&amp;redirect_uri=http%3A%2F%2Flocalhost%2Fswagger-ui%2Fdist%2Fo2c.html&amp;client_secret=0c2431329b79402f505adc74437935efdc80798ad50e84a7c3b7be3e15d5b0e6&#39;</code></pre>
+</li>
+<li><p>SoSOL verifies that the code was issued for Srophe (i.e. the client that's requesting it), verifies the redirect_uri, client secret is correct, etc. and if all matches, it returns a token that can be used to access the SoSOL to write data on behalf of the authenticated enduser.</p></li>
+<li><p>At this point, Srophe can issue a POST request to the Perseids API endpoint for creating new documents (<a href="https://sosol.perseids.org/sosol/xmlitems">https://sosol.perseids.org/sosol/xmlitems</a>). It should supply the token it received in step 6 in an Authorization Header, identifying it as type Bearer:</p>
+<p>e.g.</p>
+<pre><code>curl -X POST --header &quot;Content-Type: application/json&quot; --header &quot;Accept: application/json&quot; --header &quot;Authorization: Bearer a3430b88785fd704b2fab7ce6b7f873b26e220290cb8e6441be28f9713bfc1de&quot;  ....</code></pre>
+<p>SoSOL uses the token to gain access to the user's session and allow Srophe to operate on the user's behalf.</p>
+<p>The Swagger Docs specify the interaction as follows:</p>
+<p>The security property on the \/items route says sosol_auth is the key into the security definitions object of the swagger docs, and that it requires a &quot;write&quot; scope</p>
+<pre><code>
+\/items&quot;: {
+      &quot;post&quot;: {
+        &quot;description&quot;: &quot;Creates a new publication for the supplied data identifier type&quot;,
+        &quot;operationId&quot;: &quot;createByIdentifierType&quot;,
+        &quot;tags&quot;: [
+          &quot;identifier&quot;
+        ],
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;content&quot;,
+            &quot;in&quot;: &quot;body&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#\/definitions\/Identifier&quot;
+            }
+          }
+        ],
+        &quot;security&quot;: [
+          {
+            &quot;sosol_auth&quot;: [
+              &quot;write&quot;
+            ]
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;201&quot;: {
+            &quot;description&quot;: &quot;item create response&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#\/definitions\/Identifier&quot;
+            }
+          },
+          &quot;default&quot;: {
+            &quot;description&quot;: &quot;unexpected error&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#\/definitions\/ApiError&quot;
+            }
+          }
+        }
+      }
+    },</code></pre>
+<p>The sosol_auth key in the Security Definitions object says this is an oauth2 interaction, and provides the urls for the authorizationURL (step 1 above) and the tokenURL (step 5 above)</p>
+<pre><code>&quot;securityDefinitions&quot;: {
+    &quot;sosol_auth&quot;: {
+      &quot;type&quot;: &quot;oauth2&quot;,
+      &quot;authorizationUrl&quot;: &quot;https:\/\/sosol.perseids.org\/sosol\/oauth\/authorize&quot;,
+      &quot;flow&quot;: &quot;accessCode&quot;,
+      &quot;tokenUrl&quot;: &quot;https:\/\/sosol.perseids.org\/sosol\/oauth\/token&quot;,
+      &quot;scopes&quot;: {
+        &quot;write&quot;: &quot;modify identifiers in your account&quot;,
+        &quot;read&quot;: &quot;read your user details&quot;
+      }
+    }
+  },</code></pre>
+</li>
+</ol>
+<h1 id="sosol-implementation-details-for-syriaca.org">SoSOL Implementation Details for Syriaca.org</h1>
+<h2 id="perseids-and-sosol">Perseids and SoSOL</h2>
+<p>The Perseids platform is composed a network of loosely coupled tools and services. The Syriaca.org/Perseids integration relies only upon 2 of components of the Perseids platform: SoSOL and <a href=#flask-github-proxy>Flask GitHub Proxy</a>.</p>
+<p>SoSOL is a Ruby on Rails application backed by Git and mySQL that was originally written for the Papyri.info project and extended by Perseids for its own use. As of the time of this writing, the Perseids main line of development on SoSOL can be found in the <a href="https://github.com/sosol/sosol/tree/perseids-production">'perseids-production'</a> branch of the SoSOL git repository. Eventually the Perseids changes may be merged back into the master branch. We try to keep the perseids-production branch up to date with the changes made to master to facilitate this eventuality.</p>
+<p>For a more complete description of the Perseids Platform architecture and components see Almas, B., (2017). Perseids: Experimenting with Infrastructure for Creating and Sharing Research Data in the Digital Humanities. Data Science Journal. 16, p.19. DOI: <a href="http://doi.org/10.5334/dsj-2017-019"><a href="http://doi.org/10.5334/dsj-2017-019">http://doi.org/10.5334/dsj-2017-019</a></a>. For background and more information on the SoSOL platform, as originally developed for Papyri.info, see Baumann, R (2013). The Son of Suda Online In: Dunn, S and Mahoney, S eds. The Digital Classicist 2013. London: The Institute of Classical Studies University of London, pp. 91–106. Offprint from BICS Supplement-122.<a href="[http://ryanfb.github.io/papers-BICS/sosol-bics-draft.pdf"><a href="http://ryanfb.github.io/papers-BICS/sosol-bics-draft.pdf">http://ryanfb.github.io/papers-BICS/sosol-bics-draft.pdf</a></a>.</p>
+<h2 id="data-model">Data Model</h2>
+<h3 id="publications-and-identifiers">Publications and Identifiers</h3>
+<p>Data publications produced on SoSOL are collections of related data objects of different types. The <code>Publication</code> is the container for a collection of data objects belonging to a parent abstract class of `<code>Identifier</code>. Different type object types are implemented as derivations of the <code>Identifier</code> class, which add type-specific behaviors and properties, such as schema validation rules.</p>
+<p>For Syriaca.org we have added 3 new <code>Identifier</code> derived classes to SoSOL:</p>
+<p><code>SyriacaIdentifier</code> - For Gazetteer Records</p>
+<p><code>SyriacaPersonIdentifier</code> - For Biographical Dictionary Records</p>
+<p><code>SyriacaWorkIdentifier</code> - For Hagiographic Work Records</p>
+<p>The <code>SyriacaPersonIdentifier</code> and <code>SyriacaWorkIdentifier</code> classes are themselves derivations of the base <code>Syriaca</code> class, inheriting all behaviors, overriding only descriptive attributes and the path used when sending data to the remote Syriaca.org GitHub repository.</p>
+<p>The class diagram below shows the methods and attributes that the <code>SyriacaIdentifier</code> class overrides from the base <code>Identifier</code> class.</p>
+<p><img src="https://github.com/perseids-project/perseids_docs/blob/master/integrations/syriaca/perseidssyriacamodels.png?raw=true" alt="Model Classes" /></p>
+<h4 id="syriacaidentifier-class-overrides"><code>SyriacaIdentifier</code> class overrides</h4>
+<p>The <code>XML_VALIDATOR</code> property is overridden to delegate the process of validating the TEI XML documents to <code>JRubyXML:SyriacaGazetteerValidator</code>. This class specifies the location of the RNG schema used to validate the documents and uses a Saxon processor to perform the validation. The RNG schema used to validate the Syriaca documents is used directly from its location on GitHub: <a href="https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/srophe-app/documentation/syriaca-tei-main.rng">https://raw.githubusercontent.com/srophe/srophe-eXist-app/master/srophe-app/documentation/syriaca-tei-main.rng</a>. This allows the Syriaca.org team to update this schema as needed without requiring any update to the Perseids SoSOL environment.</p>
+<p>The <code>identifier_from_content</code> method is overridden retrieve the id for a Syriaca Identifier class from within the content of the submitted document. (Its retrieved from the idno field in the teiHeader).</p>
+<p>The <code>titleize</code> and <code>create_title</code> methods are overridden to determine how the title of a Syriaca identifier and publication is set. This information is retrieved from the teiHeader of the submitted document.</p>
+<p><code>to_remote_path</code> is a method specific to SyriacaIdentifier classes, used to retrieve the path that should be used to store the data in the external srophe GitHub repository. Ideally, this should be retrievable from the submitted document as well, but for the time being we hardcoded it in each of the SyriacaIdentifier subclasses.</p>
+<p><code>get_catalog_link</code> is overridden to produce a link back to the original documents in the Syriaca.org site.</p>
+<p><code>preprocess_for_finalization</code> is a method that is called upon Identifers just before they finish the finalization stage. We override this in the SyriacaIdentifier class in order to send the document to an external post-processing service in the Srophe application which is responsible for normalizing the content according to rules specific to Syriaca.org. These rules are subject to ongoing change by the Syriaca.org team, so making an external service call allowed us to decouple this from the SoSOL application.</p>
+<p><code>update_revision_desc</code> is a method which gets called upon Identifiers during finalization to insert details of voting comments into the teiHeader of the document. We override this in the SyriacaIdentifier class in order to insert all comments made on a Syriaca publication in SoSOL to be added to the revisionDesc header, rather than the default of just the voting comments.</p>
+<h3 id="boards-and-communities">Boards and Communities</h3>
+<p>The SoSOL review workflow is built around two main model classes: <code>Communities</code> and <code>Boards</code>. Perseids' enhancements to the core SoSOL functionality have extended the base <code>Community</code> class into 3 types of derived classes: <code>MasterCommunity</code>, <code>PassThroughCommunity</code> and <code>EndUserCommunity_. Community types differ in what happens to a publication after it has been finalized by the final</code>Board<code>in the community. The</code>MasterCommunity<code>commits its finalized publications to the master branch of the Git repository that is local to the SoSOL platform.  The</code>EndUserCommunity<code>sends its finalized publications to a specified User, who then can edit and submit the publication under their own account. The</code>PassThroughCommunity` can either send its finalized publications to an external repository, via an HTTP API call, or to another SoSOL community. The Syriaca.org integration with Perseids uses PassThroughCommunities that are setup to send their finalized publications to the external Syriaca.org Git Repository (<a href="https://github.com/srophe/srophe-app-data">https://github.com/srophe/srophe-app-data</a>) via the <a href=#flask-github-proxy>FlaskGitHub Proxy</a>.</p>
+<p>Communities can be setup to be self-signup communities or closed communities. Closed communities require that an admin assign individual users as members of the community before they can submit publications to it. Because the list of users who may be submitting to the <a href="apioauth.md#syriacaorg-communities">Syriaca.org communities</a> is open-ended, the Syriaca.org communities are configured to be self-signup, meaning that any user can submit to them.</p>
+<p>There is only one type of Board model class in SoSOL. A Board has one or more user members and is associated with one or more classes of Identifier. When a user submits a Publication to a Community it is sent to the lowest ranked Board that is associated with the class of the individual Identifier documents in the publication. Board members submit <code>Votes</code> on individual publications by selecting a <code>Decrees</code> associated with an <code>approve</code> or <code>reject</code> action. The Decree has a <code>tally_method</code> which can be set to either an absolute number of votes or a percentage of total members. When the tally of votes received for a publication meets the threshold set for a decree it moves to the appropriate next stage in the workflow. (If it's rejected it returns to the submitting user, if it's approved, it moves on to the finalization stage).</p>
+<p>Several new configurable features were added to the Board model class to support the Syriaca.org workflow. These are described below. All of these features can be configured on Boards by community admin users only.</p>
+<h4 id="board-member-assignment">Board Member Assignment</h4>
+<p>The default behavior when a publication is sent to a board is that any member of the Board can see and vote on the publication. A new configurable boolean property added for Syriaca.org, <code>requires_assignment</code>, can be used to restrict visibility and voting on Board publications to only those members who have been actively assigned to vote on the publication by a community admin. New user interface elements were added to the boards views to enable community admins to assign and unassign members to publications. A separate setting, <code>max_assignable</code> can be used to set the maximum number of members who can be assigned to vote on an individual publication. This number can be more or less than the number of votes needed to trigger a decree action.</p>
+<h4 id="default-finalizer">Default Finalizer</h4>
+<p>When a publication receives enough approve votes to trigger the approval Decree action it moves to the finalization stage. At this stage the publication can receive final edits before it passes out of the control of the Board. The default behavior of the application is to assign a Finalizer at random from among the Board members. A new property added for Syriaca.org, <code>finalizer_user_id</code> enables a community admin to designate a specific Board member to be assigned as the finalizer for all publicatios approved by the Board. (In fact, a placeholder for this feature was already present in the code, it just hadn't been fully implemented before this).</p>
+<h4 id="skip-finalization">Skip Finalization</h4>
+<p>In the normal SoSOL workflow, once a Publication has approved by a Board and finalized, all the Identifiers which were under that Board's control are considered complete and no further action can be taken on them in the community (i.e. they go on to the next step as appropriate for the type of community, as described above). The Syriaca.org workflow required a multi-stage Board approval process, with one Board serving as a gatekeeper to determine an appropriate sub board for an initial vote on a publication, followed by final approval and potential editing before finalization and acceptance back to the Syriaca.org GitHub repository. To support this we added a new <code>skip_finalize</code> boolean property. Once a Publication is approved by a Board with this flag set to true, as long as there is another viable candidate Board for the Publication to go to (i.e one in the same community which is associated with the class of the approved Identifier) then the Publication will not be finalized and instead will just be sent to the next Board. To further support this, workflow, we added a new <code>next_board</code> property on the Publication model class, and the ability for a Voting member to explicitly state which Board the publication should be assigned to next.</p>
+<h4 id="decree-rules">Decree Rules</h4>
+<p>The final new feature we added to the Board functionality for Syriaca.org was the ability for additional <code>Rules</code> to be added to Decrees which can be used to force a publication on to the next stage in the workflow even if a Decree action hasn't been fully met. We implemented basic Rules which have two properties: <code>floor</code> and an <code>expire_days</code>. In ordre for a Rule to apply for a Decree, the publicaiton must have received at least the number of votes for the decree as specified in the Rule <code>floor</code> and at least <code>expire_days</code> must have passed with no voting activity on the Publication. For example, if a Decree is set to require 5 votes, with a Rule which has a floor of 2 votes and expire_days set to 30, then the Rule can apply if at least 30 days have passed since the last vote was received and at least 2 votes for the Decree have been made.</p>
+<p>However, Rules are not automatically applied. They require an active <code>ApplyRules</code> action to be performed by a community admin for the Board. This can be done through a button on the Boards display, visible only to community admins. It could potentially also be setup to run as a cron job, although it would require an authenticated user session for this to work properly.</p>
+<h3 id="agents">Agents</h3>
+<p>The Perseids branch of SoSOL uses <code>Agent</code> helper classes to communicate with external services. The Syriaca use of Perseids relies on two differen Agent sub classes: <code>SropheProcessorAgent</code> and <code>GitHubProxyAgent</code>. Both are initalized at runtime with the configuration in the <code>agents.yml</code> file. The <code>SropheProcessorAgent::post_content</code> method is called by the <code>SyriacaIdentifier::preprocess_for_finalization</code> method to post the contents of the Syriaca documents to the srophe post processing service before being finalized. The production configuration for this agent is provided below</p>
+<pre><code> :srophe_processor:
+    :uri_match: &quot;http://syriaca.org/&quot;
+    :type: &quot;srophe_processor&quot;
+    :post_url: &quot;http://wwwb.library.vanderbilt.edu/exist/apps/srophe-forms/modules/services/sosol-pp.xql&quot;
+    :apikey: &quot;&lt;api key provided by syriaca.org to perseids&gt;&quot;</code></pre>
+<p>The <code>GitHubProxyAgent::post_content</code> method is called by the <code>Publication:send_to_agent</code> method when a publication owned by a <code>PassThroughCommunity</code> promotes its content after completing the review workflow in the community (after finalization by the last board). This action posts to the content to the Flask GitHub Proxy service which forwards it on to the Srophe GitHub repository in a pull request. (Configuration is described in <a href=#flask-github-proxy>Flask GitHub Proxy</a>).</p>
+<h2 id="controllers-and-views">Controllers and Views</h2>
+<p><img src="https://github.com/perseids-project/perseids_docs/blob/master/integrations/syriaca/perseidssyriacacontrollerviews.png?raw=true" alt="Controllers and Views" /></p>
+<p>Creation of all Syriaca publications in Perseids is done via API calls as described in <a href="#srophe-perseids-api-exchanges">apioauth.md</a>. The following controller methods are invoked in this interaction: <code>Api::V1::XmlItemsController::create</code> (creates the Identifier<br />and Publication and populates the xml content). <code>Api::V1::PublicationsController::update</code> (used to update the community_id on the Publication) and <code>Api::V1::PublicationsController::submit</code> (used to submit the publication to the community for review).</p>
+<p>The individual SyriacaIdentifier Model classes do also have create methods on their controllers, but access to these are not exposed in the User Interface. However, other methods of these controller methods are used through the review process.</p>
+<p><code>SyriacaIdentifiersController::preview</code> is called to present an HTML representation of the underlying TEI XML document. This view is used in both the preview of the Board copy of the publication and the individual user's copy. The transformation to HTML is accomplished through XSLT that originates from the srophe_exist_app GitHub Repository but these are <code>_not_</code> retrieved at runtime. This is a deployment-time dependency. The XSLT is retrieved in the Rake task <code>exec cap local externals:setup</code>, and the location and revision of the stylesheets is set in the <code>externals.yml</code> configuration file:</p>
+<pre><code>data/xslt/syriaca:
+  :type: git
+  :repository: git://github.com/srophe/srophe-eXist-app.git
+  :revision: 9f66a7e94fd4b58aaaa0bd3a40b1d118e718f49c</code></pre>
+<p><code>SyriacaIdentifiersController::raw_preview</code> is called to provide a diff between the representation of the TEI XML document in the master branch of the external srophe GitHub repository and the version being edited in Perseids. This view is used in both the preview of the Board copy of the publication and the individual user's copy.</p>
+<p><code>SyriacaIdentifiersController::editxml</code> is called if a publication is returned to a user for revision and they edit it, and when an editor views and edits the final version of the TEI XML document in the finalization stage.</p>
+<p>(These methods are also implemented and called in the <code>SyriacaPersonIdentifiersController</code> and <code>SyriacaWorkIdentifiersController</code> classes.)</p>
+<p><code>PublicationsController::show</code> is the controller method called to present the Overview display from which users can resubmit publications.</p>
+<h1 id="flask-github-proxy">Flask GitHub Proxy</h1>
+<p>Authors:</p>
+<ul>
+<li>Thibault Clérice @PonteIneptique<br /></li>
+<li>Bridget Almas @balmas</li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>The <a href="https://github.com/PonteIneptique/flask-github-proxy">Flask Github Proxy</a> (FGP) is a middleware service that offers a simple means to transmit data from a web application to a GitHub data repository. FGP takes advantage of traditional distributed git workflows, enabling human verification of proposed changes made to a mirror repository through pull requests.</p>
+<p>FGP is designed for use with third party applications that operate on data and want to be able to contribute or return that data to GitHub repositories without being granted write privileges. The FGP provides a simple API through which applications can submit data via RESTful requests, and FGP handles the more complex interactions with the GitHub API. The FGP provides a technical benefit by reducing the effort needed for client applications wishing to take advantage of complex GitHub workflows.</p>
+<p>Coupled with an application like Perseids that provides a full editorial board-based review workflow, it allows for a variety of different data life cycles. Teams of scholars can work collaboratively on proposed changes to data, or new data sets.,Once agreement is reached, Perseids uses the FGP to send data to GitHub repositories where the data curator or web maintainer can then control the regularity of data change by approving the third-party upgrade.</p>
+<p><img src="https://github.com/perseids-project/perseids_docs/blob/master/integrations/syriaca/flaskgithubproxy.png?raw=true" alt="FGH Sequence" /></p>
+<p>FGP is meant to be used as a web service behind firewalls, ie. FGP should never be accessible by the public but instead act as an hidden service behind multiple applications. The application is built as a Flask extension and blueprint creator, Flask being a popular light python web framework that enables rapid development of web applications. It has the simplest input data model possible and offers a strong error handling system reproducing messages that can arise from github API communications. It has built in methods that allow for direct communication with GitHub which per se allows for other development. It can also operate directly on the target repository if the mirror repository workflow is not needed.</p>
+<h2 id="configuration-for-syriaca-and-perseids">Configuration for Syriaca and Perseids</h2>
+<p>Perseids currently runs FGH in production through the Apache mod_wsgi module. The configuration used (excluding private keys and local paths) is provided below.</p>
+<p>app.wsgi</p>
+<pre><code>import os
+import sys
+
+sys.path.append(&#39;&lt;path_to_root_of_deployed_fgh_application_code&gt;&#39;)
+
+from flask import Flask
+from flask_github_proxy import GithubProxy
+from flask_github_proxy.models import Author
+
+application = Flask(&quot;name&quot;)
+proxy = GithubProxy(
+    &quot;/perseids_syriaca&quot;,
+    &quot;perseids-proxy-user/srophe-app-data&quot;,  # /perseids/push/path/to/file
+    &quot;srophe/srophe-app-data&quot;,
+    secret=&quot;&lt;secret_key_exchanged_between_perseids_and_fgh&gt;&quot;,
+    token=&quot;&lt;private_github_api_oauth_key_for_PerseidsProxy_github_user&gt;&quot;,
+    app=application,
+    origin_branch=&quot;master&quot;,
+    default_author=Author(
+        &quot;Github Proxy&quot;,
+        &quot;perseids-proxy@github.com&quot;
+    )
+)</code></pre>
+<p>Apache config</p>
+<pre><code>&lt;VirtualHost *:80&gt;
+  ServerName fgh.perseids.org
+
+  ## Vhost docroot
+  DocumentRoot &quot;&lt;path_to_root_of_deployed_fgh_app.wsgi&gt;&quot;
+
+    &lt;Directory &quot;&lt;path_to_root_of_deployed_fgh_app.wsgi&gt;&quot;&gt;
+    AllowOverride None
+    Require all granted
+  &lt;/Directory&gt;
+
+  ## Logging
+  ErrorLog &quot;/var/log/apache2/fgh-gh_error.log&quot;
+  ServerSignature Off
+  CustomLog &quot;/var/log/apache2/fgh-gh_access.log&quot; combined
+
+  ## Header rules
+  ## as per http://httpd.apache.org/docs/2.2/mod/mod_headers.html#header
+  Header set Access-Control-Allow-Origin &#39;*&#39;
+  Header set Access-Control-Allow-Headers &#39;Origin, X-Requested-With, Content-Type, Accept&#39;
+  WSGIDaemonProcess fgh python-path=&lt;path_to_python_virtual_env_directory_with_fgh_code_and_deps&gt;/lib/python3.4/site-packages
+  WSGIProcessGroup fgh
+  WSGIScriptAlias /flask-github-proxy &quot;&lt;path_to_root_of_deployed_fgh_app.wsgi&gt;/app.wsgi&quot;
+&lt;/VirtualHost&gt;                            </code></pre>
+<p>Perseids configuration in agents.yml</p>
+<pre><code>:agents
+ :syriaca_github:
+    :uri_match: &quot;https://github.com/srophe/srophe-app-data&quot;
+    :type: &quot;github&quot;
+    :post_url: &quot;http://fgh.perseids.org/flask-github-proxy/perseids_syriaca/push/&lt;PATH&gt;&quot;
+    :timeout: 3600
+    :client_secret: &quot;&lt;secret_key_exchanged_between_perseids_and_fgh&gt;&quot;
+    :log_message: &quot;&lt;ID&gt; Edited by &lt;USER&gt; via Perseids.&quot;</code></pre>
+<h2 id="future-directions">Future Directions</h2>
+<p>A desireable enhancement to FGP would be to further enable its reuse, by enhancing the documentation and the ease with which it can be configured. Currently, each time a project needs to be added to the FGP system, an administrator or a developer must make a change to the python driver code. We want to remove this limitation by backing FGP with a small database system allowing for repositories to be managed using its own API.</p>
+<p>For example, a department might host FGP as a microservice for a set of its own web applications. Right now, adding a new destination repository requires touching code and restarting the service. What we propose is that each client application can, through secured methods, add or delete target data repositories to FGP through a simple API.</p>
+<p>For sustainability, we need to ensure that the code works through the use of unit tests and workflow tests. If wished for, it could be accompanied by a simple client library to reuse FGP in the context of Python (web) applications..</p>
+</body>
+</html>
