@@ -67,7 +67,20 @@ However, Rules are not automatically applied. They require an active _ApplyRules
 
 ### Agents
 
+The Perseids branch of SoSOL uses _Agent_ helper classes to communicate with external services.  The Syriaca use of Perseids relies on two differen Agent sub classes: _SropheProcessorAgent_ and _GitHubProxyAgent_. Both are initalized at runtime with the configuration in the _agents.yml_ file. The _SropheProcessorAgent::post_content_ method is called by the _SyriacaIdentifier::preprocess_for_finalization_ method to post the contents of the Syriaca documents to the srophe post processing service before being finalized.  The production configuration for this agent is provided below
+
+```
+ :srophe_processor:
+    :uri_match: "http://syriaca.org/"
+    :type: "srophe_processor"
+    :post_url: "http://wwwb.library.vanderbilt.edu/exist/apps/srophe-forms/modules/services/sosol-pp.xql"
+    :apikey: "<api key provided by syriaca.org to perseids>"
+```
+
+The _GitHubProxyAgent::post_content_ method is called by the _Publication:send_to_agent_ method when a publication owned by a _PassThroughCommunity_ promotes its content after completing the review workflow in the community (after finalization by the last board). This action posts to the content to the Flask GitHub Proxy service which forwards it on to the Srophe GitHub repository in a pull request. (Configuration is described in [Flask GitHub Proxy](flaskgithubproxy.md)).
+
 ## Controllers and Views
+
 
 ![Controllers and Views](https://github.com/perseids-project/perseids_docs/blob/master/integrations/syriaca/perseidssyriacacontrollerviews.png?raw=true)
 
