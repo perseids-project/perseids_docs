@@ -39,8 +39,8 @@ Pass Through boards can be configured to enable publications in a community to s
     "/<proxy_path>",
     "perseids-proxy-user/<forked_repo_name>",
     "<target-github-owner>/<target_repo_name>",
-    secret="<authentication_secrect_for_communication>",
-    token="<perseids-proxy-user-application-authentication-token_from_github>",
+    secret="<%= $client_secret %>",
+    token="<%= $github_token %>",
     app=application,
     origin_branch="master",
     default_author=Author(
@@ -79,8 +79,8 @@ FGH Proxy app.wsgi.epp:
     "/userx_myrepo",
     "perseids-proxy-user/myrepo",
     "userx/myrepo",
-    secret="<authentication_secret_for_communication>",
-    token="<perseids-proxy-user-application-authentication-token_from_github>",
+    secret="<%= $client_secret %>",
+    token="<%= $github_token %>",
     app=application,
     origin_branch="master",
     default_author=Author(
@@ -88,8 +88,6 @@ FGH Proxy app.wsgi.epp:
         "perseids-proxy@github.com"
     )
     
- (`<authentication_secret_for_communication>` and `<perseids-proxy-user-application-authentication-token_from_github>` are secret keys kept in puppet - just copy what other entries have here)
- 
 Icinga webchecks.cfg:
  
     define service {
