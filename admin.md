@@ -24,6 +24,8 @@ N.B. All of these require that the user account with which you have logged into 
 
 From within the User Interface, if you are an admin user, your dashboard will provide you will buttons which allow you to __Email all Users__ and __Manage Boards__.  _Board Management should only be done through Communities, however_.
 
+## Administrative Functions which Require Configuration Changes
+
 ### Enabling a new GitHub Pass-Through Community
 
 Pass Through boards can be configured to enable publications in a community to sent to a GitHub repository upon finalization. Enabling this workflow depends upon proper configuration of SoSOL and the helper [Flask Github Proxy](https://github.com/perseids-project/perseids_docs/blob/master/integrations/syriaca/flaskgithubproxy.md) service it uses to communicate with GitHub.  The steps that need to be taken are as follows:
@@ -108,7 +110,15 @@ SoSOL agents.yml.epp:
       :log_message: "<ID> Edited by <USER> via Perseids."
     
  Passthrough Community passthrough uri value: https://github.com/userx/myrepo
- 
+
+### Changing Default Email Templates
+
+The default email templates that get added to new boards are defined in the [Puppet template for the SoSOL board_mailers.yml](https://github.com/perseids-project/perseids-puppet/blob/master/site-modules/sosol/templates/board_mailers.yml.epp).
+
+### Updating Terms of Service
+
+The default terms of service text is kept in the [Puppet template for the SoSOL site.terms.erb](https://github.com/perseids-project/perseids-puppet/blob/master/site-modules/sosol/templates/initializers/site.terms.erb.epp).  To update the terms of service you should update this text, and then also increase the terms version number via the `config.current_terms_version` setting in the [Puppet template for the SoSOL site.rb](https://github.com/perseids-project/perseids-puppet/blob/master/site-modules/sosol/templates/initializers/site.rb.epp).
+
 ## Additional Resources
 
 [Video of Admin Functionality Walk-Through](https://github.com/perseids-project/perseids_docs/blob/master/admin.md)
