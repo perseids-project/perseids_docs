@@ -73,9 +73,8 @@ Pass Through boards can be configured to enable publications in a community to s
  
  For example, assume that the Target GitHub Repository for the finalized publications is __https://github.com/userx/myrepo__. The corresponding entries in the above referenced templates would be as follows:
  
- FGH Proxy app.wsgi.epp:
+FGH Proxy app.wsgi.epp:
  
-    ```
     proxy_name = GithubProxy(
     "/userx_myrepo",
     "perseids-proxy-user/myrepo",
@@ -88,22 +87,20 @@ Pass Through boards can be configured to enable publications in a community to s
         "Github Proxy",
         "perseids-proxy@github.com"
     )
-    ```
+    
  (`<authentication_secret_for_communication>` and `<perseids-proxy-user-application-authentication-token_from_github>` are secret keys kept in puppet - just copy what other entries have here)
  
- Icinga webchecks.cfg:
+Icinga webchecks.cfg:
  
-    ```
     define service {
       host_name             services
       service_description   github userx_myrepo
       check_command         check_web_response!fgh.perseids.org!"/flask-github-proxy/userx_myrepo/"!dummy:dummy!Nothing!5!10
       use                   every_5_mins
     }
-    ```
- SoSOL agents.yml.epp:
+    
+SoSOL agents.yml.epp:
  
-    ```
     :userx_myrepo:
       :uri_match: "https://github.com/userx/myrepo"
       :type: "github"
@@ -111,8 +108,7 @@ Pass Through boards can be configured to enable publications in a community to s
       :timeout: 3600
       :client_secret: "<%= $fgh_client_secret %>"
       :log_message: "<ID> Edited by <USER> via Perseids."
-    ```
- 
+    
  Passthrough Community passthrough uri value: https://github.com/userx/myrepo
  
 ## Additional Resources
