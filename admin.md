@@ -122,3 +122,5 @@ The default terms of service text is kept in the [Puppet template for the SoSOL 
 ## Additional Resources
 
 [Video of Admin Functionality Walk-Through](https://github.com/perseids-project/perseids_docs/blob/master/admin.md)
+
+Instructions and resources on [http://sites.tufts.edu/perseids]
