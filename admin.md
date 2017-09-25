@@ -26,6 +26,6 @@ From within the User Interface, if you are an admin user, your dashboard will pr
 
 ###
 
-See Also:
+## Additional Resources
 
 [Video of Admin Functionality Walk-Through](https://github.com/perseids-project/perseids_docs/blob/master/admin.md)
