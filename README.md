@@ -10,6 +10,8 @@ UI Design Guidelines are at [UIDesignGuidelines.pdf](https://github.com/perseids
 
 Integration details can be found in the [integrations folder](https://github.com/perseids-project/perseids_docs/tree/master/integrations)
 
+API info can be found in [api.md](api.md)
+
 ## Puppet Repository
 
 The private [puppet repository](https://github.com/perseids-project/perseids-puppet) contains all production and development deployment environment manifests. A public version of this repository, without deployment secrets and encrypted files, can be found at https://github.com/perseids-project/puppet-public. 
