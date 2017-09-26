@@ -6,6 +6,8 @@ The main user entrypoint to the platform is at https://sosol.perseids.org/sosol.
 
 Administrative entrypoints are described at [admin.md](admin.md)
 
+UI Design Guidelines are at (UIDesignGuidelines.pdf)[https://github.com/perseids-project/perseids_docs/blob/master/UIDesignGuidelines.pdf]
+
 Integration details can be found in the [integrations folder](https://github.com/perseids-project/perseids_docs/tree/master/integrations)
 
 ## Puppet Repository
