@@ -26,8 +26,8 @@ So far, just the following portion of the lifecycle support is implemented, for 
 
 ![Implemented Workflows](workflows/perseidscollectionsimplemented.png)
 
-The full goal for the Collection Service was to combine it with other RDA outputs -- the PID Types API and the 
-Data Types Registry -- as well as a Handle Service to provide a means for persistent identification of all publications 
+The full goal for the Collection Service was to combine it with other RDA outputs -- the PID Types API (PIT) and the 
+Data Types Registry (DTR) -- as well as a Handle Service to provide a means for persistent identification of all publications 
 produced on Perseids as machine-actionable data objects adhering to standard, community accepted data types. This might 
 require an interaction something like the following upon publication creation:
 
@@ -35,7 +35,9 @@ require an interaction something like the following upon publication creation:
 
 The [RPID Test Bed](https://rpidproject.github.io/rpid/) could be used to experiment with the viability of such an approach.
 
-Another avenue possibly worth pursuing here is leveraging the LDP model we have used for the annotations in the Perseids Manifold Collections service to facilitate their preservation in Fedora, which uses LDP for its collections as well.
+However, even in the absence of the full workflow with the ther RDA outputs, incremental improvements could be made to Perseids to take advantage of the use of the Collection Service integration.  For example, we could now begin to address [performance issues](https://github.com/perseids-project/perseids_docs/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Aperformance%20) with comparing and managing treebank publications by querying the collection service to find matching files more efficiently. (This may require manual import of data from prior to integration of the service to make sure all data on Perseids can be queried via the collections api).
+
+Another avenue possibly worth pursuing with regard to collections is leveraging the LDP model we have used for the annotations in the Perseids Manifold Collections service to facilitate their preservation in Fedora, which uses LDP for its collections as well.
 
 See the following resources for more information on the RDA Collections API and Perseids:
 
