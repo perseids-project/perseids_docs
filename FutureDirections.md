@@ -51,10 +51,25 @@ As described at [admin.md](admin.md) and in the [open issues](https://github.com
 
 * development of an administrative interface for the [Flask Github Proxy](https://github.com/perseids-project/perseids_docs/blob/master/integrations/syriaca/flaskgithubproxy.md)
 * enabling easier cleanup and removal of old unusused communities and boards
+* managing changes to the terms of service
+* development of an administrative interface for [Plokamos](https://github.com/perseids-project/plokamos) to manage ontologies and mappings (to easily enable the addition of community-specific and/or datatype-specific annotation ontologies)
 
 In addition, there are a number of enhancements which could improve the user experience:
 
 * enabling users to unsubscribe to emails and delete their own accounts
 * an interface for creation, testing and deployment of new treebanking (Arethusa) tagsets
 * the ability to incorporate user-provided corrections to morphological and lexical inventory data (for treebanking)
+
+## Plokamos and Annotation Workflows
+
+* Review workflow for Plokamos annotation data
+
+## Image Annotation and IIIF Support
+
+* deprecating JackSON/Imgcollect in favor of IIIF
+
+
+## CTS Support Enhancements
+
+* 5.0 & CapiTainS guidelines
 
