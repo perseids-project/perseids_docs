@@ -37,6 +37,8 @@ The [RPID Test Bed](https://rpidproject.github.io/rpid/) could be used to experi
 
 However, even in the absence of the full workflow with the ther RDA outputs, incremental improvements could be made to Perseids to take advantage of the use of the Collection Service integration.  For example, we could now begin to address [performance issues](https://github.com/perseids-project/perseids_docs/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Aperformance%20) with comparing and managing treebank publications by querying the collection service to find matching files more efficiently. (This may require manual import of data from prior to integration of the service to make sure all data on Perseids can be queried via the collections api).
 
+Additional incremental steps involve using the Collection Service to facilitate management of Plokmas annotations, as described further below under #Plokamos-And-Annotation-Workflows
+
 Another avenue possibly worth pursuing with regard to collections is leveraging the LDP model we have used for the annotations in the Perseids Manifold Collections service to facilitate their preservation in Fedora, which uses LDP for its collections as well.
 
 See the following resources for more information on the RDA Collections API and Perseids:
@@ -64,7 +66,16 @@ In addition, there are a number of enhancements which could improve the user exp
 
 ## Plokamos and Annotation Workflows
 
-* Review workflow for Plokamos annotation data
+Plokamos is implemented as a plugin on the CapiTainS Nemo interface at (https://cts.perseids.org). Perseids SoSOL platform is used to authenticate users (via the [nemo-oauth-plugin](https://github.com/Capitains/nemo-oauth-plugin)) but the annotation data itself is not managed on SoSOL - it is just stored directly as graphs in the Marmotta quad store db.  The next logical steps for this would be to manage the Plokamos annotations on SoSOL.  
+
+The original goals were to implement a bilateral annotation workflow which would allow for the annotation data to be kept for easy querying in the quad store, but have versioning and review managed on Perseids.  
+
+Notes on how to approach to this:
+
+* when an annotation is created on Plokamos, use the Perseids API to create a new publication document in SoSOL
+* creation of a publication on Perseids would result in collection and collection member data managed by the Collections API
+* Identifiers for the publication and the annotation would come via Perseids as well
+* The publication status would be managed through SoSOL but the data itself kept in Marmotta. (this would be a change for Perseids, which currently stores data locally - collection API could serve as the gateway here because the collection memeber item contains a url for the location of the data object)
 
 ## Image Annotation and IIIF Support
 
