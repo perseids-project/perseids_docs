@@ -45,4 +45,16 @@ RDA Research Data Collections Wiki Pages: https://www.rd-alliance.org/groups/res
 
 Adopting RDA Outputs in the Humanities, DH2016 https://docs.google.com/presentation/d/1tAG2lrcolPCiU6pQiBoddp7EQgE-mFZEmTvvoPHVMmc/pub?start=false&loop=false&delayms=3000
 
+## Fuller Administration and End User Support
+
+As described at [admin.md](admin.md) and in the [open issues](https://github.com/perseids-project/perseids_docs/issues?q=is%3Aissue+is%3Aopen+label%3AAdministration) fuller user interface support for some adminstrative activities on Perseids is needed in order for the platform to scale to support a larger number of projects and communities.  Areas to consider:
+
+* development of an administrative interface for the [Flask Github Proxy](https://github.com/perseids-project/perseids_docs/blob/master/integrations/syriaca/flaskgithubproxy.md)
+* enabling easier cleanup and removal of old unusused communities and boards
+
+In addition, there are a number of enhancements which could improve the user experience:
+
+* enabling users to unsubscribe to emails and delete their own accounts
+* an interface for creation, testing and deployment of new treebanking (Arethusa) tagsets
+* the ability to incorporate user-provided corrections to morphological service data (for treebanking)
 
