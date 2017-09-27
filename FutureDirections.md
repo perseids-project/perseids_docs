@@ -2,8 +2,10 @@ This document outlines ideas for future directions for Perseids, as of September
 
 ## Taking Full Advantage of the Collections Service 
 
-We have deployed and integrated the [Perseids Manifold Collections Service](https://github.com/RDACollectionsWG/perseids-manifold) 
-implementation of the [RDA Collections API](https://github.com/RDACollectionsWG/specification) with Perseids.  
+We have deployed and integrated the [Perseids Manifold Collections Service](https://github.com/RDACollectionsWG/perseids-manifold) implementation of the [RDA Collections API](https://github.com/RDACollectionsWG/specification) with Perseids.  
+Expanding upon this implementation to provide complete support for managing and sharing data produced on Perseids as 
+persistently identified, machine-actionable data throughout its lifecycle would be an ideal next step to take advantage of 
+the groundwork that has beed laid in this area.
 
 The use of the Collections Service is intended to support management of the data collection lifecylcle on Perseids as 
 outlined below:
@@ -31,4 +33,6 @@ require an interaction something like the following upon publication creation:
 ![Perseids With RDA Outputs](workflows/perseidspiddtrcollection_createnewitem.png)
 
 The [RPID Test Bed](https://rpidproject.github.io/rpid/) could be used to experiment with the viability of such an approach.
+
+Another avenue possibly worth pursuing here is leveraging the LDP model we have used for the annotations in the Perseids Manifold Collections service to facilitate their preservation in Fedora, which uses LDP for its collections as well.
 
