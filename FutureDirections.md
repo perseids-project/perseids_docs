@@ -1,4 +1,17 @@
-This document outlines ideas for future directions for Perseids, as of September, 2017.
+## Overview 
+This document outlines some high level ideas for future directions for Perseids, as of September, 2017.
+
+Individual bugs, enhancement requests and wishlist items can be found in the [perseids_docs issues list](https://github.com/perseids-project/perseids_docs/issues).
+
+Because Perseids is an aggregation of individual tools and services, additional bugs, enhancement requests and wish list items can be found in the issues lists of the individual components. Some of the most core to the platform are:
+
+* [SoSOL](https://github.com/sosol/sosol/issues)
+* [Arethusa](https://github.com/alpheios-project/arethusa)
+* [Alpheios Alignment Editor](https://github.com/alpheios-project/alignment-editor)
+* [Plokamos](https://github.com/perseids-project/plokamos/issues)
+* [Perseids Client Apps](https://github.com/perseids-project/perseids-client-apps/issues)
+* [LLT Tokenizer](https://github.com/perseids-project/llt-tokenizer/issues)
+
 
 ## Taking Full Advantage of the Collections Service 
 
