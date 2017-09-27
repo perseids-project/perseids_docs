@@ -56,5 +56,5 @@ In addition, there are a number of enhancements which could improve the user exp
 
 * enabling users to unsubscribe to emails and delete their own accounts
 * an interface for creation, testing and deployment of new treebanking (Arethusa) tagsets
-* the ability to incorporate user-provided corrections to morphological service data (for treebanking)
+* the ability to incorporate user-provided corrections to morphological and lexical inventory data (for treebanking)
 
