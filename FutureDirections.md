@@ -89,5 +89,12 @@ The image annotation interface in Perseids uses the CITE URN + Image protocol an
 
 ## CTS Support Enhancements
 
-* 5.0 & CapiTainS guidelines
+Perseids' SoSOL environment still uses the CTS 3.0 protocol and a local deployment of the Alpheios eXist-based implementation of the CTS 3.0 API for working with text publications. (Annotations and the Perseids Client API do already support retrieval from remote CTS 5 repositories via the [CapiTainS Sparrow library](https://github.com/Capitains/Sparrow)).
+
+Options to consider for upgrading this support: 
+
+* implement a native Ruby version of the [CapiTainS CTS Abstraction](https://github.com/capitains) to eliminate the dependency on the local eXist repository
+* support user-supplied external CTS repositories from which to retrieve texts for editing
+* support creation of CTS metadata per the CapiTainS guidelines
+* integration with [HookTest](https://github.com/Capitains/HookTest) for validation of CTS Texts and Metadata
 
