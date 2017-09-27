@@ -79,8 +79,13 @@ Notes on how to approach to this:
 
 ## Image Annotation and IIIF Support
 
-* deprecating JackSON/Imgcollect in favor of IIIF
+The image annotation interface in Perseids uses the CITE URN + Image protocol and custom tools for managing images as items in CITE collections.  [IIIF](http://iiif.io/) is now the standard for identifying, serving and annotating images.  Steps to consider:
+* Replacing the [ImgUp](https://github.com/perseids-project/imgup) and [JackSON](https://github.com/perseids-project/JackSON) tools with a solution which is backed by an IIIF Server (such as Loris) 
+* Replacing the [ImgSpect](https://github.com/perseids-project/imgspect) tool with [Mirador](http://projectmirador.org/) or other tool built [Open Seadragon](https://openseadragon.github.io/). 
+* Managing image collections via the Perseids Manifold Collection Service rather than as CITE Collections
+* Converting existing annotations to IIIF (see work started at https://github.com/perseids-project/CiteToIIIFConverter)
 
+(N.B. A pending submission to DHQ, "Manuscript Study in Digital Spaces: The State of the Field and News Ways Forward", by Bridget Almas, Emad Khazraee, Matthew Thomas Miller and Joshua Westgard covers the findings of the Manuscripts in the Digital Age Workshop during which we analyzed tools for manuscript + image annotation and could be useful in guiding future efforts here.)
 
 ## CTS Support Enhancements
 
