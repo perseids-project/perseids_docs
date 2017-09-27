@@ -37,7 +37,7 @@ The [RPID Test Bed](https://rpidproject.github.io/rpid/) could be used to experi
 
 However, even in the absence of the full workflow with the ther RDA outputs, incremental improvements could be made to Perseids to take advantage of the use of the Collection Service integration.  For example, we could now begin to address [performance issues](https://github.com/perseids-project/perseids_docs/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20label%3Aperformance%20) with comparing and managing treebank publications by querying the collection service to find matching files more efficiently. (This may require manual import of data from prior to integration of the service to make sure all data on Perseids can be queried via the collections api).
 
-Additional incremental steps involve using the Collection Service to facilitate management of Plokmas annotations, as described further below under [#plokamos-and-annotation-workflows)(#plokamos-and-annotation-workflows)
+Additional incremental steps involve using the Collection Service to facilitate management of Plokmas annotations, as described further below under [#plokamos-and-annotation-workflows](#plokamos-and-annotation-workflows)
 
 Another avenue possibly worth pursuing with regard to collections is leveraging the LDP model we have used for the annotations in the Perseids Manifold Collections service to facilitate their preservation in Fedora, which uses LDP for its collections as well.
 
