@@ -18,6 +18,8 @@ The private [puppet repository](https://github.com/perseids-project/perseids-pup
 
 ### Related Resources and Publications
 
+[Future Directions ideas](FutureDirections.md)
+
 Presentations, Publications, Classroom Resources and Blog Posts can be found on [The Perseids Blog](http://sites.tufts.edu/perseids/).
 
 Almas, B., (2017). Perseids: Experimenting with Infrastructure for Creating and Sharing Research Data in the Digital Humanities. Data Science Journal. 16, p.19. DOI: http://doi.org/10.5334/dsj-2017-019
